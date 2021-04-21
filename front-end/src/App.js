@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
+import Footer from "./components/Footer"
 import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import VouchersPage from "./pages/VouchersPage";
@@ -25,9 +26,11 @@ function App() {
               <Route exact path="/login"> <LoginPage/> </Route>
           </Switch>
         
+       <Footer/>
        </div>
     </Router> 
-   
+
+      
   );
 }
 

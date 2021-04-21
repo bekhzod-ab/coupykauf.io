@@ -1,0 +1,13 @@
+footer { 
+    /* position: fixed;  *//* cant use this with justify content */
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+
+    height: 40px;
+    background: gray;
+    
+}
