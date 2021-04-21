@@ -49,4 +49,5 @@ app.use("/buyer", buyers())
 //Seller starting path
 app.use("/business", sellers())
 
+
 //Serving front-end within this file

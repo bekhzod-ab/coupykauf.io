@@ -35,9 +35,15 @@ function addCompany(bodyName,bodyNumber,bodyEmail,bodyPassword) {
         email: bodyEmail,
         password: bcrypt.hashSync(bodyPassword,12)
     })
-    newSeller.save()
-    .then(() => console.log(`${newSeller.company_name} is registered`))
-    .catch(err => console.log(err.message))
+    return newSeller.save()
+    .then(() => {
+        console.log(`${newSeller.company_name} is registered`)
+        return true
+        })
+    .catch(err => {
+        console.log(err.message)
+        return err.message
+        })
 }
 
 async function signin(bodyEmail, bodyPassword) {

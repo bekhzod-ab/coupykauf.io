@@ -8,7 +8,7 @@ const logIn = async(req,res) => {
         res.cookie("Token", jwToken)
         res.status(200).send(`Success`)
     }else {
-        res.status(404).send(`login or password is incorrect`)
+        res.status(401).send(`login or password is incorrect`)
     }
 }
 
