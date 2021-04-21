@@ -32,7 +32,7 @@ function addBuyer(bodyName, bodyEmail, bodyPassword) {
         password: bcrypt.hashSync(bodyPassword,12)
     })
     newBuyer.save()
-    .then(result => console.log(result))
+    .then(() => console.log(newBuyer.name))
     .catch(err => console.log(err.message))
 }
 
