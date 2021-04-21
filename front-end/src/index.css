@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 footer { 
     /* position: fixed;  *//* cant use this with justify content */
     bottom: 0;
@@ -10,4 +11,33 @@ footer {
     height: 40px;
     background: gray;
     
+=======
+body {
+    box-sizing: border-box;
+    margin: 0 auto; 
+}
+
+.navbar {
+    display: flex; 
+    flex-direction: row;
+    border: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    position: -webkit-sticky;
+	position: sticky;
+    top: 0;
+    padding: 0px 20px;
+}
+
+.navbar .links {
+    border: 1px solid black 
+}
+
+.links .link {
+    padding: 10px; 
+}
+
+main { 
+    height: 150vh; 
+>>>>>>> a6c07d222c67511076435ae51af1e52c8f19a0a8
 }

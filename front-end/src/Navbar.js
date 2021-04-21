@@ -5,13 +5,11 @@ const Navbar = () => {
         <nav className="navbar">
         <h1>CoupyKauf</h1>
         <div className="links">
-            <Link to="/"> Home </Link>
-            <Link to="/about"> About us</Link>
-            <Link to="/vouchers"> Find Voucher</Link>
-            <Link to="/faq"> FAQ </Link>
-            <Link to="/contact"> Contact </Link>
-            <Link to="/signup"> Sign up </Link>
-            <Link to="/login"> Log in </Link>
+            <Link to="/" className="link"> Home </Link>
+            <Link to="/about" className="link"> About us</Link>
+            <Link to="/vouchers" className="link"> Find Voucher</Link>
+            <Link to="/signup" className="link"> Sign up </Link>
+            <Link to="/login" className="link"> Log in </Link>
         </div> 
         </nav>
     )

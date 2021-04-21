@@ -1,7 +1,9 @@
 const SignUpPage = () => {
+
     return (
         <div className="signup-page"> 
             <h2> Welcome to the Sign Up Page </h2>
+<<<<<<< HEAD
             <form action="post">
                 <label htmlFor="name">Name:</label>
                 <input type="text"/> 
@@ -13,6 +15,9 @@ const SignUpPage = () => {
                 <input type="password"/> 
                 <br/>
             </form>
+=======
+            <div className="signup-container"> </div> 
+>>>>>>> a6c07d222c67511076435ae51af1e52c8f19a0a8
         </div> 
     )
 }
