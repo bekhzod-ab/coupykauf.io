@@ -48,7 +48,10 @@ function addCompany(bodyName,bodyNumber,bodyEmail,bodyPassword) {
 
 async function signin(bodyEmail, bodyPassword) {
     const seller = await Sellers.findOne({email: bodyEmail})
-    if(bcrypt.compareSync(bodyPassword.toString(), seller.password)){
+    if(!seller) {
+        return false
+    }
+    else if(bcrypt.compareSync(bodyPassword.toString(), seller.password)){
         return true
     }else {
         console.log('email or password does not match')
