@@ -7,11 +7,13 @@ const mongoose = require("mongoose")
 const buyerSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password: {
         type: String,
@@ -28,12 +30,18 @@ const Buyers = mongoose.connection.model("buyers", buyerSchema)
 function addBuyer(bodyName, bodyEmail, bodyPassword) {
     const newBuyer = new Buyers({
         name: bodyName,
-        email:bodyEmail,
+        email: bodyEmail,
         password: bcrypt.hashSync(bodyPassword,12)
     })
-    newBuyer.save()
-    .then(() => console.log(newBuyer.name))
-    .catch(err => console.log(err.message))
+    return newBuyer.save()
+    .then(() => {
+        console.log(`${newBuyer.name} is added`)
+        return true
+        })
+    .catch(err => {
+        console.log(err.message)
+        return err.message
+        })
 }
 
 
