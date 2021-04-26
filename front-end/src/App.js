@@ -3,6 +3,7 @@ import Footer from "./components/Footer"
 import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import VouchersPage from "./pages/VouchersPage";
+import Purchase from "./pages/PurchaseVoucher"
 import FaqPage from "./pages/FaqPage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
@@ -21,10 +22,12 @@ function App() {
               <Route exact path="/"> <HomePage/> </Route>
               <Route exact path="/about"> <AboutUsPage/> </Route>
               <Route exact path="/vouchers"> <VouchersPage/> </Route>
+              <Route exact path="/vouchers/:articleNo"><Purchase/></Route>
               <Route exact path="/faq"> <FaqPage/> </Route>
               <Route exact path="/contact"> <ContactPage/> </Route>
               <Route exact path="/signup"> <SignUpPage/> </Route>
               <Route exact path="/login"> <LoginPage/> </Route>
+              <Route exact path="/login/:username"></Route> {/* create dinamic profile route using params which will contain username */} 
           </Switch>
         </div>
        <Footer className="footer"/>
