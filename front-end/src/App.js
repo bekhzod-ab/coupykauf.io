@@ -1,4 +1,4 @@
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
 import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
@@ -14,8 +14,9 @@ function App() {
   return (
     
     <Router>
-       <div className="App">
+       <div className="app">
          <Navbar/> 
+         <div className="wrapper">
           <Switch> 
               <Route exact path="/"> <HomePage/> </Route>
               <Route exact path="/about"> <AboutUsPage/> </Route>
@@ -25,8 +26,8 @@ function App() {
               <Route exact path="/signup"> <SignUpPage/> </Route>
               <Route exact path="/login"> <LoginPage/> </Route>
           </Switch>
-        
-       <Footer/>
+        </div>
+       <Footer className="footer"/>
        </div>
     </Router> 
 
