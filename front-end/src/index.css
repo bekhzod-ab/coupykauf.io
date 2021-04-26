@@ -6,10 +6,44 @@ footer {
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
-
-    height: 40px;
+    
+    height: 15rem;
     background: gray;
 }
+/* should i put this in the styles of    */
+.footer-style{
+    flex-shrink: 0;
+    padding: 20px;
+    
+}
+
+.footer-style form {
+    /* margin-bottom: 3rem; */
+}
+
+.footer-style h3 {
+    font-size: 2rem;
+}
+
+.faq{
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+.footer-style form input{
+    border: 1px solid black;
+    border-radius: 4px;
+    height: 1.4rem;
+}
+
+.footer-style form label{
+    font-size: 1.5rem;
+}
+
+
+
+
+
 body {
     box-sizing: border-box;
     margin: 0 auto; 
@@ -38,3 +72,17 @@ body {
 main { 
     height: 150vh; 
 }
+
+
+/* this is to make the footer stick to the bottom */
+
+.app{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.wrapper{
+    flex: 1 0 auto;
+}
+
