@@ -85,7 +85,7 @@ async function signin(bodyEmail, bodyPassword) {
     }
 } 
 
-
+//Function are exported and called in controllers
 module.exports = {
     addCompany,
     signin
