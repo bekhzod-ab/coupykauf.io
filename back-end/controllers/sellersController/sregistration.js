@@ -10,12 +10,6 @@ const sRegister = async (req,res) => {
         else {
             res.status(400).json(added)
         }
-    
-    // if(await addCompany(req.body.company, req.body.reg_number, req.body.email,req.body.password)){
-    //     res.status(200).send(`${req.body.company} was added and pending for verification`)
-    // }   else {
-    //     res.status(400).send()
-    // }
 }
 
 
