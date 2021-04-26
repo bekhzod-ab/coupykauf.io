@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
-
+// Creating schema 
 const sellerSchema = new mongoose.Schema({
 
     company_name: {
@@ -45,13 +45,17 @@ const sellerSchema = new mongoose.Schema({
     }
 })
 
+// Storing the collection in constant with applied schema to it
 const Sellers = mongoose.connection.model("sellers", sellerSchema)
 
+
+//function to register new company accepting parameters from front-end and assign them to as values from schemas keys.
 function addCompany(bodyName,bodyNumber,bodyEmail,bodyPassword) {
      const newSeller = new Sellers({
         company_name: bodyName,
         reg_number: bodyNumber,
         email: bodyEmail,
+        // password is being encrypted with 12 level of hashing by bcrypt
         password: bcrypt.hashSync(bodyPassword,12)
     })
     return newSeller.save()
@@ -65,11 +69,14 @@ function addCompany(bodyName,bodyNumber,bodyEmail,bodyPassword) {
         })
 }
 
+
+// validating login, accepting email and password passed from front-end. 
 async function signin(bodyEmail, bodyPassword) {
     const seller = await Sellers.findOne({email: bodyEmail})
     if(!seller) {
         return false
     }
+    //data password being de-crypted by unhashing it and comparing to one that passed from front-end
     else if(bcrypt.compareSync(bodyPassword.toString(), seller.password)){
         return true
     }else {
@@ -78,7 +85,7 @@ async function signin(bodyEmail, bodyPassword) {
     }
 } 
 
-
+//Function are exported and called in controllers
 module.exports = {
     addCompany,
     signin
