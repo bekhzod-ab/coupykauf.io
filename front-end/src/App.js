@@ -16,7 +16,7 @@ function App() {
     <Router>
        <div className="app">
          <Navbar/> 
-         <div className="wrapper">
+         <div className="wrapper"> {/* this is for fixing the footer to the bottom */}
           <Switch> 
               <Route exact path="/"> <HomePage/> </Route>
               <Route exact path="/about"> <AboutUsPage/> </Route>
