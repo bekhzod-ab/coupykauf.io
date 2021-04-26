@@ -42,11 +42,11 @@ app.get("/", (req,res) => {
 })
 
 
-// Buyers starting path
+// Buyers starting endpoint
 // app.use("/buyer", buyers())
 
 
-//Seller starting path
+//Sellers starting endpoint and then going to sellers() routing where we have all the rest APIs 
 app.use("/business", sellers())
 
 
