@@ -22,6 +22,26 @@ const sellerSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    IBAN : {
+        type: String,
+        default: null
+    },
+    Vouchers: {
+        type: Number,
+        default: null
+    },
+    Category: {
+        type: String,
+        default: null
+    },
+    Address: {
+        type: String,
+        default: null
+    },
+    Phone: {
+        type: Number,
+        default: null
     }
 
 })
