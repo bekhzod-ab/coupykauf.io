@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser")
 const express = require("express")
 const app = express()
 const port = process.env.PORT
-const buyers = require("./routs/buyersRoute.js")
+// const buyers = require("./routs/buyersRoute.js")
 const sellers = require("./routs/sellersRoute.js")
 
 //Running server and connection to DB
@@ -43,7 +43,7 @@ app.get("/", (req,res) => {
 
 
 // Buyers starting path
-app.use("/buyer", buyers())
+// app.use("/buyer", buyers())
 
 
 //Seller starting path
