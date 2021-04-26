@@ -47,7 +47,7 @@ app.get("/", (req,res) => {
 
 
 //Sellers starting endpoint and then going to sellers() routing where we have all the rest APIs 
-app.use("/business", sellers())
+app.use("/company", sellers())
 
 
 //Serving front-end within this file
