@@ -83,10 +83,22 @@ async function signin(bodyEmail, bodyPassword) {
         console.log('email or password does not match')
         return false
     }
-} 
+}
+
+
+async function profile(emailFromCookie){
+    try {
+        const result = await Sellers.findOne({email: emailFromCookie})
+        return result 
+        }
+    catch (err) {
+        console.log(err.message)
+    } 
+}
 
 //Function are exported and called in controllers
 module.exports = {
     addCompany,
-    signin
+    signin,
+    profile
 }
