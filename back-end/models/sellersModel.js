@@ -42,7 +42,24 @@ const sellerSchema = new mongoose.Schema({
     Phone: {
         type: Number,
         default: null
+    },
+    Profile_image: {
+        type: String,
+        default: null 
+    },
+    Description: {
+        type: String,
+        default: null
+    },
+    Gallery: {
+        type: String,
+        default: null
+    },
+    Links: {
+        type: Array,
+        default: null 
     }
+
 })
 
 // Storing the collection in constant with applied schema to it
@@ -83,10 +100,35 @@ async function signin(bodyEmail, bodyPassword) {
         console.log('email or password does not match')
         return false
     }
-} 
+}
+
+
+async function profile(emailFromCookie){
+    try {
+        const result = await Sellers.findOne({email: emailFromCookie}).select("-password") 
+        return result 
+        }
+    catch (err) {
+        console.log(err.message)
+    } 
+}
+
+async function profileInfoUpdate(cookiEmail, Category, Address, Phone, Description, Gallery, Links, Profile_image, Vouchers ) {
+    try {
+        const updated = await Sellers.findOneAndUpdate({email: cookiEmail} , {Category, Address, Phone, Description, Gallery, Links, Profile_image, Vouchers}, {new: true})
+        return updated
+    }
+    catch(err){
+        console.log(err.message)
+    }
+}
+
+
 
 //Function are exported and called in controllers
 module.exports = {
     addCompany,
-    signin
+    signin,
+    profile,
+    profileInfoUpdate
 }

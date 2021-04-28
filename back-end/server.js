@@ -6,6 +6,7 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const cookieParser = require("cookie-parser")
 const express = require("express")
+const path = require("path")
 const app = express()
 const port = process.env.PORT
 // const buyers = require("./routs/buyersRoute.js")
@@ -16,6 +17,7 @@ const sellers = require("./routs/sellersRoute.js")
 mongoose.connect(process.env.MONGODB_URL, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
+    useFindAndModify: false
 })
 .then(() => {
     console.log(`Connected to Database`)
