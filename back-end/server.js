@@ -16,6 +16,7 @@ const sellers = require("./routs/sellersRoute.js")
 mongoose.connect(process.env.MONGODB_URL, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
+    useFindAndModify: false
 })
 .then(() => {
     console.log(`Connected to Database`)

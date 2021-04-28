@@ -2,6 +2,7 @@ const router = require(`express`).Router()
 const signIn = require("../controllers/sellersController/slogin.js")
 const sRegister = require("../controllers/sellersController/sregistration.js")
 const DisplayProfile = require("../controllers/sellersController/sprofile.js")
+const UpdateProfile = require("../controllers/sellersController/sprofileupdate.js")
 const validator = require("../middleware/autorized.js")
 
 
@@ -11,5 +12,6 @@ module.exports = () => {
     router.post("/login", signIn)
     router.post("/signup", sRegister)
     router.get("/profile",validator, DisplayProfile)
+    router.put("/profile",validator, UpdateProfile)
     return router
 }
