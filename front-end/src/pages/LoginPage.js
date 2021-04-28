@@ -27,7 +27,7 @@ const LoginPage = () => {
                 <label>Email : </label>   
                                                                                 {/* we are giving the input field value "email" because we want to use it later using useState*/}
                                                                                 {/* we then create an event to set the new value to the input field */}
-                <input type="email" placeholder="Enter Username" name="username" required value={email} onChange={(e)=> {setEmail(e.target.value)}}/>  
+                <input type="email" placeholder="Enter Username" name="username" required value={email} onChange={(e)=> {setEmail(e.target.value)}}/> 
                 
                 <label>Password : </label>   
                 <input type="password" placeholder="Enter Password" name="password" required value={password} onChange={(e)=> {setPassword(e.target.value)}}/>  

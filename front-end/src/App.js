@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import VouchersPage from "./pages/VouchersPage";
 /* import Purchase from "./pages/PurchaseVoucher" */
+//import Purchase from "./pages/PurchaseVoucher"
+import ProfilePage from "./pages/ProfilePage"
 import FaqPage from "./pages/FaqPage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
@@ -32,6 +34,8 @@ function App() {
               <Route exact path="/signup"> <SignUpPage/> </Route>
               <Route exact path="/login"> <LoginPage/> </Route>
               <Route exact path="/login/:username"></Route> {/* create dinamic profile route using params which will contain username */} 
+              {/* this route is just for development purposes: */}
+              <Route exact path="/profile"> <ProfilePage/> </Route>
           </Switch>
         </div>
        <Footer className="footer"/>
