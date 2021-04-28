@@ -86,3 +86,13 @@ main {
     flex: 1 0 auto;
 }
 
+
+/* .login-page {
+    display: flex;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+} */
+
