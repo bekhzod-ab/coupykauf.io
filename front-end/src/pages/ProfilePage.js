@@ -24,7 +24,7 @@ const ProfilePage = () => {
             category, address, phone, links_1, description, vouchers
         })
         .then(()=> {setIsDisabled(true)}) 
-        .catch(()=> {setIsDisabled(false)})
+        .catch((err)=> {console.log(err.message)})
     }
 
     return (
@@ -41,7 +41,7 @@ const ProfilePage = () => {
                 <fieldset disabled={isDisabled}>
                         <div className="profile-item">  
                             <label htmlFor="name">Company Name:</label>
-                             <input type="text" required /* value={companyName} onChange={(e)=> setCompanyName(e.target.value)} *//> 
+                             <input type="text" /* required */ /* value={companyName} onChange={(e)=> setCompanyName(e.target.value)} *//> 
                         </div>
 
                         <div className="profile-item">  
