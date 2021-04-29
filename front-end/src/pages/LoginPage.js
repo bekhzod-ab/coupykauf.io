@@ -11,7 +11,7 @@ const LoginPage = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         // For now, we are using localhost, I will need to change the route later
-        axios.post("http://localhost:3333/business/signin", {  
+        axios.post("http://localhost:3333/company/login", {  
         // inside the axios post req, we are passing the values defined in the useState hooks, as a second argument: 
             email, password
         })
