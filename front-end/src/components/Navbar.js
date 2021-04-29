@@ -6,7 +6,8 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
     }
     return (
         <nav className="navbar">
-        <h1>CoupyKauf</h1>
+            {/*            maybe this shouldnt be h1              */}
+            <h2>CoupyKauf</h2> 
         {/* <div className="links"> */}
             <div className="navnav">
             <Link to="/" className="link"> Home </Link>
