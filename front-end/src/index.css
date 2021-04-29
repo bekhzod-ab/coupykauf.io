@@ -1,3 +1,7 @@
+*{
+    border: 1px solid red;
+}
+
 footer { 
     /* position: fixed;  *//* cant use this with justify content */
     bottom: 0;
@@ -65,9 +69,30 @@ body {
     border: 1px solid black 
 }
 
-.links .link {
-    padding: 10px; 
+/* trying to position the different divs */
+.navnav{
+    justify-content: center;
+    padding: 10px;
+    width: 20rem; /* gives it a total width, so it prevents from moving, when changing the display (maybe better in %) */
 }
+/* padding between the links, username and button */
+.navnav .link{
+    padding: 10px;
+}
+.navnav + div .link {
+    padding: 10px;
+}
+.navnav + div span, .navnav + div button{
+    padding: 10px;
+}
+.navnav + div{
+    width: 20rem;
+}
+
+
+/* .links .link {
+    padding: 10px; 
+} */
 
 main { 
     height: 150vh; 
@@ -85,4 +110,14 @@ main {
 .wrapper{
     flex: 1 0 auto;
 }
+
+
+/* .login-page {
+    display: flex;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+} */
 

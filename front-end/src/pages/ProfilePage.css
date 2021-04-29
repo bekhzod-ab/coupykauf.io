@@ -1,0 +1,64 @@
+.profile-page{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    padding: 5% 10%; 
+    min-width: 800px;
+    
+}
+
+.profile-nav, .profile-form {
+    border: 1px solid red;
+    padding: 10px; 
+    height: 90%;
+    
+}
+
+.profile-nav {
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+}
+
+.profile-form {
+    display: flex; 
+    width: 70%;
+    flex-wrap: wrap;
+ 
+}
+
+#avatar {
+    width: 200px; 
+    height: 200px;
+    border: 1px solid green;
+}
+
+.profile-pic{
+    width: 200px; 
+    height: 200px;
+    border: 1px solid green;
+}
+
+.profile-item{
+    border: 1px solid black;
+    /* width: 30%; */
+    margin: 1rem;
+    flex-grow: 1;
+    min-width: 350px;
+}
+
+.profile-item > * {
+    height: 30px;
+    border: 1px solid blue; 
+    margin: 10px; 
+}
+
+.gallery > * {
+    width: 25%;
+    min-width: 250px;
+}
+
+.profile-item > textarea {
+    width: 95%;
+    height: 100px;
+}
