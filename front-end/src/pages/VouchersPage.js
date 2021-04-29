@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useHistory, Link } from "react-router-dom"
+import "./vouchers-page.css"
 
 
 
@@ -44,8 +45,78 @@ const VouchersPage = () => {
                   
                 ))}
             </ul>
+                        {/* just writing the card  */}
+            <div className="card">
+
+              <div className="profile-sidebar">
+                <img src="https://i.pravatar.cc/125" alt=""/>
+                
+              </div>
+              <div className="profile-main">
+
+                {vouchers.map((voucher, index) => (
+                  <h2 key={index}> name: {voucher.description} 
+                  </h2>
+                    ))}
+                
+                {vouchers.map((voucher, index) => (
+                  <Link to={`/vouchers/${voucher.articleNo}`}> More...</Link>
+                    ))}
+                
+              
+                </div>
+              
+
+            </div>
+
+
+            <div className="card">
+
+              <div className="profile-sidebar">
+                <img src="https://i.pravatar.cc/125" alt=""/>
+                
+              </div>
+              <div className="profile-main">
+                <h2>company Name</h2>
+                <p className="description">Lorem, ipsum dolor.</p>
+                <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum molestiae impedit nesciunt officia eius ab.</p>
+                {/* <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul> */}
+              </div>
+              
+
+            </div>
+
+
+            <div className="card">
+
+              <div className="profile-sidebar">
+                <img src="https://i.pravatar.cc/125" alt=""/>
+                
+              </div>
+              <div className="profile-main">
+                <h2>company Name</h2>
+                <p className="description">Lorem, ipsum dolor.</p>
+                <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum molestiae impedit nesciunt officia eius ab.</p>
+                {/* <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul> */}
+              </div>
+              
+
+            </div>
+
         </div>
+
+        
     )
 }
+
+
 
 export default VouchersPage;
