@@ -36,7 +36,7 @@ const VouchersPage = () => {
             ])
     return (
         <div className="vouchers-page">
-            <h2>Our vouchers:</h2>
+            {/* <h2>Our vouchers:</h2>
             <ul className="vouchers_list">
                 {vouchers.map((voucher, index) => (
                       <li key={index}> Name: {voucher.description}<br/>
@@ -44,7 +44,7 @@ const VouchersPage = () => {
                       <Link to={`/vouchers/${voucher.articleNo}`}> More...</Link></li>
                   
                 ))}
-            </ul>
+            </ul> */}
                         {/* just writing the card  */}
             <div className="card">
 
