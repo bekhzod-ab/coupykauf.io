@@ -27,37 +27,41 @@ const sellerSchema = new mongoose.Schema({
         type: String,
         default: null
     },
-    Vouchers: {
+    vouchers: {
         type: Number,
         default: null
     },
-    Category: {
+    category: {
         type: String,
         default: null
     },
-    Address: {
+    address: {
         type: String,
         default: null
     },
-    Phone: {
+    phone: {
         type: Number,
         default: null
     },
-    Profile_imageUrl: {
+    profile_imageUrl: {
         type: String,
         default: null 
     },
-    Description: {
+    description: {
         type: String,
         default: null
     },
-    Gallery_Url: {
+    gallery_Url: {
         type: String,
         default: null
     },
-    Links: {
-        type: Array,
+    links_1: {
+        type: String,
         default: null 
+    },
+    links_2: {
+        type: String, 
+        default: null
     }
 
 })
@@ -113,9 +117,9 @@ async function profile(emailFromCookie){
     } 
 }
 
-async function profileInfoUpdate(cookiEmail, Category, Address, Phone, Description, Gallery_Url, Links, Profile_imageUrl, Vouchers ) {
+async function profileInfoUpdate(cookiEmail, category, address, phone, description, gallery_Url, links_1, profile_imageUrl, vouchers ) {
     try {
-        const updated = await Sellers.findOneAndUpdate({email: cookiEmail} , {Category, Address, Phone, Description, Gallery_Url, Links, Profile_imageUrl, Vouchers}, {new: true})
+        const updated = await Sellers.findOneAndUpdate({email: cookiEmail} , {category, address, phone, description, gallery_Url, links_1, profile_imageUrl, vouchers}, {new: true})
         return updated
     }
     catch(err){
