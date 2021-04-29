@@ -41,7 +41,7 @@ const VouchersPage = () => {
                       <li key={index}> Name: {voucher.description}<br/>
                       Price: {voucher.price}<br/>
                       <Link to={`/vouchers/${voucher.articleNo}`}> More...</Link></li>
-                   
+                  
                 ))}
             </ul>
         </div>
