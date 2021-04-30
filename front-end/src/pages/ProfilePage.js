@@ -1,7 +1,12 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import axios from "axios"; 
 
 const ProfilePage = () => {
+    const [Stoken, setStoken] = useState("")
+    useEffect(() => {
+        const Stoken = localStorage.getItem("Stoken")
+        setStoken(Stoken) 
+    }, [])
    /*  First time I see the page I should see an empty disabled form (doesn't look like a form), with only the labels being visible.
     when I click the edit button I enable the form
     Then I can clikc on an edit button, and fill out the profile (now it looks like a form)
@@ -21,7 +26,7 @@ const ProfilePage = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         axios.put("http://localhost:3333/company/profile", {  
-            category, address, phone, links_1, description, vouchers
+            category, address, phone, links_1, description, vouchers, Stoken
         })
         .then(()=> {setIsDisabled(true)}) 
         .catch(()=> {setIsDisabled(false)})
