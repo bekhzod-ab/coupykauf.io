@@ -1,4 +1,4 @@
-main{
+landing{
     height: 100vh;
 background: url(../imgs/voucherimg.jpg);
     background-position: center;
@@ -18,6 +18,16 @@ background: url(../imgs/voucherimg.jpg);
         align-items: center;
         justify-content: center;
 }
-p{
+
+landing p, h1 {
     color: white;
+}
+
+
+landing + div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
 }

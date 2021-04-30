@@ -18,7 +18,7 @@ const SignUpPage = () => {
             const companyProfile = { company, reg_number, email, password} /* destructuring all the values in one variable object */
             
             /* pushing the data stored in "companyProfile" to an endpoint, then redirecting to the loginpage */
-            axios.post("http://localhost:3333/business/signup", companyProfile)
+            axios.post("http://localhost:3333/company/signup", companyProfile)
             .then( () => {
                 history.push("/login")
             } )

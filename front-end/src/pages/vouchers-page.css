@@ -1,0 +1,27 @@
+.vouchers-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+    
+
+
+}
+
+.card {
+    box-shadow: 0 0 20px black;
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    background-color: blue;
+    margin: 20px;
+}
+
+@media screen and (min-width: 650px){
+    .card{
+        flex-direction: row;
+    }
+}

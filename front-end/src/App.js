@@ -33,7 +33,7 @@ function App() {
               <Route exact path="/contact"> <ContactPage/> </Route>
               <Route exact path="/signup"> <SignUpPage/> </Route>
               <Route exact path="/login"> <LoginPage/> </Route>
-              <Route exact path="/login/:username"></Route> {/* create dinamic profile route using params which will contain username */} 
+              <Route exact path="/login/:username"></Route> {/* create dynamic profile route using params which will contain username */} 
               {/* this route is just for development purposes: */}
               <Route exact path="/profile"> <ProfilePage/> </Route>
           </Switch>
