@@ -84,7 +84,7 @@ const VouchersPage = () => {
               {
                 "articleNo": "vc-0003",
                 "name": "kp10",
-                "description": "Mohammed's Kebabi",
+                "description": "Darts",
                 "price": 10,
                 "category": "sport"
               },
@@ -105,14 +105,14 @@ const VouchersPage = () => {
               {
                 "articleNo": "vc-0003",
                 "name": "kp10",
-                "description": "Mohammed's Kebabi",
+                "description": "Footbal stadion",
                 "price": 10,
                 "category": "sport"
               },
               {
                 "articleNo": "vc-0003",
                 "name": "kp10",
-                "description": "Mohammed's Kebabi",
+                "description": "American pool",
                 "price": 10,
                 "category": "sport"
               },
@@ -140,7 +140,7 @@ const VouchersPage = () => {
           </div>
           <div>
               {filtered.map((voucher,index) => (
-                <li key={index}>Name: {voucher.name}<br/>
+                <li key={index}>Name: {voucher.description}<br/>
                                 Price: {voucher.price}</li>
   
               ))}
