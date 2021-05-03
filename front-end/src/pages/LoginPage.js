@@ -27,9 +27,9 @@ const LoginPage = () => {
         // we use history method here, and push the route where we want to redirect after login: 
         //when we have the profile page, we will redirect there:
         .then((response)=> {
-            cookies.set('frontendtoken', response.data.Stoken, { path: '/' })
+            cookies.set('Stoken', response.data.Stoken, { path: '/' })
             localStorage.setItem("Stoken", response.data.Stoken)
-            history.push("/")}) 
+            history.push("/profile")}) 
     }
     return (
         <div className="login-page"> 
