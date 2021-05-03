@@ -1,10 +1,11 @@
 import {useState, useEffect} from "react";
 import axios from "axios"; 
 
-const ProfileDetails = ({showForm, setShowForm}) => {
+const ProfileDetails = ({showForm, setShowForm, Stoken}) => {
     const [details, setDetails] = useState([])
+    console.log(Stoken)
     useEffect(()=>{
-        axios.get("http://localhost:3333/company/profile")
+        axios.get("http://localhost:3333/company/profile", {Stoken})
         .then((result)=> {
             console.log(result)
             setDetails(result.data)
@@ -17,9 +18,9 @@ const ProfileDetails = ({showForm, setShowForm}) => {
            
            <h2> PROFILE DETAILS</h2>
         
-            <li>Company name: </li>
+            <li>Company name:</li>
             <li>Company address: </li>
-            <button onClick={(e)=>setShowForm(true)}> Edit </button>
+            <button onClick={()=>setShowForm(true)}> Edit </button>
             </div> 
     )
 }

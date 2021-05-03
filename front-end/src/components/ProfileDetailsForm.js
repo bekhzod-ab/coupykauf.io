@@ -2,14 +2,9 @@ import {useState, useEffect} from "react";
 import axios from "axios"; 
 
 
-const ProfileDetailsForm = ({showForm, setShowForm}) => {
-    const [Stoken, setStoken] = useState("")
-    useEffect(() => {
-        console.log("wazap")
-        const Stoken = localStorage.getItem("Stoken")
-        setStoken(Stoken) 
-    }, [showForm])
-    console.log(Stoken)
+const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
+    
+    
    
    /*  const [isDisabled, setIsDisabled] = useState(true); */
     //profile info to send to backend

@@ -4,8 +4,7 @@ import {useHistory} from "react-router-dom"
 import  Cookies  from "universal-cookie"
 
 
-const LoginPage = () => {
-    const [Stoken, setStoken] = useState("")
+const LoginPage = ({Stoken, setStoken}) => {
     const cookies = new Cookies();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -13,7 +12,7 @@ const LoginPage = () => {
     useEffect(() => {
         const Stoken = localStorage.getItem("Stoken")
         setStoken(Stoken) 
-    }, [])
+    }, [setStoken])
     
 
     // this handler will send the submitted values from the form to the backend: 
