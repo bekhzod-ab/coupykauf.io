@@ -12,6 +12,6 @@ module.exports = () => {
     router.post("/login", signIn)
     router.post("/signup", sRegister)
     router.get("/profile",validator, DisplayProfile)
-    router.put("/profile",validator, UpdateProfile)
+    router.post("/profile",validator, UpdateProfile)
     return router
 }

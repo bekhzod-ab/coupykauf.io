@@ -8,7 +8,7 @@ const signIn = async(req,res) => {
         const jwToken = jwt.sign({email : req.body.email}, process.env.SECRET)
         // res.cookie("Stoken",jwToken)
         res.json({"Stoken" : jwToken})
-        res.status(200).send(`Success`)
+        //res.status(200).send(`Success`)
     } else {
         res.status(400).send(`email or pass`)
     }

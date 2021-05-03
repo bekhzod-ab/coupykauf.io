@@ -5,9 +5,11 @@ import axios from "axios";
 const ProfileDetailsForm = ({showForm, setShowForm}) => {
     const [Stoken, setStoken] = useState("")
     useEffect(() => {
+        console.log("wazap")
         const Stoken = localStorage.getItem("Stoken")
         setStoken(Stoken) 
-    }, [])
+    }, [showForm])
+    console.log(Stoken)
    
    /*  const [isDisabled, setIsDisabled] = useState(true); */
     //profile info to send to backend
@@ -20,10 +22,10 @@ const ProfileDetailsForm = ({showForm, setShowForm}) => {
     
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.put("http://localhost:3333/company/profile", {  
+        axios.post("http://localhost:3333/company/profile", {  
             category, address, phone, links_1, description, vouchers, Stoken
         })
-        .then(()=> {setShowForm(true)}) 
+        .then(()=> {setShowForm(false)}) 
         .catch((err)=> {console.log(err.message)})
         
     }
@@ -106,7 +108,7 @@ const ProfileDetailsForm = ({showForm, setShowForm}) => {
                 <div className="save-edit"> 
                {/*  here we enable/disable the form */}
             {/*     <input onClick={(e)=>setIsDisabled(true)} type="submit" value="Save"/> */}
-                <button onClick={(e)=> submitHandler}>Save</button>
+                <button onClick={(e)=>submitHandler(e)}>Save</button>
                 </div>
             </form>
     )
