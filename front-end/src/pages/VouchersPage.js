@@ -65,7 +65,7 @@ const VouchersPage = () => {
                 "name": "kp10",
                 "description": "Mohammed's Kebabi",
                 "price": 10,
-                "category": "sport"
+                "category": "gastronomy"
               },
               {
                 "articleNo": "vc-0004",
@@ -73,24 +73,85 @@ const VouchersPage = () => {
                 "description": "Leckerei biem Bekerei",
                 "price": 5,
                 "category": "hobby"
-              }
+              },
+              {
+                "articleNo": "vc-0002",
+                "name": "kp20",
+                "description": "schneiderie",
+                "price": 15,
+                "category": "beauty"
+              },
+              {
+                "articleNo": "vc-0003",
+                "name": "kp10",
+                "description": "Mohammed's Kebabi",
+                "price": 10,
+                "category": "sport"
+              },
+              {
+                "articleNo": "vc-0008",
+                "name": "kp10",
+                "description": "Golden Dolly Sauna",
+                "price": 10,
+                "category": "entertainment"
+              },
+              {
+                "articleNo": "vc-0008",
+                "name": "kp10",
+                "description": "Golden Billy Sauna",
+                "price": 10,
+                "category": "entertainment"
+              },
+              {
+                "articleNo": "vc-0003",
+                "name": "kp10",
+                "description": "Mohammed's Kebabi",
+                "price": 10,
+                "category": "sport"
+              },
+              {
+                "articleNo": "vc-0003",
+                "name": "kp10",
+                "description": "Mohammed's Kebabi",
+                "price": 10,
+                "category": "sport"
+              },
+
          
             ])
+
+    const [pointer, setPointer] = useState("")        
+    const filtered = vouchers.filter((el) => el.category === pointer)
+    console.log(pointer)
+    console.log(filtered)        
     return (
         <div className="vouchers-page">
 
-<div id="myBtnContainer">
-    <button class="btn /* active */" onclick="" > Show all</button>
-    <button class="btn" value="" onClick={console.log(vouchers.map((element) =>element.category))}> Gastronomy </button>
-    <button class="btn" value="entertainment" onClick={(e) => (console.log(e.target.value))}> Entertainment</button>
-    <button class="btn" value="beauty" onClick=""> Beauty</button>
-    <button class="btn" value="tourism" onClick=""> Tourism</button>
-    <button class="btn" value="sport" onClick=""> Sport</button>
-    <button class="btn" value="hobby" onClick=""> Hobby</button>
-    <button class="btn" value="other" onClick=""> Other</button>
+          <div id="myBtnContainer">
+              <button class="btn /* active */" onClick={console.log(vouchers.map((element) =>element.category))}> Show all</button>
+              <button class="btn" value="gastronomy" onClick={(e) => (setPointer(e.target.value))}> Gastronomy </button>
+              <button class="btn" value="entertainment" onClick={(e) => (setPointer(e.target.value))}> Entertainment</button>
+              <button class="btn" value="beauty" onClick={(e) => (setPointer(e.target.value))}> Beauty</button>
+              <button class="btn" value="tourism" onClick={(e) => (setPointer(e.target.value))}> Tourism</button>
+              <button class="btn" value="sport" onClick={(e) => (setPointer(e.target.value))}> Sport</button>
+              <button class="btn" value="hobby" onClick={(e) => (setPointer(e.target.value))}> Hobby</button>
+              <button class="btn" value="other" onClick={(e) => (setPointer(e.target.value))}> Other</button>
 
-</div>
-         
+          </div>
+          <div>
+              {filtered.map((voucher,index) => (
+                <li key={index}>Name: {voucher.name}<br/>
+                                Price: {voucher.price}</li>
+  
+              ))}
+          </div>
+
+
+
+
+
+
+
             {/* <input Change={(event)=>filterVouchers(event)} placeholder="Search..."/>
             <Filter/>
              
