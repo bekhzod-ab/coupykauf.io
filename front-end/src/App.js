@@ -12,10 +12,17 @@ import LoginPage from "./pages/LoginPage";
 import ContactPage from "./pages/ContactPage";
 import './index.css';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [Stoken, setStoken] = useState("")
+  useEffect(() => {
+    console.log("wazap")
+    const Stoken = localStorage.getItem("Stoken")
+    setStoken(Stoken) 
+}, [loggedIn])
+console.log(Stoken)
   
 
   return (
@@ -32,10 +39,10 @@ function App() {
               <Route exact path="/faq"> <FaqPage/> </Route>
               <Route exact path="/contact"> <ContactPage/> </Route>
               <Route exact path="/signup"> <SignUpPage/> </Route>
-              <Route exact path="/login"> <LoginPage/> </Route>
+              <Route exact path="/login"> <LoginPage Stoken={Stoken} setStoken={setStoken}/> </Route>
               <Route exact path="/login/:username"></Route> {/* create dynamic profile route using params which will contain username */} 
               {/* this route is just for development purposes: */}
-              <Route exact path="/profile"> <ProfilePage/> </Route>
+              <Route exact path="/profile"> <ProfilePage Stoken={Stoken}/> </Route>
           </Switch>
         </div>
        <Footer className="footer"/>

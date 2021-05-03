@@ -3,7 +3,7 @@ import axios from "axios";
 import ProfileDetailsForm from "../components/ProfileDetailsForm"
 import ProfileDetails from "../components/ProfileDetails"
 
-const ProfilePage = () => {
+const ProfilePage = ({Stoken}) => {
 const [showForm, setShowForm] = useState(false)
 
     return (
@@ -14,7 +14,7 @@ const [showForm, setShowForm] = useState(false)
                 <button> Profile Settings</button>
                 <button> Account Settings </button>
             </div>
-            {showForm? <ProfileDetailsForm showForm={showForm} setShowForm={setShowForm}/> : <ProfileDetails showForm={showForm} setShowForm={setShowForm}/>} 
+            {showForm? <ProfileDetailsForm showForm={showForm} setShowForm={setShowForm} Stoken={Stoken}/> : <ProfileDetails showForm={showForm} setShowForm={setShowForm} Stoken={Stoken}/>} 
             </div> 
     )
 }
