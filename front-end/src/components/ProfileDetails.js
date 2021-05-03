@@ -10,7 +10,7 @@ const ProfileDetails = ({showForm, setShowForm}) => {
             setDetails(result.data)
         })
         .catch((err) => {console.log(err.message)})
-    }, [])
+    }, [showForm])
 
     return (
         <div className="profile-page"> 
