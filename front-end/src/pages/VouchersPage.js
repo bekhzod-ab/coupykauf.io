@@ -1,10 +1,32 @@
 import { useState } from "react"
 import { useHistory, Link } from "react-router-dom"
 import "./vouchers-page.css"
+import Card from "./Card";
 
 
 
 const VouchersPage = () => {
+
+  
+  //fr zukünftigen Filter als form eingabe z.B. checkboxen
+    const handleFilter = () =>{
+      if(document.getElementById("length-filter").checked){
+        vouchers.filter(voucher => voucher.name.length > 15)
+        setVouchers(vouchers)
+      }
+    }
+
+    const filterVouchers = (event) =>{
+      console.log(event.target.value.length)
+      if(event.target.value.length === 0){
+        setVouchers(vouchers);
+      } else {
+        let filteredVouchers = vouchers.filter(voucher=>{
+          return voucher.name.toLowerCase().includes(event.target.value.toLowerCase())
+        })
+        setVouchers(filteredVouchers);
+      }
+    }
 
     const [vouchers, setVouchers] = useState([
         
@@ -36,84 +58,14 @@ const VouchersPage = () => {
             ])
     return (
         <div className="vouchers-page">
-            {/* <h2>Our vouchers:</h2>
-            <ul className="vouchers_list">
-                {vouchers.map((voucher, index) => (
-                      <li key={index}> Name: {voucher.description}<br/>
-                      Price: {voucher.price}<br/>
-                      <Link to={`/vouchers/${voucher.articleNo}`}> More...</Link></li>
-                  
-                ))}
-            </ul> */}
-                        {/* just writing the card  */}
-            <div className="card">
-
-              <div className="profile-sidebar">
-                <img src="https://i.pravatar.cc/125" alt=""/>
-                
-              </div>
-              <div className="profile-main">
-
-                {vouchers.map((voucher, index) => (
-                  <h2 key={index}> name: {voucher.description} 
-                  </h2>
-                    ))}
-                
-                {vouchers.map((voucher, index) => (
-                  <Link to={`/vouchers/${voucher.articleNo}`}> More...</Link>
-                    ))}
-                
-              
-                </div>
-              
-
+         
+            <input Change={(event)=>filterVouchers(event)} placeholder="Search..."/>
+             
+            {vouchers.map((voucher, index) => (
+              <Card voucher={voucher} key={index}/>
+            ))}
+           
             </div>
-
-
-            <div className="card">
-
-              <div className="profile-sidebar">
-                <img src="https://i.pravatar.cc/125" alt=""/>
-                
-              </div>
-              <div className="profile-main">
-                <h2>company Name</h2>
-                <p className="description">Lorem, ipsum dolor.</p>
-                <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum molestiae impedit nesciunt officia eius ab.</p>
-                {/* <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul> */}
-              </div>
-              
-
-            </div>
-
-
-            <div className="card">
-
-              <div className="profile-sidebar">
-                <img src="https://i.pravatar.cc/125" alt=""/>
-                
-              </div>
-              <div className="profile-main">
-                <h2>company Name</h2>
-                <p className="description">Lorem, ipsum dolor.</p>
-                <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum molestiae impedit nesciunt officia eius ab.</p>
-                {/* <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul> */}
-              </div>
-              
-
-            </div>
-
-        </div>
-
-        
     )
 }
 
