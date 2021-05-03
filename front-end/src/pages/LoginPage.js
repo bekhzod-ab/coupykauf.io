@@ -1,11 +1,20 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import axios from "axios"; 
 import {useHistory} from "react-router-dom"
+import  Cookies  from "universal-cookie"
+
 
 const LoginPage = () => {
+    const [Stoken, setStoken] = useState("")
+    const cookies = new Cookies();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory()
+    useEffect(() => {
+        const Stoken = localStorage.getItem("Stoken")
+        setStoken(Stoken) 
+    }, [])
+    
 
     // this handler will send the submitted values from the form to the backend: 
     const submitHandler = (e) => {
@@ -13,11 +22,14 @@ const LoginPage = () => {
         // For now, we are using localhost, I will need to change the route later
         axios.post("http://localhost:3333/company/login", {  
         // inside the axios post req, we are passing the values defined in the useState hooks, as a second argument: 
-            email, password
+            email, password, Stoken
         })
         // we use history method here, and push the route where we want to redirect after login: 
         //when we have the profile page, we will redirect there:
-        .then(()=> {history.push("/")}) 
+        .then((response)=> {
+            cookies.set('Stoken', response.data.Stoken, { path: '/' })
+            localStorage.setItem("Stoken", response.data.Stoken)
+            history.push("/profile")}) 
     }
     return (
         <div className="login-page"> 
