@@ -11,7 +11,7 @@ const validator = require("../middleware/autorized.js")
 module.exports = () => {
     router.post("/login", signIn)
     router.post("/signup", sRegister)
-    router.get("/profile",validator, DisplayProfile)
-    router.post("/profile",validator, UpdateProfile)
+    router.get("/profile",validator,DisplayProfile)
+    router.post("/profile",validator,UpdateProfile)
     return router
 }
