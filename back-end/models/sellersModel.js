@@ -117,9 +117,9 @@ async function profile(emailFromCookie){
     } 
 }
 
-async function profileInfoUpdate(cookiEmail, category, address, phone, description, gallery_Url, links_1, profile_imageUrl, vouchers ) {
+async function profileInfoUpdate(cookiEmail, category, address, phone, description, links_1, profile_imageUrl, vouchers ) {
     try {
-        const updated = await Sellers.findOneAndUpdate({email: cookiEmail} , {category, address, phone, description, gallery_Url, links_1, profile_imageUrl, vouchers}, {new: true})
+        const updated = await Sellers.findOneAndUpdate({email: cookiEmail} , {category, address, phone, description, links_1, profile_imageUrl, vouchers}, {new: true})
         return updated
     }
     catch(err){
@@ -127,6 +127,9 @@ async function profileInfoUpdate(cookiEmail, category, address, phone, descripti
     }
 }
 
+async function updateImage(localsemail,gallery_Url) {
+    return await Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url})
+}
 
 
 //Function are exported and called in controllers
@@ -134,5 +137,6 @@ module.exports = {
     addCompany,
     signin,
     profile,
-    profileInfoUpdate
+    profileInfoUpdate,
+    updateImage
 }
