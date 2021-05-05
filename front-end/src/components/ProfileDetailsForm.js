@@ -8,6 +8,7 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
    
    /*  const [isDisabled, setIsDisabled] = useState(true); */
     //profile info to send to backend
+    const [gallery_Url,setgallery_Url] = useState("")
     const [category, setCategory] = useState(""); 
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState("");
@@ -17,13 +18,20 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
     
     const submitHandler = (e) => {
         e.preventDefault();
+        const formData = new FormData()
+        formData.append("gallery_Url",gallery_Url)
+        
         axios.post("http://localhost:3333/company/profile", {  
             category, address, phone, links_1, description, vouchers, Stoken
         })
+
+        axios.post("http://localhost:3333/company/image", formData)
+
         .then(()=> {setShowForm(false)}) 
         .catch((err)=> {console.log(err.message)})
         
     }
+    
     return (
         <form /* onSubmit={submitHandler} */ className="profile-form">
                 {/* initially the form is disabled */}
@@ -59,7 +67,7 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
                         {/* we will add the images later */}
                         <div className="profile-item gallery">  
                         <label htmlFor="gallery">Add photos:</label>
-                        <input type="file" id="img1" name="img1" accept="image/png, image/jpeg" />
+                        <input type="file" id="img1" onChange={(e)=>setgallery_Url(e.target.files[0])} name="img1" accept="image/png, image/jpeg" />
                         <input type="file" id="img2" name="img2" accept="image/png, image/jpeg" />
                         <input type="file" id="img3" name="img3"accept="image/png, image/jpeg" />
                         </div> 

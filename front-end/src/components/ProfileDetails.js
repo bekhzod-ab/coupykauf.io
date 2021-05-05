@@ -20,6 +20,7 @@ const ProfileDetails = ({showForm, setShowForm, Stoken}) => {
         
             <li>Company name:</li>
             <li>Company address: </li>
+            <img src={details.prifleimageUrl}></img>
             <button onClick={()=>setShowForm(true)}> Edit </button>
             </div> 
     )
