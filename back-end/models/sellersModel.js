@@ -51,7 +51,15 @@ const sellerSchema = new mongoose.Schema({
         type: String,
         default: null
     },
-    gallery_Url: {
+    gallery_Url1: {
+        type: String,
+        default: null
+    },
+    gallery_Url2: {
+        type: String,
+        default: null
+    },
+    gallery_Url3: {
         type: String,
         default: null
     },
@@ -127,8 +135,8 @@ async function profileInfoUpdate(cookiEmail, category, address, phone, descripti
     }
 }
 
-async function updateImage(localsemail,gallery_Url) {
-    return await Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url})
+async function updateImage(localsemail,gallery_Url1,gallery_Url2,gallery_Url3) {
+    return await Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url1,gallery_Url2,gallery_Url3})
 }
 
 

@@ -33,7 +33,9 @@ mongoose.connect(process.env.MONGODB_URL, {
 
 //Apply modules to global routs
 
-app.use(cors({credentials:true}))
+app.use(cors({
+    origin:true,
+    credentials:true}))
 app.use(fileupload())
 app.use(express.json())
 app.use(cookieParser())
