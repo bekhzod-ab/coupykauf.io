@@ -138,10 +138,11 @@ const VouchersPage = () => {
               <button class="btn" value="other" onClick={(e) => (setPointer(e.target.value))}> Other</button>
 
           </div>
+          
+
           <div>
-              {filtered.map((voucher,index) => (
-                <li key={index}>Name: {voucher.description}<br/>
-                                Price: {voucher.price}</li>
+          {filtered.map((voucher,index) => (
+               <Card voucher={voucher} key={index}/>
   
               ))}
           </div>
