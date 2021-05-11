@@ -1,5 +1,7 @@
 import {useState, useEffect} from "react";
 import axios from "axios"; 
+axios.defaults.withCredentials = true
+
 
 
 const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
@@ -8,6 +10,9 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
    
    /*  const [isDisabled, setIsDisabled] = useState(true); */
     //profile info to send to backend
+    const [gallery_Url1,setgallery_Url1] = useState("")
+    const [gallery_Url2,setgallery_Url2] = useState("")
+    const [gallery_Url3,setgallery_Url3] = useState("")
     const [category, setCategory] = useState(""); 
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState("");
@@ -17,13 +22,22 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
     
     const submitHandler = (e) => {
         e.preventDefault();
+        const formData = new FormData()
+        formData.append("gallery_Url1",gallery_Url1)
+        formData.append("gallery_Url2", gallery_Url2)
+        formData.append("gallery_Url3", gallery_Url3)
+        
         axios.post("http://localhost:3333/company/profile", {  
             category, address, phone, links_1, description, vouchers, Stoken
         })
+
+        axios.post("http://localhost:3333/company/image", formData)
+
         .then(()=> {setShowForm(false)}) 
         .catch((err)=> {console.log(err.message)})
         
     }
+    
     return (
         <form /* onSubmit={submitHandler} */ className="profile-form">
                 {/* initially the form is disabled */}
@@ -59,9 +73,9 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
                         {/* we will add the images later */}
                         <div className="profile-item gallery">  
                         <label htmlFor="gallery">Add photos:</label>
-                        <input type="file" id="img1" name="img1" accept="image/png, image/jpeg" />
-                        <input type="file" id="img2" name="img2" accept="image/png, image/jpeg" />
-                        <input type="file" id="img3" name="img3"accept="image/png, image/jpeg" />
+                        <input type="file" id="img1" onChange={(e)=>setgallery_Url1(e.target.files[0])} name="img1" accept="image/png, image/jpeg" />
+                        <input type="file" id="img2" onChange={(e)=>setgallery_Url2(e.target.files[0])} name="img2" accept="image/png, image/jpeg" />
+                        <input type="file" id="img3" onChange={(e)=>setgallery_Url3(e.target.files[0])} name="img3"accept="image/png, image/jpeg" />
                         </div> 
                        
                        {/* send only 1 link to backend for now */}

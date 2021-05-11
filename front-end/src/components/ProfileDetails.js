@@ -72,6 +72,11 @@ const ProfileDetails = ({showForm, setShowForm, Stoken}) => {
                 <div className="voucher"></div>
                 <div className="voucher"></div>
              </div>
+           <h2> PROFILE DETAILS</h2>
+        
+            <li>Company name:</li>
+            <li>Company address: </li>
+            <img src={details.prifleimageUrl}></img>
             <button onClick={()=>setShowForm(true)}> Edit </button>
             </div> 
             </div>
