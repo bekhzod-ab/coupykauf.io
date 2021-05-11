@@ -11,7 +11,7 @@ const ProfileDetails = ({showForm, setShowForm, Stoken}) => {
             setDetails(result.data)
         })
         .catch((err) => {console.log(err.message)})
-    }, [showForm])
+    }, [Stoken])
 
     return (
         <div className="profile-page"> 
@@ -20,7 +20,7 @@ const ProfileDetails = ({showForm, setShowForm, Stoken}) => {
         
             <li>Company name:</li>
             <li>Company address: </li>
-            <img src={details.prifleimageUrl}></img>
+            <img src={details.prifleimageUrl} alt="#"></img>
             <button onClick={()=>setShowForm(true)}> Edit </button>
             </div> 
     )

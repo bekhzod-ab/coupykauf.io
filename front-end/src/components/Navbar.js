@@ -1,9 +1,24 @@
 import {Link} from "react-router-dom"
+import {useContext as fromFlashcard} from "react"
+import SellerContext from "../sellerContext/useContext.js"
 
-const Navbar = ({ loggedIn, setLoggedIn }) => {
+
+
+
+
+const Navbar = () => {
+
+
+    const {loggedIn,setLoggedIn} = fromFlashcard(SellerContext);
     function logOut(){
         setLoggedIn(false)
     }
+
+
+
+
+
+
     return (
         <nav className="navbar">
             {/*            maybe this shouldnt be h1              */}
