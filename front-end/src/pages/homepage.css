@@ -1,6 +1,6 @@
 landing{
     height: 100vh;
-background: url(../imgs/voucherimg.jpg);
+background: url(../imgs/bannerHomePage.png);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -10,24 +10,28 @@ background: url(../imgs/voucherimg.jpg);
     background: 
         linear-gradient(
         rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-        ), url(../imgs/voucherimg.jpg);
+        rgba(0, 0, 0, 0.9)
+        ), url(../imgs/bannerHomePage.png);
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 5px 5px -2px gray;
 }
 
 landing p, h1 {
     color: white;
 }
 
+h1 {
+    font-size: 150px;
+}
 
 landing + div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 30vh;
+    height: 50vh;
 }

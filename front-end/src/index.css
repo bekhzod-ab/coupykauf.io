@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 *{
     border: 1px solid red;
+    font-family: 'Montserrat', sans-serif;
 }
 
 footer { 
@@ -54,6 +57,8 @@ body {
 }
 
 .navbar {
+    background-color: #000000;
+    color: #E18A07;
     display: flex; 
     flex-direction: row;
     border: 1px solid black;
@@ -63,10 +68,18 @@ body {
 	position: sticky;
     top: 0;
     padding: 0px 20px;
+    
 }
 
-.navbar .links {
-    border: 1px solid black 
+.link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+.link:hover {
+    color: #f8ce8e;
+    
 }
 
 /* trying to position the different divs */
@@ -78,6 +91,7 @@ body {
 /* padding between the links, username and button */
 .navnav .link{
     padding: 10px;
+   
 }
 .navnav + div .link {
     padding: 10px;

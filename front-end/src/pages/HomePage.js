@@ -7,9 +7,9 @@ const HomePage = () => {
             <landing> 
 
             <h1>CoupyKauf</h1>
-            <p>Lorem, ipsum dolor sit amet <br/>
-            consectetur adipisicing elit. <br/>
-            Labore omnis adipisci sit quisquam corporis <br/> dolores nostrum sunt debitis porro incidunt.</p> 
+            <p> Want to support your favourte local businesses?<br/>
+            Purchase vouchers to help them survive crises <br/> or <br/>
+            purchase gift vouchers for your loved ones and introduce them to your favourite local business</p> 
 
             {/* this is a link-button */}
             <form action="/vouchers">
@@ -17,11 +17,10 @@ const HomePage = () => {
             </form>
             </landing>
             <div>
-                <p>are you a local business? <br/>
-                register your company  </p>
+                <p>are you a local business? <br/> </p>
                     <form action="/signup">
-                    <button type="submit">here</button>
-                    </form>
+                    <button>register your company</button>
+                  </form>
             </div>
 
         </div>
