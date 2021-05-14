@@ -33,18 +33,20 @@ const LoginPage = ({Stoken, setStoken}) => {
     }
     return (
         <div className="login-page"> 
-            <h2> Welcome to the Login Page </h2>
             {/* we are calling the handler here in the whole form upon submitting it*/}
             <form onSubmit={submitHandler}>   
-                <label>Email : </label>   
+            <fieldset className="fieldset"> 
+                <legend>Log in:</legend>
+                <label>Email : </label>
                                                                                 {/* we are giving the input field value "email" because we want to use it later using useState*/}
                                                                                 {/* we then create an event to set the new value to the input field */}
                 <input type="email" placeholder="Enter Username" name="username" required value={email} onChange={(e)=> {setEmail(e.target.value)}}/> 
-                
-                <label>Password : </label>   
+                <br/>
+                <label>Password : </label>
                 <input type="password" placeholder="Enter Password" name="password" required value={password} onChange={(e)=> {setPassword(e.target.value)}}/>  
-
-                <button type="submit">Login</button>   
+                <br/>
+                <button type="submit">LOG IN</button>   
+            </fieldset>
             </form>     
         </div> 
         

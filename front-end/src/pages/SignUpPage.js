@@ -28,15 +28,16 @@ const SignUpPage = () => {
     return (
         
         <div className="signup-page"> 
-            <h2> Welcome to the Sign Up Page </h2>
             <form onSubmit={handleSubmit}> {/* onSubmit the handleSubmit function is executed */}
+            <fieldset className="fieldset"> 
+                <legend>Log in:</legend>
                 <label htmlFor="name">Company Name:</label>
                 <input 
                 type="text" 
                 required 
                 value={company} 
                 onChange={(e) => setCompanyName(e.target.value)} /* execute set... on every Change in tthe input field */
-                /> 
+                /> <br/>
                 <label htmlFor="registration">Registration Number:</label>
                 <input type="number" 
                 required
@@ -44,22 +45,23 @@ const SignUpPage = () => {
                 onChange={(e) => setRegistration(e.target.value)} /* execute set... on every Change in tthe input field */
                 /> 
                 <br/>
-                <label htmlFor="email">email:</label>
+                <label htmlFor="email">Email:</label> 
                 <input type="email" 
                 required
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} /* execute set... on every Change in tthe input field */
                 /> 
                 <br/>
-                <label htmlFor="password">password:</label>
+                <label htmlFor="password">Password:</label>
                 <input 
                 type="password" 
                 required
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)}/>  {/* execute set... on every Change in tthe input field  */}
-                <input type="submit" value="Submit"/>
                 <br/>
-                
+                <button type="submit"> SIGN UP </button>
+                <br/>
+            </fieldset> 
             </form>
         </div> 
     )
