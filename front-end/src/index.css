@@ -158,17 +158,22 @@ main {
 .login-page, .signup-page {
     display: flex;
     justify-content: center;
-    padding-top: 5%;
+    padding: 5% 0;
 }
 
 .fieldset {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     width: 300px;
     border-radius: 20px;
     line-height: 1;
     padding: 20px;
     border: 1px solid #E18A07;
+}
+
+.fieldset * {
+    margin-top: 10px;
 }
 
 .fieldset input {
