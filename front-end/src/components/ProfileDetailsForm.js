@@ -1,14 +1,11 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import axios from "axios"; 
 axios.defaults.withCredentials = true
 
 
 
-const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
+const ProfileDetailsForm = ({setShowForm}) => {
     
-    
-   
-   /*  const [isDisabled, setIsDisabled] = useState(true); */
     //profile info to send to backend
     const [gallery_Url1,setgallery_Url1] = useState("")
     const [gallery_Url2,setgallery_Url2] = useState("")
@@ -19,32 +16,40 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
     const [links_1, setLinks_1] = useState("");
     const [description, setDescription] = useState("");
     const [vouchers,setVouchers] = useState("");
-    
+    const [isOffering10, setisOffering10] = useState(false)
+    const [amountof10, setAmountof10] = useState(0)
+
     const submitHandler = (e) => {
         e.preventDefault();
-        const formData = new FormData()
-        formData.append("gallery_Url1",gallery_Url1)
-        formData.append("gallery_Url2", gallery_Url2)
-        formData.append("gallery_Url3", gallery_Url3)
-        
-        axios.post("http://localhost:3333/company/profile", {  
-            category, address, phone, links_1, description, vouchers, Stoken
-        })
+        /////////////////////////////////////////////
+        //all three images are required, the save button on the form doesn't work unless there are 3 images. 
+        // ask Florian on Friday!
+        if (gallery_Url1 === "" || gallery_Url2 === "" || gallery_Url3 === "") {
+            alert("three pictures required")
+            }   else 
+                {
+                    const formData = new FormData()
+                    formData.append("gallery_Url1",gallery_Url1)
+                    formData.append("gallery_Url2", gallery_Url2)
+                    formData.append("gallery_Url3", gallery_Url3)
+                    console.log(formData)
+                    axios.post("http://localhost:3333/company/profile", {  
+                        category, address, phone, links_1, description, amountof10
+                    })
+                    
 
-        axios.post("http://localhost:3333/company/image", formData)
-
-        .then(()=> {setShowForm(false)}) 
-        .catch((err)=> {console.log(err.message)})
-        
+                    axios.post("http://localhost:3333/company/image", formData)
+                    .then(()=> {setShowForm(false)}) 
+                    .catch((err)=> {console.log(err.message)})
+                }
     }
     
     return (
-        <form /* onSubmit={submitHandler} */ className="profile-form">
-                {/* initially the form is disabled */}
-                <fieldset /* disabled={isDisabled} */>
+        <form className="profile-form">
+                <fieldset>
                         <div className="profile-item">  
                             <label htmlFor="name">Company Name:</label>
-                             <input type="text" /* required */ /* value={companyName} onChange={(e)=> setCompanyName(e.target.value)} *//> 
+                             <input type="text"/> 
                         </div>
 
                         <div className="profile-item">  
@@ -70,17 +75,15 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
                             <input type="number" required value={phone} onChange={(e)=> setPhone(e.target.value)}/> 
                         </div>
                         
-                        {/* we will add the images later */}
                         <div className="profile-item gallery">  
-                        <label htmlFor="gallery">Add photos:</label>
-                        <input type="file" id="img1" onChange={(e)=>setgallery_Url1(e.target.files[0])} name="img1" accept="image/png, image/jpeg" />
-                        <input type="file" id="img2" onChange={(e)=>setgallery_Url2(e.target.files[0])} name="img2" accept="image/png, image/jpeg" />
-                        <input type="file" id="img3" onChange={(e)=>setgallery_Url3(e.target.files[0])} name="img3"accept="image/png, image/jpeg" />
+                        <label htmlFor="gallery">Add photos:</label> <br/>
+                        <input type="file" id="img1" onChange={(e)=>setgallery_Url1(e.target.files[0])} name="img1" accept="image/png, image/jpeg" required/>
+                        <input type="file" id="img2" onChange={(e)=>setgallery_Url2(e.target.files[0])} name="img2" accept="image/png, image/jpeg" required />
+                        <input type="file" id="img3" onChange={(e)=>setgallery_Url3(e.target.files[0])} name="img3"accept="image/png, image/jpeg" required/>
                         </div> 
                        
-                       {/* send only 1 link to backend for now */}
                         <div className="profile-item"> 
-                        <label htmlFor="url">Add social media links:</label>
+                        <label htmlFor="url">Add social media links:</label> <br/>
                         <input type="url" name="url" id="url1" placeholder="https://example.com" pattern="https://.*" value={links_1} onChange={(e)=> setLinks_1(e.target.value)}/>
                         <input type="url" name="url" id="url2" placeholder="https://example.com" pattern="https://.*" />
                         </div>  
@@ -90,18 +93,9 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
                         <textarea id="personal-msg" name="personal-msg" rows="4" cols="50" placeholder="Write a short introduction of your company here..." value={description} onChange={(e)=> setDescription(e.target.value)}/>
                         </div>  
 
-                        {/* don't send this to backend now */}
                         <div className="profile-item"> 
-                        <label htmlFor="products">Product overview:</label>
-                            <input name="products" type="text"/> 
-                            <input name="products" type="text"/> 
-                            <input name="products" type="text"/> 
-                        </div>  
-
-                        {/* try to send just one to backend*/}
-                        <div className="profile-item"> 
-                            <input type="checkbox" id="10" name="voucher1" value={vouchers} onChange={(e)=> setVouchers(e.target.value)}/>
-                            <label htmlFor="voucher1"> 10</label>
+                            <input type="checkbox" id="10" name="voucher1" value={isOffering10} onChange={(e)=> setisOffering10(e.target.value)}/>
+                            <label htmlFor="voucher1"> 10</label>{isOffering10? <input type="number" value ={amountof10} onChange={(e) => setAmountof10(e.target.value)}></input> : null}
                             <input type="checkbox" id="20" name="voucher2" value="Car"/>
                             <label htmlFor="voucher2"> 20</label>
                             <input type="checkbox" id="30" name="voucher3" value="Boat"/>
@@ -115,8 +109,6 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
                         </div>                         
                 </fieldset> 
                 <div className="save-edit"> 
-               {/*  here we enable/disable the form */}
-            {/*     <input onClick={(e)=>setIsDisabled(true)} type="submit" value="Save"/> */}
                 <button onClick={(e)=>submitHandler(e)}>Save</button>
                 </div>
             </form>

@@ -27,7 +27,7 @@ const sellerSchema = new mongoose.Schema({
         type: String,
         default: null
     },
-    vouchers: {
+    amountof10: {
         type: Number,
         default: null
     },
@@ -125,9 +125,9 @@ async function profile(emailFromCookie){
     } 
 }
 
-async function profileInfoUpdate(cookiEmail, category, address, phone, description, links_1, profile_imageUrl, vouchers ) {
+async function profileInfoUpdate(cookiEmail, category, address, phone, description, links_1, profile_imageUrl, amountof10 ) {
     try {
-        const updated = await Sellers.findOneAndUpdate({email: cookiEmail} , {category, address, phone, description, links_1, profile_imageUrl, vouchers}, {new: true})
+        const updated = await Sellers.findOneAndUpdate({email: cookiEmail} , {category, address, phone, description, links_1, profile_imageUrl, amountof10}, {new: true})
         return updated
     }
     catch(err){
@@ -135,10 +135,22 @@ async function profileInfoUpdate(cookiEmail, category, address, phone, descripti
     }
 }
 
+
+
 async function updateImage(localsemail,gallery_Url1,gallery_Url2,gallery_Url3) {
-    return await Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url1,gallery_Url2,gallery_Url3})
+    console.log(gallery_Url1,gallery_Url2,gallery_Url3)
+    return await Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url1,gallery_Url2,gallery_Url3}, {new: true, setDefaultsOnInsert: true})
 }
 
+
+
+
+
+
+
+async function VoucherUpdate(localsemail,input_number) {
+    return await Sellers.findOneAndUpdate({email: localsemail}, {vouchers: input_number})
+}
 
 //Function are exported and called in controllers
 module.exports = {

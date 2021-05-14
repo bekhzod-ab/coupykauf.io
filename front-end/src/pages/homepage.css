@@ -1,6 +1,6 @@
 landing{
     height: 100vh;
-background: url(../imgs/voucherimg.jpg);
+background: url(../imgs/bannerHomePage.png);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -10,24 +10,47 @@ background: url(../imgs/voucherimg.jpg);
     background: 
         linear-gradient(
         rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-        ), url(../imgs/voucherimg.jpg);
+        rgba(0, 0, 0, 0.6)
+        ), url(../imgs/bannerHomePage.png);
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        text-align: center;
+        font-size: 25px;
 }
 
 landing p, h1 {
     color: white;
 }
 
+h1 {
+    font-size: 150px;
+}
 
 landing + div {
+    background-color: whitesmoke;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 30vh;
+    height: 50vh;
+}
+
+.btnHP {
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 25px;
+    border-style: none;
+    background-color:  #E18A07;
+    cursor: pointer;
+    box-shadow: 3px 3px 8px #888888;
+}
+
+.btnHP:focus {
+    outline:none;
+    background-color:  #cf8009;
+    
 }

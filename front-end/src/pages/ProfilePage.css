@@ -2,8 +2,8 @@
     border: 1px solid black;
     display: flex;
     justify-content: center;
-    padding: 5% 10%; 
-    min-width: 800px;
+    padding: 2% 5%; 
+    /* min-width: 800px; */
     
 }
 

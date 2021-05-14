@@ -1,0 +1,28 @@
+.profile-details{
+    width: 100%;
+}
+
+.gallery img {
+    width: 200px;
+    height: 200px;
+    margin: 2px;
+}
+
+
+
+.voucher-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.voucher {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    color: red;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+}
