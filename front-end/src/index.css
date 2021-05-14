@@ -199,3 +199,32 @@ main {
     background-color:  #cf8009;
     
 }
+
+
+
+/* for the mobilenav development */
+
+.mobileNavbar{
+    display: none;
+}
+.bigScreenNav{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    padding: 0px 20px;
+    width: 100%;
+}
+/* 
+@media screen and (max-width:750px){
+    .mobileNavbar{
+        display: block;
+        background-color: red;
+    } 
+    .bigScreenNav{
+        display: none;
+    }
+    } */

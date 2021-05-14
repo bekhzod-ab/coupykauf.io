@@ -1,4 +1,6 @@
 import {Link} from "react-router-dom"
+import MobileNav from "./MobileNavbar"
+
 import {useContext as fromFlashcard} from "react"
 import SellerContext from "../sellerContext/useContext.js"
 import logo from "../imgs/coupyKauf-logo.png"
@@ -18,6 +20,8 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
+            <MobileNav/>
+            {/* s */}
             <Link to="/" className="link logo-container"> 
             <img src={logo} className="logo" alt="logo"/> 
             <h2>CoupyKauf</h2>
@@ -37,10 +41,12 @@ const Navbar = () => {
             <Link to="/signup" className="link"> Sign up </Link> 
             <Link to="/login" className="link"> Log in </Link> </>}
             </div>
-            
+            {/* </div> */}
         {/* </div>  */}
+        
         </nav>
     )
 }
+
 
 export default Navbar

@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken")
 
 const validator = (req,res,next) => {
 
-    console.log(req)
+    
     if (!req.cookies.Stoken) {
         return res.status(401).send("permission denied")
     }
