@@ -26,13 +26,13 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
         formData.append("gallery_Url1",gallery_Url1)
         formData.append("gallery_Url2", gallery_Url2)
         formData.append("gallery_Url3", gallery_Url3)
-        
+        console.log(formData)
         axios.post("http://localhost:3333/company/profile", {  
             category, address, phone, links_1, description, vouchers, Stoken
         })
+        
 
         axios.post("http://localhost:3333/company/image", formData)
-
         .then(()=> {setShowForm(false)}) 
         .catch((err)=> {console.log(err.message)})
         

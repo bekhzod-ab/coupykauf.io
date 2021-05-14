@@ -2,7 +2,7 @@ const { check, validationResult} = require("express-validator")
 
 
 const valid = (req,res, next) => {
-    console.log(req.body)
+    
     if([
         check("name").isLength({min: 3}).isString(),
         check("email").isEmail(),

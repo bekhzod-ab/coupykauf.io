@@ -135,10 +135,22 @@ async function profileInfoUpdate(cookiEmail, category, address, phone, descripti
     }
 }
 
+
+
 async function updateImage(localsemail,gallery_Url1,gallery_Url2,gallery_Url3) {
-    return await Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url1,gallery_Url2,gallery_Url3})
+    console.log(gallery_Url1,gallery_Url2,gallery_Url3)
+    return await Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url1,gallery_Url2,gallery_Url3}, {new: true, setDefaultsOnInsert: true})
 }
 
+
+
+
+
+
+
+async function VoucherUpdate(localsemail,input_number) {
+    return await Sellers.findOneAndUpdate({email: localsemail}, {vouchers: input_number})
+}
 
 //Function are exported and called in controllers
 module.exports = {

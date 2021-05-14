@@ -4,7 +4,7 @@ import "./profileDetails.css"
 
 const ProfileDetails = ({showForm, setShowForm, Stoken}) => {
     const [details, setDetails] = useState([])
-    console.log(Stoken)
+    // console.log(Stoken)
     useEffect(()=>{
         axios.get("http://localhost:3333/company/profile", {Stoken})
         .then((result)=> {
@@ -41,6 +41,7 @@ const ProfileDetails = ({showForm, setShowForm, Stoken}) => {
         }
 
     })
+    
     return (
         <div className="profile-page"> 
            
