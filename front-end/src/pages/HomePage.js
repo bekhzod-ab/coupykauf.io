@@ -7,19 +7,18 @@ const HomePage = () => {
             <landing> 
 
             <h1>CoupyKauf</h1>
-            <p> Want to support your favourte local businesses?<br/>
-            Purchase vouchers to help them survive crises <br/> or <br/>
-            purchase gift vouchers for your loved ones and introduce them to your favourite local business</p> 
+            <p> <b> WANT TO SUPPORT YOUR FAVOURITE LOCAL BUSINESSES?</b><br/><br/>
+            PURCHASE VOUCHERS FOR YOU AND YOUR LOVED ONES</p> 
 
             {/* this is a link-button */}
             <form action="/vouchers">
-                <button type="submit">Find Vouchers</button>
+                <button type="submit" className="btnHP">FIND VOUCHERS</button>
             </form>
             </landing>
             <div>
-                <p>are you a local business? <br/> </p>
+                <p>ARE YOU A LOCAL BUSINESS? <br/> </p>
                     <form action="/signup">
-                    <button>register your company</button>
+                    <button className="btnHP">REGISTER YOUR COMPANY</button>
                   </form>
             </div>
 
