@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 *{
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    font-family: 'Montserrat', sans-serif;
 }
 
 footer { 
@@ -12,7 +15,7 @@ footer {
     text-align: center;
     
     height: 15rem;
-    background: gray;
+    background: #333333;
 }
 /* should i put this in the styles of    */
 .footer-style{
@@ -54,6 +57,9 @@ body {
 }
 
 .navbar {
+    background-color: whitesmoke;
+    font-weight: bold;
+    color: #E18A07;
     display: flex; 
     flex-direction: row;
     border: 1px solid black;
@@ -63,10 +69,35 @@ body {
 	position: sticky;
     top: 0;
     padding: 0px 20px;
+    box-shadow: 0 2px 5px  whitesmoke;
+    
+}
+.logo-container {
+    display: flex;
+    align-items: center;
 }
 
-.navbar .links {
-    border: 1px solid black 
+.link > h2 {
+    display: inline-block;
+    font-size: 30px;
+    margin: 5px;
+}
+
+.logo{
+    width: 40px;
+   display: inline-block;
+   height: 40px;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+.link:hover {
+    color: #bb7b1a;
+    
 }
 
 /* trying to position the different divs */
@@ -78,6 +109,7 @@ body {
 /* padding between the links, username and button */
 .navnav .link{
     padding: 10px;
+   
 }
 .navnav + div .link {
     padding: 10px;
@@ -89,10 +121,10 @@ body {
     width: 20rem;
 }
 
-
-/* .links .link {
-    padding: 10px; 
-} */
+.nav-end {
+    display: flex;
+    justify-content: flex-end;
+}
 
 main { 
     height: 150vh; 
