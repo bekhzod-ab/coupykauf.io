@@ -7,7 +7,7 @@ const HomePage = () => {
             <landing> 
 
             <h1>CoupyKauf</h1>
-            <p> <b> WANT TO SUPPORT YOUR FAVOURITE LOCAL BUSINESSES?</b><br/><br/>
+            <p> <b> WANT TO SUPPORT LOCAL BUSINESSES?</b><br/><br/>
             PURCHASE VOUCHERS FOR YOU AND YOUR LOVED ONES</p> 
 
             {/* this is a link-button */}
