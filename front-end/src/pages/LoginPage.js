@@ -44,7 +44,7 @@ const LoginPage = ({Stoken, setStoken}) => {
                 <br/>
                 <label>Password : </label>
                 <input type="password" placeholder="Enter Password" name="password" required value={password} onChange={(e)=> {setPassword(e.target.value)}}/>  
-                <br/>
+                <br/> 
                 <button type="submit">LOG IN</button>   
             </fieldset>
             </form>     
