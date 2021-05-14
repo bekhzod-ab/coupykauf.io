@@ -1,5 +1,5 @@
-import {useState, useEffect} from "react";
-import axios from "axios"; 
+import {useState} from "react";
+ 
 import ProfileDetailsForm from "../components/ProfileDetailsForm"
 import ProfileDetails from "../components/ProfileDetails"
 

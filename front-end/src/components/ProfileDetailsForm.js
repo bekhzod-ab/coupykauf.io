@@ -1,10 +1,10 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import axios from "axios"; 
 axios.defaults.withCredentials = true
 
 
 
-const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
+const ProfileDetailsForm = ({setShowForm}) => {
     
     //profile info to send to backend
     const [gallery_Url1,setgallery_Url1] = useState("")
@@ -16,26 +16,32 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
     const [links_1, setLinks_1] = useState("");
     const [description, setDescription] = useState("");
     const [vouchers,setVouchers] = useState("");
-    
+    const [isOffering10, setisOffering10] = useState(false)
+    const [amountof10, setAmountof10] = useState(0)
+
     const submitHandler = (e) => {
         e.preventDefault();
         /////////////////////////////////////////////
         //all three images are required, the save button on the form doesn't work unless there are 3 images. 
         // ask Florian on Friday!
-        const formData = new FormData()
-        formData.append("gallery_Url1",gallery_Url1)
-        formData.append("gallery_Url2", gallery_Url2)
-        formData.append("gallery_Url3", gallery_Url3)
-        console.log(formData)
-        axios.post("http://localhost:3333/company/profile", {  
-            category, address, phone, links_1, description, vouchers, Stoken
-        })
-        
+        if (gallery_Url1 === "" || gallery_Url2 === "" || gallery_Url3 === "") {
+            alert("three pictures required")
+            }   else 
+                {
+                    const formData = new FormData()
+                    formData.append("gallery_Url1",gallery_Url1)
+                    formData.append("gallery_Url2", gallery_Url2)
+                    formData.append("gallery_Url3", gallery_Url3)
+                    console.log(formData)
+                    axios.post("http://localhost:3333/company/profile", {  
+                        category, address, phone, links_1, description, amountof10
+                    })
+                    
 
-        axios.post("http://localhost:3333/company/image", formData)
-        .then(()=> {setShowForm(false)}) 
-        .catch((err)=> {console.log(err.message)})
-        
+                    axios.post("http://localhost:3333/company/image", formData)
+                    .then(()=> {setShowForm(false)}) 
+                    .catch((err)=> {console.log(err.message)})
+                }
     }
     
     return (
@@ -71,9 +77,9 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
                         
                         <div className="profile-item gallery">  
                         <label htmlFor="gallery">Add photos:</label> <br/>
-                        <input type="file" id="img1" onChange={(e)=>setgallery_Url1(e.target.files[0])} name="img1" accept="image/png, image/jpeg" />
-                        <input type="file" id="img2" onChange={(e)=>setgallery_Url2(e.target.files[0])} name="img2" accept="image/png, image/jpeg" />
-                        <input type="file" id="img3" onChange={(e)=>setgallery_Url3(e.target.files[0])} name="img3"accept="image/png, image/jpeg" />
+                        <input type="file" id="img1" onChange={(e)=>setgallery_Url1(e.target.files[0])} name="img1" accept="image/png, image/jpeg" required/>
+                        <input type="file" id="img2" onChange={(e)=>setgallery_Url2(e.target.files[0])} name="img2" accept="image/png, image/jpeg" required />
+                        <input type="file" id="img3" onChange={(e)=>setgallery_Url3(e.target.files[0])} name="img3"accept="image/png, image/jpeg" required/>
                         </div> 
                        
                         <div className="profile-item"> 
@@ -88,8 +94,8 @@ const ProfileDetailsForm = ({showForm, setShowForm, Stoken}) => {
                         </div>  
 
                         <div className="profile-item"> 
-                            <input type="checkbox" id="10" name="voucher1" value={vouchers} onChange={(e)=> setVouchers(e.target.value)}/>
-                            <label htmlFor="voucher1"> 10</label>
+                            <input type="checkbox" id="10" name="voucher1" value={isOffering10} onChange={(e)=> setisOffering10(e.target.value)}/>
+                            <label htmlFor="voucher1"> 10</label>{isOffering10? <input type="number" value ={amountof10} onChange={(e) => setAmountof10(e.target.value)}></input> : null}
                             <input type="checkbox" id="20" name="voucher2" value="Car"/>
                             <label htmlFor="voucher2"> 20</label>
                             <input type="checkbox" id="30" name="voucher3" value="Boat"/>

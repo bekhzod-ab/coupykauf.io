@@ -27,7 +27,7 @@ const sellerSchema = new mongoose.Schema({
         type: String,
         default: null
     },
-    vouchers: {
+    amountof10: {
         type: Number,
         default: null
     },
@@ -125,9 +125,9 @@ async function profile(emailFromCookie){
     } 
 }
 
-async function profileInfoUpdate(cookiEmail, category, address, phone, description, links_1, profile_imageUrl, vouchers ) {
+async function profileInfoUpdate(cookiEmail, category, address, phone, description, links_1, profile_imageUrl, amountof10 ) {
     try {
-        const updated = await Sellers.findOneAndUpdate({email: cookiEmail} , {category, address, phone, description, links_1, profile_imageUrl, vouchers}, {new: true})
+        const updated = await Sellers.findOneAndUpdate({email: cookiEmail} , {category, address, phone, description, links_1, profile_imageUrl, amountof10}, {new: true})
         return updated
     }
     catch(err){
