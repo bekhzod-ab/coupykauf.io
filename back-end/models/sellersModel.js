@@ -144,12 +144,14 @@ async function updateImage(localsemail,gallery_Url1,gallery_Url2,gallery_Url3) {
 
 
 
+async function showAll(){
+    const result = await Sellers.find({})
+    return result
+}
 
 
-
-
-async function VoucherUpdate(localsemail,input_number) {
-    return await Sellers.findOneAndUpdate({email: localsemail}, {vouchers: input_number})
+async function voucherBuy(bodyname,input_number) {
+    return await Sellers.findOneAndUpdate({company_name: bodyname}, {amountof10 =- input_number})
 }
 
 //Function are exported and called in controllers
@@ -158,5 +160,7 @@ module.exports = {
     signin,
     profile,
     profileInfoUpdate,
-    updateImage
+    updateImage,
+    voucherBuy,
+    showAll
 }

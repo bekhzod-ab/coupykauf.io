@@ -4,6 +4,7 @@ const sRegister = require("../controllers/sellersController/sregistration.js")
 const DisplayProfile = require("../controllers/sellersController/sprofile.js")
 const UpdateImage = require("../controllers/sellersController/simageupdate.js")
 const UpdateProfile = require("../controllers/sellersController/sprofileupdate.js")
+const voucherPurchase = require("../controllers/sellersController/svoucherbuy.js")
 const validator = require("../middleware/autorized.js")
 
 
@@ -15,6 +16,7 @@ module.exports = () => {
     router.get("/profile",validator,DisplayProfile)
     router.post("/profile",validator,UpdateProfile)
     router.post("/image", validator,UpdateImage)
+    router.post("/vouchers/purchase", voucherPurchase)
     
     return router
 }
