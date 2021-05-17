@@ -19,7 +19,7 @@ const ProfileDetails = ({setShowForm}) => {
     console.log(details.amountof10)
     
     return (
-        <div className="profile-page"> 
+          <div className="profile-page"> 
            
            <div className="profile-details">
            <h2> PROFILE DETAILS </h2>
@@ -50,9 +50,11 @@ const ProfileDetails = ({setShowForm}) => {
                 <div className="voucher"></div>
              </div>
           
-            <button onClick={()=>setShowForm(true)}> Edit </button>
+             <div className="save-edit"> 
+                <button className="btnHP" onClick={()=>setShowForm(true)}> Edit </button>
             </div> 
             </div>
+         </div>  
     )
 }
 

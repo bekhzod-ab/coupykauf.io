@@ -109,7 +109,7 @@ const ProfileDetailsForm = ({setShowForm}) => {
                         </div>                         
                 </fieldset> 
                 <div className="save-edit"> 
-                <button onClick={(e)=>submitHandler(e)}>Save</button>
+                <button className="btnHP" onClick={(e)=>submitHandler(e)}>Save</button>
                 </div>
             </form>
     )
