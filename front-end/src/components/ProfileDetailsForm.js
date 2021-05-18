@@ -24,10 +24,10 @@ const ProfileDetailsForm = ({setShowForm}) => {
         /////////////////////////////////////////////
         //all three images are required, the save button on the form doesn't work unless there are 3 images. 
         // ask Florian on Friday!
-        if (gallery_Url1 === "" || gallery_Url2 === "" || gallery_Url3 === "") {
-            alert("three pictures required")
-            }   else 
-                {
+        // if (gallery_Url1 === "" || gallery_Url2 === "" || gallery_Url3 === "") {
+        //     alert("three pictures required")
+        //     }   else 
+        //         {
                     const formData = new FormData()
                     formData.append("gallery_Url1",gallery_Url1)
                     formData.append("gallery_Url2", gallery_Url2)
@@ -41,7 +41,7 @@ const ProfileDetailsForm = ({setShowForm}) => {
                     axios.post("http://localhost:3333/company/image", formData)
                     .then(()=> {setShowForm(false)}) 
                     .catch((err)=> {console.log(err.message)})
-                }
+                // }
     }
     
     return (
@@ -77,9 +77,9 @@ const ProfileDetailsForm = ({setShowForm}) => {
                         
                         <div className="profile-item gallery">  
                         <label htmlFor="gallery">Add photos:</label> <br/>
-                        <input type="file" id="img1" onChange={(e)=>setgallery_Url1(e.target.files[0])} name="img1" accept="image/png, image/jpeg" required/>
-                        <input type="file" id="img2" onChange={(e)=>setgallery_Url2(e.target.files[0])} name="img2" accept="image/png, image/jpeg" required />
-                        <input type="file" id="img3" onChange={(e)=>setgallery_Url3(e.target.files[0])} name="img3"accept="image/png, image/jpeg" required/>
+                        <input type="file" id="img1" onChange={(e)=>setgallery_Url1(e.target.files[0])} name="img1" accept="image/png, image/jpeg" />
+                        <input type="file" id="img2" onChange={(e)=>setgallery_Url2(e.target.files[0])} name="img2" accept="image/png, image/jpeg"  />
+                        <input type="file" id="img3" onChange={(e)=>setgallery_Url3(e.target.files[0])} name="img3"accept="image/png, image/jpeg" />
                         </div> 
                        
                         <div className="profile-item"> 

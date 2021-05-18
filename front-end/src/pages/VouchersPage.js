@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { useHistory, Link } from "react-router-dom"
+import {useContext} from "react"
+import SellerContext from "../sellerContext/useContext.js"
 import "./vouchers-page.css"
 import Card from "../components/Card";
 /* import Filter from "../components/Filter"; */
@@ -44,86 +45,11 @@ const VouchersPage = () => {
       }
     } */
 
-    const [vouchers, setVouchers] = useState([
-        
-              {
-                "articleNo": "vc-0001",
-                "name": "kp50",
-                "description": "restaurant by Kulwitzer See",
-                "price": 49.99,
-                "category": "other"
-              },
-              {
-                "articleNo": "vc-0002",
-                "name": "kp20",
-                "description": "schneiderie",
-                "price": 15,
-                "category": "tourism"
-              },
-              {
-                "articleNo": "vc-0003",
-                "name": "kp10",
-                "description": "Mohammed's Kebabi",
-                "price": 10,
-                "category": "gastronomy"
-              },
-              {
-                "articleNo": "vc-0004",
-                "name": "kp5",
-                "description": "Leckerei biem Bekerei",
-                "price": 5,
-                "category": "hobby"
-              },
-              {
-                "articleNo": "vc-0002",
-                "name": "kp20",
-                "description": "schneiderie",
-                "price": 15,
-                "category": "beauty"
-              },
-              {
-                "articleNo": "vc-0003",
-                "name": "kp10",
-                "description": "Darts",
-                "price": 10,
-                "category": "sport"
-              },
-              {
-                "articleNo": "vc-0008",
-                "name": "kp10",
-                "description": "Golden Dolly Sauna",
-                "price": 10,
-                "category": "entertainment"
-              },
-              {
-                "articleNo": "vc-0008",
-                "name": "kp10",
-                "description": "Golden Billy Sauna",
-                "price": 10,
-                "category": "entertainment"
-              },
-              {
-                "articleNo": "vc-0003",
-                "name": "kp10",
-                "description": "Footbal stadion",
-                "price": 10,
-                "category": "sport"
-              },
-              {
-                "articleNo": "vc-0003",
-                "name": "kp10",
-                "description": "American pool",
-                "price": 10,
-                "category": "sport"
-              },
-
-         
-            ]) 
-
+    const {vouchers} = useContext(SellerContext);
+    
     const [pointer, setPointer] = useState("")        
     const filtered = vouchers.filter((el) => el.category === pointer)
-    console.log(pointer)
-    console.log(filtered)        
+         
     return (
         <div className="vouchers-page">
 
