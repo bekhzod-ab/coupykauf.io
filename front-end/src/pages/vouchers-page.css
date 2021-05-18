@@ -8,17 +8,29 @@
 .card {
     box-shadow: 0 0 20px black;
     border-radius: 10px;
-    height: 300px;
+    height: 250px;
     width: 600px;
     display: flex;
     flex-direction: column;
     background-color: #f5ad2844;
     margin: 20px;
+    padding: 20px;
 }
 
 .card * {
     border: 1px solid black; 
 }
+
+.card img {
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.card div {
+    padding: 5px; 
+}
+
 
 @media screen and (min-width: 650px){
     .card{
