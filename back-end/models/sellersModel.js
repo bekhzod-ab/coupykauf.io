@@ -137,9 +137,12 @@ async function profileInfoUpdate(cookiEmail, category, address, phone, descripti
 
 
 
-async function updateImage(localsemail,gallery_Url1,gallery_Url2,gallery_Url3) {
-    console.log(gallery_Url1,gallery_Url2,gallery_Url3)
-    return await Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url1,gallery_Url2,gallery_Url3}, {new: true, setDefaultsOnInsert: true})
+async function updateImage(localsemail,images) {
+    // if(!gallery_Url2 || !gallery_Url3 ) {
+    //     return Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url1})
+    // }
+
+    await Sellers.findOneAndUpdate({email: localsemail}, images, {new: true, setDefaultsOnInsert: true})
 }
 
 
@@ -151,7 +154,7 @@ async function showAll(){
 
 
 async function voucherBuy(bodyname,input_number) {
-    return await Sellers.findOneAndUpdate({company_name: bodyname}, {amountof10 =- input_number})
+    return await Sellers.findOneAndUpdate({company_name: bodyname}, {$inc: {amountof10: -input_number}})
 }
 
 //Function are exported and called in controllers

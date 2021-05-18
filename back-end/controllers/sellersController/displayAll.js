@@ -10,3 +10,6 @@ const displayAll = async(req,res) => {
         res.status(404).send(err.message)
     }
 }
+
+
+module.exports = displayAll;
