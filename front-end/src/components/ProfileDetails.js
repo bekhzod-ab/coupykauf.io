@@ -42,12 +42,12 @@ const ProfileDetails = ({setShowForm}) => {
            </div>
            <p>Vouchers:</p>
            <div className="voucher-container">
-                <div className="voucher"> <span>10 euro vouchers available: {details.amountof10} stk</span></div>
-                <div className="voucher">20</div>
-                <div className="voucher">30</div>
-                <div className="voucher"></div>
-                <div className="voucher"></div>
-                <div className="voucher"></div>
+                <div className="voucher">10€ {/* <span>10 euro vouchers available: {details.amountof10} stk</span>*/}</div>
+                <div className="voucher">20€</div>
+                <div className="voucher">30€</div>
+                <div className="voucher">40€</div>
+                <div className="voucher">50€</div>
+                <div className="voucher">60€</div>
              </div>
           
              <div className="save-edit"> 
