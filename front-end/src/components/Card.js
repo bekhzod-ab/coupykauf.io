@@ -5,7 +5,7 @@ const Card = ({voucher}) => {
         <div className="card">
 
         <div className="profile-sidebar">
-          <img src={voucher.images_array[1]} alt=""/>
+          <img src={voucher.images_array[0]} alt=""/>
         </div>
         <div className="profile-main">
           <h2>{ voucher.company_name}</h2>
