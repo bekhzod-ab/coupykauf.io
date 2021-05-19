@@ -34,8 +34,8 @@ console.log(Stoken)
     <SellersProvider>
 
       <Router>
-        <div className="app">
           <Navbar/> {/* exporting the variables to the navbarcomponent */}
+        <div className="app">
           <div className="wrapper"> {/* this is for fixing the footer to the bottom */}
             <Switch> 
                 <Route exact path="/"> <HomePage/> </Route>

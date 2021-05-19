@@ -1,0 +1,186 @@
+/* for the mobilenav development */
+
+/* .mobileNavbar{
+    display: none;
+}
+
+.navbar.open{
+
+    display: flex;
+    flex-direction: column;
+    
+} */
+
+/* @media screen and (max-width:920px){
+    .mobileNavbar{
+        display: block;
+        background-color: red;
+    } 
+    .navnav, .nav-end{
+        display: none;
+    }
+    }
+ */
+
+
+
+
+
+/* #burgerButton{
+    display: none;
+} */
+
+/* __________ mobile nav __________ */
+ /* @media screen and (max-width:919px){
+
+    .navnav{
+        display: none;
+    }
+    .nav-end{
+        display: none;
+    } */
+
+
+
+    /* #burgerButton {
+        display: block;
+        width: 10%;
+        cursor: pointer;
+    }
+    #hiddenMenu{
+        display: none;
+    } */
+    
+    /* when i remove these stylings the burgermenu works */
+    /* .navbar {
+        display: flex;
+        justify-content: flex-end;
+        
+    
+    } */
+    
+   /*  #hiddenMenu {
+        z-index: 2;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+    
+    } */
+    
+    /* #burgerButton{
+        height: 40px;
+        width: 40px;
+        
+    }
+
+    .navbar{
+        flex-direction: row;
+        align-content: space-between;
+    }
+    
+    } */
+    
+    #burgerButton{
+        width: 40px;
+        height: auto;
+        position: absolute;
+        
+        right: 10px;
+        z-index: 1;
+    }
+    
+.navbar{
+    display: none;
+}
+.navbar.open{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 60px;
+    background-color: whitesmoke;
+    
+    
+}
+
+.navnav > a, .nav-end > a {
+    padding: 10px;
+    
+    
+}
+.navnav, .nav-end{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+
+@media screen and (min-width:920px){ 
+    #burgerButton {
+        display: none;
+    }
+   
+    .navbar, .navnav, .nav-end{
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+    .navbar{
+        display: flex;
+        justify-content: space-between ;
+        width: 60%; /* ask dominik if this is hacky. this is to space between without the elements being siblings */
+    }
+
+
+    .navnav{
+        justify-content: center;
+       /*  margin-right: 40%; */
+        /* width: 20rem; */ /* gives it a total width, so it prevents from moving, when changing the display (maybe better in %) */
+    }
+    .nav-end {
+       /*  display: flex;
+        justify-content: flex-end; */
+    }
+
+    header * {
+        border: 1px solid blueviolet;
+    }
+}
+
+
+
+
+
+
+/* is this needed? */
+
+/* .navnav{
+    justify-content: center;
+    padding: 10px;
+    width: 20rem; */ /* gives it a total width, so it prevents from moving, when changing the display (maybe better in %) */
+    /* }
+    .navnav .link{
+    padding: 10px;
+   
+}
+.navnav + div .link {
+    padding: 10px;
+}
+.navnav + div span, .navnav + div button{
+    padding: 10px;
+}
+.navnav + div{
+    width: 20rem;
+}
+
+.nav-end {
+    display: flex;
+    justify-content: flex-end;
+} */
