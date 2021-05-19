@@ -112,9 +112,9 @@ main {
 /* this is to make the footer stick to the bottom */
 
 .app{
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    height: 100vh; */
+    height: 100vh;
 }
 
 .wrapper{
