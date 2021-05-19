@@ -56,7 +56,7 @@ body {
     margin: 0 auto; 
 }
 
-.navbar {
+header {
     background-color: whitesmoke;
     font-weight: bold;
     color: #E18A07;
@@ -70,7 +70,7 @@ body {
     top: 0;
     padding: 0px 20px;
     box-shadow: 0 3px 10px  rgb(204, 204, 204);
-    
+    height: 60px;
 }
 .logo-container {
     display: flex;
@@ -101,30 +101,8 @@ body {
 }
 
 /* trying to position the different divs */
-.navnav{
-    justify-content: center;
-    padding: 10px;
-    width: 20rem; /* gives it a total width, so it prevents from moving, when changing the display (maybe better in %) */
-}
-/* padding between the links, username and button */
-.navnav .link{
-    padding: 10px;
-   
-}
-.navnav + div .link {
-    padding: 10px;
-}
-.navnav + div span, .navnav + div button{
-    padding: 10px;
-}
-.navnav + div{
-    width: 20rem;
-}
 
-.nav-end {
-    display: flex;
-    justify-content: flex-end;
-}
+
 
 main { 
     height: 150vh; 
@@ -134,9 +112,9 @@ main {
 /* this is to make the footer stick to the bottom */
 
 .app{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100vh; */
 }
 
 .wrapper{
@@ -208,29 +186,3 @@ main {
 
 
 
-/* for the mobilenav development */
-
-.mobileNavbar{
-    display: none;
-}
-.bigScreenNav{
-    display: flex;
-    flex-direction: row;
-    border: 1px solid black;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    padding: 0px 20px;
-    width: 100%;
-}
-/* 
-@media screen and (max-width:750px){
-    .mobileNavbar{
-        display: block;
-        background-color: red;
-    } 
-    .bigScreenNav{
-        display: none;
-    }
-    } */
