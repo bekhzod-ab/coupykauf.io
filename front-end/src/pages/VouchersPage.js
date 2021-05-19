@@ -1,7 +1,7 @@
 import { useState } from "react"
 import {useContext} from "react"
 import SellerContext from "../sellerContext/useContext.js"
-
+import "../pages/vouchers-page.css"
 import Card from "../components/Card";
 /* import Filter from "../components/Filter"; */
 import "./filter-style.css";
