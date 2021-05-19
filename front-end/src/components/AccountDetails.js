@@ -8,7 +8,9 @@ const AccountDetails = ({setShowForm}) => {
    
     
     return (
-        <></>
+        <>
+        <h2>Account Details</h2>
+        </>
           
     )
 }

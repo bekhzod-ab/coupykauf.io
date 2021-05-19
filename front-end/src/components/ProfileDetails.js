@@ -1,10 +1,12 @@
 import {useState, useEffect} from "react";
 import axios from "axios"; 
 import "./profileDetails.css"
+import ProfileDetailsForm from "./ProfileDetailsForm";
 // import picture from "../../../back-end/images/sandra@example.com/me.jpeg"
 
 
-const ProfileDetails = ({setShowForm}) => {
+const ProfileDetails = () => {
+    const [showForm, setShowForm] = useState(false); 
     const [details, setDetails] = useState([])
     // console.log(Stoken)
     useEffect(()=>{
@@ -18,7 +20,7 @@ const ProfileDetails = ({setShowForm}) => {
 
     console.log(details.amountof10)
     
-    return (
+    const profileDetails = (
           <div className="profile-page"> 
            
            <div className="profile-details">
@@ -55,6 +57,11 @@ const ProfileDetails = ({setShowForm}) => {
             </div> 
             </div>
          </div>  
+    )
+    return (
+        <>
+           {!showForm? profileDetails : <ProfileDetailsForm/>}
+        </>
     )
 }
 
