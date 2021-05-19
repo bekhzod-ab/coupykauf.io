@@ -51,6 +51,9 @@ const sellerSchema = new mongoose.Schema({
         type: String,
         default: null
     },
+    images_array: [{
+        type:String
+    }],
     gallery_Url1: {
         type: String,
         default: null
@@ -142,7 +145,7 @@ async function updateImage(localsemail,images) {
     //     return Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url1})
     // }
 
-    await Sellers.findOneAndUpdate({email: localsemail}, images, {new: true, setDefaultsOnInsert: true})
+    await Sellers.findOneAndUpdate({email: localsemail}, {images_array: images}, {new: true, setDefaultsOnInsert: true})
 }
 
 
