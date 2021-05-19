@@ -15,6 +15,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { useState, useEffect } from "react"
 import SellersProvider from "./sellerContext/sellersContextProvider.js"
 import AccountDetails from "./components/AccountDetails";
+import PurchaseVoucher from "./pages/PurchaseVoucher.js"
 
 
 function App() {
@@ -40,6 +41,7 @@ console.log(Stoken)
                 <Route exact path="/"> <HomePage/> </Route>
                 <Route exact path="/about"> <AboutUsPage/> </Route>
                 <Route exact path="/vouchers"> <VouchersPage/> </Route>
+                <Route exact path="/vouchers/:company_name"><PurchaseVoucher/></Route>
               {/*   <Route exact path="/vouchers/:articleNo"><Purchase/></Route> */}
                 <Route exact path="/faq"> <FaqPage/> </Route>
                 <Route exact path="/contact"> <ContactPage/> </Route>
