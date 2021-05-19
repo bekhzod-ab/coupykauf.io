@@ -3,8 +3,8 @@ const Card = ({voucher}) => {
         <div className="card">
 
         <div className="profile-sidebar">
-          <img src={voucher.gallery_Url1} alt=""/>
-          <div> isjfsfjslfjlsd</div>
+          <img src={voucher.images_array[0]} alt=""/>
+          <div> isjfsfjslfjlsd</div> 
           
         </div>
         <div className="profile-main">
