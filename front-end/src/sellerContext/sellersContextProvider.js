@@ -1,15 +1,24 @@
 import SellerContext from "./useContext.js"
-import {useState} from "react"
+import {useState, useEffect} from "react"
+import axios from "axios"
 
 
 function SellersProvider({children}){
+    const [vouchers, setVouchers] = useState([])
     const [loggedIn, setLoggedIn] = useState(false) 
     function login(){
         setLoggedIn(true)
     }
+    useEffect(()=>{
+        axios.get("http://localhost:3333/vouchers")
+        .then(response => {
+            console.log(response.data)
+            setVouchers(response.data)})
+        .catch((err) => console.log(err.message))
+    },[])
 
     return (
-        <SellerContext.Provider value={{loggedIn,setLoggedIn,login}}>
+        <SellerContext.Provider value={{loggedIn,vouchers,setLoggedIn,login}}>
             {children}
         </SellerContext.Provider>
     )

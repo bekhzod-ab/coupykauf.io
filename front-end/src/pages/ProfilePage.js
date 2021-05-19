@@ -1,20 +1,22 @@
 import {useState} from "react";
+import {Link, useHistory} from "react-router-dom"
  
 import ProfileDetailsForm from "../components/ProfileDetailsForm"
 import ProfileDetails from "../components/ProfileDetails"
+import AccountDetails from "../components/AccountDetails"
 
-const ProfilePage = ({Stoken}) => {
-const [showForm, setShowForm] = useState(false)
+const ProfilePage = () => {
+const [showAccountSettings, setShowAccountSettings] = useState(true)
 
     return (
         <div className="profile-page"> 
            
             <div className="profile-nav"> 
-                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
-                <button> Profile Settings</button>
-                <button> Account Settings </button>
-            </div>
-            {showForm? <ProfileDetailsForm showForm={showForm} setShowForm={setShowForm} Stoken={Stoken}/> : <ProfileDetails showForm={showForm} setShowForm={setShowForm} Stoken={Stoken}/>} 
+                <button className="btnHP" onClick={(e) => setShowAccountSettings(false)}> Profile Details</button>
+                <button className="btnHP"onClick={(e) => setShowAccountSettings(true)}> Account Settings </button>
+            </div> 
+            {showAccountSettings? <AccountDetails/> : <ProfileDetails/>}
+         
             </div> 
     )
 }

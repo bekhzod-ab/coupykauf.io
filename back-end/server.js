@@ -9,6 +9,7 @@ const mongoose = require("mongoose")
 const cookieParser = require("cookie-parser")
 const express = require("express")
 const fileupload = require("express-fileupload")
+const displayAll = require("../back-end/controllers/sellersController/displayAll.js")
 
 
 const app = express()
@@ -62,7 +63,7 @@ app.use("/images", express.static(path.join(__dirname, "images")))
 
 //Sellers starting endpoint and then going to sellers() routing where we have all the rest APIs 
 app.use("/company", sellers())
-
+app.get("/vouchers", displayAll)
 
 //Serving front-end within this file
 

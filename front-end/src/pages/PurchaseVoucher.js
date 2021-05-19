@@ -46,7 +46,7 @@ export default function Purchase() {
                     <li>price: {details.price} $</li>
                 </ul>
             </div>
-
+        
             <div className="purchase">
                 <form>
                     <label>Your Name:</label>

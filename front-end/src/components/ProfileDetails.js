@@ -1,10 +1,12 @@
 import {useState, useEffect} from "react";
 import axios from "axios"; 
 import "./profileDetails.css"
+import ProfileDetailsForm from "./ProfileDetailsForm";
 // import picture from "../../../back-end/images/sandra@example.com/me.jpeg"
 
 
-const ProfileDetails = ({setShowForm}) => {
+const ProfileDetails = () => {
+    const [showForm, setShowForm] = useState(false); 
     const [details, setDetails] = useState([])
     // console.log(Stoken)
     useEffect(()=>{
@@ -18,8 +20,8 @@ const ProfileDetails = ({setShowForm}) => {
 
     console.log(details.amountof10)
     
-    return (
-        <div className="profile-page"> 
+    const profileDetails = (
+          <div className="profile-page"> 
            
            <div className="profile-details">
            <h2> PROFILE DETAILS </h2>
@@ -42,17 +44,24 @@ const ProfileDetails = ({setShowForm}) => {
            </div>
            <p>Vouchers:</p>
            <div className="voucher-container">
-                <div className="voucher"> <span>10 euro vouchers available: {details.amountof10} stk</span></div>
-                <div className="voucher">20</div>
-                <div className="voucher">30</div>
-                <div className="voucher"></div>
-                <div className="voucher"></div>
-                <div className="voucher"></div>
+                <div className="voucher">10€ {/* <span>10 euro vouchers available: {details.amountof10} stk</span>*/}</div>
+                <div className="voucher">20€</div>
+                <div className="voucher">30€</div>
+                <div className="voucher">40€</div>
+                <div className="voucher">50€</div>
+                <div className="voucher">60€</div>
              </div>
           
-            <button onClick={()=>setShowForm(true)}> Edit </button>
+             <div className="save-edit"> 
+                <button className="btnHP" onClick={()=>setShowForm(true)}> Edit </button>
             </div> 
             </div>
+         </div>  
+    )
+    return (
+        <>
+           {!showForm? profileDetails : <ProfileDetailsForm/>}
+        </>
     )
 }
 

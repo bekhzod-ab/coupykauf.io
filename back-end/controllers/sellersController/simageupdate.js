@@ -12,8 +12,10 @@ const UpdateImage = async(req,res)  => {
         fs.mkdirSync(`${path}`)
         console.log("there is ")}
     console.log(req.files)
+    const arrayOfimages = []
      Object.keys(req.files).map(key => {
         fs.writeFileSync(`${path}/${req.files[key].name}`, req.files[key].data, {mode: 0o755})
+        arrayOfimages.push(`images/${res.locals.email}/${req.files[key].name}`)
     })
        
     
@@ -21,7 +23,7 @@ const UpdateImage = async(req,res)  => {
     // fs.writeFileSync(`${path}/${req.files.gallery_Url2.name}`, req.files.gallery_Url2.data, {mode: 0o755})
     // fs.writeFileSync(`${path}/${req.files.gallery_Url3.name}`, req.files.gallery_Url3.data, {mode: 0o755})
     
-    await updateImage(res.locals.email, `images/${res.locals.email}/${req.files.gallery_Url1.name}`,`images/${res.locals.email}/${req.files.gallery_Url2.name}`,`images/${res.locals.email}/${req.files.gallery_Url3.name}` )
+    await updateImage(res.locals.email, arrayOfimages)
     res.status(200).send()
 }
 
