@@ -1,7 +1,7 @@
 import { useState } from "react"
 import {useContext} from "react"
 import SellerContext from "../sellerContext/useContext.js"
-import "./vouchers-page.css"
+import "../pages/vouchers-page.css"
 import Card from "../components/Card";
 /* import Filter from "../components/Filter"; */
 import "./filter-style.css";
@@ -10,40 +10,6 @@ import "./filter-style.css";
 
 const VouchersPage = () => {
 
-  
-  //fr zukünftigen Filter als form eingabe z.B. checkboxen
-/*     const handleFilter = () =>{
-      if(document.getElementById("length-filter").checked){
-        vouchers.filter(voucher => voucher.name.length > 15)
-        setVouchers(vouchers)
-      }
-    }
-
-    const filterVouchers = (event) =>{
-      console.log(event.target.value.length)
-      if(event.target.value.length === 0){
-        setVouchers(vouchers);
-      } else {
-        let filteredVouchers = vouchers.filter(voucher=>{
-          return voucher.name.toLowerCase().includes(event.target.value.toLowerCase())
-        })
-        setVouchers(filteredVouchers);
-      }
-    }
- */
-
-    /* this is for the filterbuttons */
-    /* const filterVouchers = (event) =>{ */
-      /* console.log(event.target.value.length) */
-     /*  if(event.target.value === ){
-        setVouchers(vouchers);
-      } else {
-        let filteredVouchers = vouchers.filter(voucher=>{
-          return voucher.name.toLowerCase().includes(event.target.value.toLowerCase())
-        })
-        setVouchers(filteredVouchers);
-      }
-    } */
 
     const {vouchers} = useContext(SellerContext);
     
@@ -66,25 +32,16 @@ const VouchersPage = () => {
           </div>
           
 
-          <div>
-          {filtered.map((voucher,index) => (
-               <Card voucher={voucher} key={index}/>
-  
-              ))}
-          </div>
+          <ul >
+          {filtered.map((voucher,index) => {
+                return  <Card voucher={voucher} key={index}></Card>
+                 
+
+                })}
 
 
+          </ul>
 
-
-
-
-
-            {/* <input Change={(event)=>filterVouchers(event)} placeholder="Search..."/>
-            <Filter/>
-             
-            {vouchers.map((voucher, index) => (
-              <Card voucher={voucher} key={index}/>
-            ))} */}
            
 </div>
     )
