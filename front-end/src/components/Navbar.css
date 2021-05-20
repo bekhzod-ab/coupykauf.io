@@ -135,14 +135,14 @@
     .navbar{
         display: flex;
         justify-content: space-between ;
-        width: 60%; /* ask dominik if this is hacky. this is to space between without the elements being siblings */
+        width: 57%; /* ask dominik if this is hacky. this is to space between without the elements being siblings */
     }
 
 
     .navnav{
         justify-content: center;
        /*  margin-right: 40%; */
-        /* width: 20rem; */ /* gives it a total width, so it prevents from moving, when changing the display (maybe better in %) */
+        /* width: 20rem; */ /*  gives it a total width, so it prevents from moving, when changing the display (maybe better in %) */
     }
     .nav-end {
        /*  display: flex;
