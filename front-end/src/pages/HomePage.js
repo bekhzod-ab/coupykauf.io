@@ -6,7 +6,7 @@ const HomePage = () => {
             
             <landing> 
 
-            <h1>CoupyKauf</h1>
+            <h1>Coupy<wbr/>Kauf</h1>
             <p> <b> WANT TO SUPPORT LOCAL BUSINESSES?</b><br/><br/>
             PURCHASE VOUCHERS FOR YOU AND YOUR LOVED ONES</p> 
 
