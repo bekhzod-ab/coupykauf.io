@@ -2,8 +2,19 @@
 
 *{
     /* border: 1px solid red; */
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;  
+    box-sizing: border-box;
+    margin: 0;
 }
+
+/* html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+} */
 
 footer { 
     /* position: fixed;  *//* cant use this with justify content */
@@ -52,8 +63,7 @@ footer {
 
 
 body {
-    box-sizing: border-box;
-    margin: 0 auto; 
+  
 }
 
 header {
