@@ -91,10 +91,10 @@
         z-index: 1;
     }
     
-.navbar{
+.navbar, .nav-end{
     display: none;
 }
-.navbar.open{
+.navbar.open, .nav-end.open{
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -111,8 +111,8 @@
     
     
 }
-.navnav, .nav-end{
-    display: flex;
+.navbar, .nav-end{
+    display: none;
     flex-direction: column;
     align-items: center;
 }
@@ -132,21 +132,18 @@
         
     }
 
-    .navbar{
-        display: flex;
-        justify-content: space-between ;
-        width: 57%; /* ask dominik if this is hacky. this is to space between without the elements being siblings */
-    }
+    
 
 
     .navnav{
-        justify-content: center;
+        /* justify-content: center; */
        /*  margin-right: 40%; */
         /* width: 20rem; */ /*  gives it a total width, so it prevents from moving, when changing the display (maybe better in %) */
     }
     .nav-end {
-       /*  display: flex;
-        justify-content: flex-end; */
+        display: flex;
+        justify-content: flex-end;
+        width: 200px;
     }
 
     header * {
@@ -157,30 +154,3 @@
 
 
 
-
-
-/* is this needed? */
-
-/* .navnav{
-    justify-content: center;
-    padding: 10px;
-    width: 20rem; */ /* gives it a total width, so it prevents from moving, when changing the display (maybe better in %) */
-    /* }
-    .navnav .link{
-    padding: 10px;
-   
-}
-.navnav + div .link {
-    padding: 10px;
-}
-.navnav + div span, .navnav + div button{
-    padding: 10px;
-}
-.navnav + div{
-    width: 20rem;
-}
-
-.nav-end {
-    display: flex;
-    justify-content: flex-end;
-} */

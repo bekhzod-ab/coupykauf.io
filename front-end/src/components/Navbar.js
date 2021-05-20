@@ -20,6 +20,7 @@ const Navbar = () => {
     const [showMobileNav, setShowMobileNav] = useState(false)
     function toggleMenu(){
         setShowMobileNav(!showMobileNav);
+        console.log("works")
     };
 
 
@@ -34,30 +35,26 @@ const Navbar = () => {
                 we just need to set this onClick event once.
                 with setShowMenu(false) we make the Navbar close, when we click on a Link*/}
             
-            <nav onClick={() => setShowMobileNav(false)} className={`navbar ${showMobileNav ? "open" : ""}`} >
-                
-                    {/* s */}
-                
-                    
-
+            <div  onClick={() => setShowMobileNav(false)} className={`navbar ${showMobileNav ? "open" : ""}`} >
+        
                 {/* <div className="links"> */}
-                    <div className="navnav">
+                    {/* <div className="navnav" > */}
                     <Link to="/" className="link"> Home </Link>
                     <Link to="/about" className="link"> About us</Link>
                     <Link to="/vouchers" className="link"> Find Voucher</Link>
-                    </div>
-                    <div className="nav-end">
+            </div>
+            <div  onClick={() => setShowMobileNav(false)} className={`nav-end ${showMobileNav ? "open" : ""}`}>
                     {loggedIn ?
                     <><span> <Link to="/profile" className="link"> My profile </Link></span>
                     <button onClick={logOut}>log out</button> </> :
                     <>{/* we use the react fragment to display two elements like one (cant use a ternary on two elements)*/}
                     <Link to="/signup" className="link"> Sign up </Link> 
                     <Link to="/login" className="link"> Log in </Link> </>}
-                    </div>
+            </div>
                     {/* </div> */}
                 {/* </div>  */}
                 
-            </nav>
+            {/* </div> */}
         </header>
     )
 }
