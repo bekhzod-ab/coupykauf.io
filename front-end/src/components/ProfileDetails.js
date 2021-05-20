@@ -21,7 +21,7 @@ const ProfileDetails = () => {
     console.log(details.amountof10)
     
     const profileDetails = (
-          <div className="profile-page"> 
+         
            
            <div className="profile-details">
            <h2> PROFILE DETAILS </h2>
@@ -56,7 +56,7 @@ const ProfileDetails = () => {
                 <button className="btnHP" onClick={()=>setShowForm(true)}> Edit </button>
             </div> 
             </div>
-         </div>  
+     /*     </div>  */ 
     )
     return (
         <>

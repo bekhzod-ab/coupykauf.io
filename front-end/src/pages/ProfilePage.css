@@ -1,9 +1,16 @@
 .profile-page{
-    /* border: 1px solid black; */
+    border: 1px solid purple;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    min-width: 500px;
+    margin: 0 20%; 
     padding: 2% 5%; 
     
+}
+
+.profile-page * {
+    border: 1px solid black;
 }
 
 .profile-page button{
@@ -11,38 +18,27 @@
 }
 
 .profile-nav, .profile-form {
-   /*  border: 1px solid red; */
+    border: 1px solid red;
     padding: 10px; 
     height: 90%;
     
+}
+.profile-form .profile-details .account-details {
+
 }
 
 .profile-nav {
  display: flex;
  justify-content: center;
- flex-direction: column;
- margin-top: 40px;
 }
 
 .profile-form {
     display: flex; 
     flex-direction: column;
-    width: 70%;
     flex-wrap: wrap;
  
 }
 
-#avatar {
-    width: 200px; 
-    height: 200px;
-    border: 1px solid green;
-}
-
-.profile-pic{
-    width: 200px; 
-    height: 200px;
-    border: 1px solid green;
-}
 
 .profile-item{
    /*  border: 1px solid black; */

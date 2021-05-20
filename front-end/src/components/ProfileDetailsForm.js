@@ -112,6 +112,7 @@ const ProfileDetailsForm = ({setShowForm}) => {
                 <button className="btnHP" onClick={(e)=>submitHandler(e)}>Save</button>
                 </div>
             </form>
+          
     )
 }
 
