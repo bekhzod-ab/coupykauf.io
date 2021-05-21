@@ -133,13 +133,11 @@
     }
 
     
-
-
-    .navnav{
-        /* justify-content: center; */
-       /*  margin-right: 40%; */
-        /* width: 20rem; */ /*  gives it a total width, so it prevents from moving, when changing the display (maybe better in %) */
+    .navbar > a{
+        padding: 10px;
     }
+
+    
     .nav-end {
         display: flex;
         justify-content: flex-end;

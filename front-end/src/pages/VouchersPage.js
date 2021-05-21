@@ -20,7 +20,7 @@ const VouchersPage = () => {
         <div className="vouchers-page">
 
           <div id="myBtnContainer">
-              <button class="btn /* active */" onClick={console.log(vouchers.map((element) =>element.category))}> Show all</button>
+              <button class="btn" onClick={console.log(vouchers.map((element) =>element.category))}> Show all</button>
               <button class="btn" value="gastronomy" onClick={(e) => (setPointer(e.target.value))}> Gastronomy </button>
               <button class="btn" value="entertainment" onClick={(e) => (setPointer(e.target.value))}> Entertainment</button>
               <button class="btn" value="beauty" onClick={(e) => (setPointer(e.target.value))}> Beauty</button>
