@@ -31,11 +31,11 @@ const Navbar = () => {
                 <h2>CoupyKauf</h2>
                 </Link>
                 <img  src={burgermenu} onClick={toggleMenu} id="burgerButton" />
+            
+            <div  onClick={() => setShowMobileNav(false)} className={`navbar ${showMobileNav ? "open" : ""}`} >
             {/* because of eventbubbling (When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.)
                 we just need to set this onClick event once.
                 with setShowMenu(false) we make the Navbar close, when we click on a Link*/}
-            
-            <div  onClick={() => setShowMobileNav(false)} className={`navbar ${showMobileNav ? "open" : ""}`} >
         
                 {/* <div className="links"> */}
                     {/* <div className="navnav" > */}
