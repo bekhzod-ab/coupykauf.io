@@ -7,7 +7,10 @@
     border-radius: 20px;
 }
 
-
+.icon {
+    width: 40px; 
+    padding: 0;
+}
 
 .voucher-container {
     display: flex;

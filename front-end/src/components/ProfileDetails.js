@@ -2,7 +2,8 @@ import {useState, useEffect} from "react";
 import axios from "axios"; 
 import "./profileDetails.css"
 import ProfileDetailsForm from "./ProfileDetailsForm";
-// import picture from "../../../back-end/images/sandra@example.com/me.jpeg"
+import { FaFacebook, FaInstagram } from "react-icons/fa"
+ // import picture from "../../../back-end/images/sandra@example.com/me.jpeg"
 
 
 const ProfileDetails = () => {
@@ -31,8 +32,8 @@ const ProfileDetails = () => {
            <p>Address: <span>{details.address}</span></p>
            <p>Phone Number: <span>{details.phone}</span></p>
            <p>Links: 
-               <a target="_blank" href={details.links_1} rel="noreferrer">Facebook</a> 
-               <a target="_blank" href={details.links_2} rel="noreferrer">Instagram</a> 
+               <a target="_blank" href={details.links_1} rel="noreferrer"><FaFacebook className="icon" /></a> 
+               <a target="_blank" href={details.links_2} rel="noreferrer"> <FaInstagram className="icon"/> </a> 
             </p>
            <p>Description:</p>
            <p>{details.description}</p>

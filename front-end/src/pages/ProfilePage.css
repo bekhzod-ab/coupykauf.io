@@ -12,8 +12,11 @@
 }
 
 .profile-page * {
-    border: 1px solid black;
+   /*  border: 1px solid black; */
+    padding: 5px 0;
 }
+
+
 
 .profile-page button{
     justify-content: center;
