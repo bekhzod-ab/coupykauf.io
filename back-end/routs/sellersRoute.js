@@ -6,6 +6,7 @@ const UpdateImage = require("../controllers/sellersController/simageupdate.js")
 const UpdateProfile = require("../controllers/sellersController/sprofileupdate.js")
 const voucherPurchase = require("../controllers/sellersController/svoucherbuy.js")
 const validator = require("../middleware/autorized.js")
+const paymentDetails = require("../controllers/sellersController/updateIban.js")
 
 
 //Global end points related to companys. It's taking its roots in server.js where we declared app.use("/company")
@@ -17,6 +18,7 @@ module.exports = () => {
     router.post("/profile",validator,UpdateProfile)
     router.post("/image", validator,UpdateImage)
     router.post("/vouchers/purchase", voucherPurchase)
+    router.post("/profile/payments",validator,paymentDetails)
     
     return router
 }

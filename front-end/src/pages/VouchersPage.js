@@ -10,17 +10,17 @@ import "./filter-style.css";
 
 const VouchersPage = () => {
 
-
+    
     const {vouchers} = useContext(SellerContext);
     
-    const [pointer, setPointer] = useState("")        
-    const filtered = vouchers.filter((el) => el.category === pointer)
+    const [pointer, setPointer] = useState("")                         
+    const filtered = vouchers.filter((el) => el.category === pointer || pointer === "")
          
     return (
         <div className="vouchers-page">
 
           <div id="myBtnContainer">
-              <button class="btn" onClick={console.log(vouchers.map((element) =>element.category))}> Show all</button>
+              <button class="btn" value="" onClick={(e) => setPointer(e.target.value)}> Show all</button>
               <button class="btn" value="gastronomy" onClick={(e) => (setPointer(e.target.value))}> Gastronomy </button>
               <button class="btn" value="entertainment" onClick={(e) => (setPointer(e.target.value))}> Entertainment</button>
               <button class="btn" value="beauty" onClick={(e) => (setPointer(e.target.value))}> Beauty</button>

@@ -164,6 +164,21 @@ async function voucherBuy(bodyname,input_number) {
     return await Sellers.findOneAndUpdate({company_name: bodyname}, {$inc: {amountof10: -input_number}})
 }
 
+async function updateIban(localsemail, bodyNumber,bodyIban,bodyBic) {
+    try {
+        await Sellers.findOneAndUpdate({email: localsemail},
+            {
+                reg_number: bodyNumber,
+                IBAN: bodyIban,
+                BIC: bodyBic  
+            } )
+        }
+
+    catch(err){
+            console.log(err.message)
+        }
+}
+
 //Function are exported and called in controllers
 module.exports = {
     addCompany,
@@ -172,5 +187,6 @@ module.exports = {
     profileInfoUpdate,
     updateImage,
     voucherBuy,
-    showAll
+    showAll,
+    updateIban
 }
