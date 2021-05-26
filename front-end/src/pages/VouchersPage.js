@@ -10,44 +10,37 @@ import "./filter-style.css";
 
 const VouchersPage = () => {
 
-
-    const {vouchers} = useContext(SellerContext); /* the vouchers are stored in the context */
     
-    const [pointer, setPointer] = useState("")         /* the pointer is empty at the beginning, but will be changed to a category onClick */
-    const filtered = vouchers.filter((el) => el.category === pointer) /* filter the vouchers. element.category is equal to the setted pointer*/
-  
-  /*  console.log(filtered)
-    console.log(vouchers) */
+    const {vouchers} = useContext(SellerContext);
+    
+    const [pointer, setPointer] = useState("")                         
+    const filtered = vouchers.filter((el) => el.category === pointer || pointer === "")
+         
     return (
         <div className="vouchers-page">
 
           <div id="myBtnContainer">
-                <button class="btn" onClick={ () => setPointer("")} > Show all</button>
-                <button class="btn" value="gastronomy" onClick={(e) => (setPointer(e.target.value))}> Gastronomy </button>
-                <button class="btn" value="entertainment" onClick={(e) => (setPointer(e.target.value))}> Entertainment</button>
-                <button class="btn" value="beauty" onClick={(e) => (setPointer(e.target.value))}> Beauty</button>
-                <button class="btn" value="tourism" onClick={(e) => (setPointer(e.target.value))}> Tourism</button>
-                <button class="btn" value="sport" onClick={(e) => (setPointer(e.target.value))}> Sport</button>
-                <button class="btn" value="hobby" onClick={(e) => (setPointer(e.target.value))}> Hobby</button>
-                <button class="btn" value="other" onClick={(e) => (setPointer(e.target.value))}> Other</button>
+              <button class="btn" value="" onClick={(e) => setPointer(e.target.value)}> Show all</button>
+              <button class="btn" value="gastronomy" onClick={(e) => (setPointer(e.target.value))}> Gastronomy </button>
+              <button class="btn" value="entertainment" onClick={(e) => (setPointer(e.target.value))}> Entertainment</button>
+              <button class="btn" value="beauty" onClick={(e) => (setPointer(e.target.value))}> Beauty</button>
+              <button class="btn" value="tourism" onClick={(e) => (setPointer(e.target.value))}> Tourism</button>
+              <button class="btn" value="sport" onClick={(e) => (setPointer(e.target.value))}> Sport</button>
+              <button class="btn" value="hobby" onClick={(e) => (setPointer(e.target.value))}> Hobby</button>
+              <button class="btn" value="other" onClick={(e) => (setPointer(e.target.value))}> Other</button>
 
           </div>
           
-          {/* {vouchers.map((voucher, index) => {
-            return <p> {voucher._id} </p>
-          })}
- */}
+
           <ul >
-            {pointer === "" ? 
-            <>{vouchers.map((voucher,index) => <Card voucher={voucher} key={index}></Card>)}</> 
-        :
-        <>{filtered.map((voucher,index) => {
-            return  <Card voucher={voucher} key={index}></Card>            
+           
+        {filtered.map((voucher,index) => {
+                return <Card voucher={voucher} key={index}></Card>            
             })}
           </ul>
 
-
-  </div>
+           
+</div>
     )
 }
 
