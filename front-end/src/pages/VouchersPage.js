@@ -11,18 +11,18 @@ import "./filter-style.css";
 const VouchersPage = () => {
 
 
-    const {vouchers} = useContext(SellerContext);
+    const {vouchers} = useContext(SellerContext); /* the vouchers are stored in the context */
     
-    const [pointer, setPointer] = useState("")        
-    const filtered = vouchers.filter((el) => el.category === pointer)
-    const [showAllClicked, setShowAllClicked] = useState(false)
-   /*  console.log(filtered)
+    const [pointer, setPointer] = useState("")         /* the pointer is empty at the beginning, but will be changed to a category onClick */
+    const filtered = vouchers.filter((el) => el.category === pointer) /* filter the vouchers. element.category is equal to the setted pointer*/
+  
+  /*  console.log(filtered)
     console.log(vouchers) */
     return (
         <div className="vouchers-page">
 
           <div id="myBtnContainer">
-                <button class="btn" onClick={setShowAllClicked(true)} > Show all</button>
+                <button class="btn" onClick={ () => setPointer("")} > Show all</button>
                 <button class="btn" value="gastronomy" onClick={(e) => (setPointer(e.target.value))}> Gastronomy </button>
                 <button class="btn" value="entertainment" onClick={(e) => (setPointer(e.target.value))}> Entertainment</button>
                 <button class="btn" value="beauty" onClick={(e) => (setPointer(e.target.value))}> Beauty</button>
@@ -33,20 +33,21 @@ const VouchersPage = () => {
 
           </div>
           
-
+          {/* {vouchers.map((voucher, index) => {
+            return <p> {voucher._id} </p>
+          })}
+ */}
           <ul >
-            {setShowAllClicked ? 
-            <>{vouchers.map((voucher,index) => {
-                        <Card voucher={voucher} key={index}></Card>            
-                        })}</>
+            {pointer === "" ? 
+            <>{vouchers.map((voucher,index) => <Card voucher={voucher} key={index}></Card>)}</> 
         :
         <>{filtered.map((voucher,index) => {
-                <Card voucher={voucher} key={index}></Card>            
+            return  <Card voucher={voucher} key={index}></Card>            
             })}
         </>}
           </ul>
 
-           
+
 </div>
     )
 }
