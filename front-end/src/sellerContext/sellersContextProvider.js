@@ -13,7 +13,8 @@ function SellersProvider({children}){
         axios.get("http://localhost:3333/vouchers")
         .then(response => {
             console.log(response.data)
-            setVouchers(response.data)})
+            setVouchers(response.data)
+        })
         .catch((err) => console.log(err.message))
     },[])
 
