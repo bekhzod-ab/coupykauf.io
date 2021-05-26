@@ -3,6 +3,7 @@ import axios from "axios";
 import "./profileDetails.css"
 import ProfileDetailsForm from "./ProfileDetailsForm";
 import { FaFacebook, FaInstagram } from "react-icons/fa"
+import voucher from "../imgs/10eur.jpg"
  // import picture from "../../../back-end/images/sandra@example.com/me.jpeg"
 
 
@@ -27,37 +28,38 @@ const ProfileDetails = () => {
            <div className="profile-details">
            <h2> PROFILE DETAILS </h2>
 
-            <p>Company Name: <span>{details.company_name}</span></p>
-           <p>Category: <span>{details.category}</span></p>
-           <p>Address: <span>{details.address}</span></p>
-           <p>Phone Number: <span>{details.phone}</span></p>
-           <p>Links: 
-               <a target="_blank" href={details.links_1} rel="noreferrer"><FaFacebook className="icon" /></a> 
-               <a target="_blank" href={details.links_2} rel="noreferrer"> <FaInstagram className="icon"/> </a> 
-            </p>
-           <p>Description:</p>
-           <p>{details.description}</p>
-           <p>Gallery:</p>
-           <div className="gallery">
-               <img src={details.gallery_Url1} alt="company"></img>
-               <img src={details.gallery_Url2} alt="company"></img>
-               <img src={details.gallery_Url3} alt="company"></img>
-           </div>
-           <p>Vouchers:</p>
-           <div className="voucher-container">
-                <div className="voucher">10€ {/* <span>10 euro vouchers available: {details.amountof10} stk</span>*/}</div>
-                <div className="voucher">20€</div>
-                <div className="voucher">30€</div>
-                <div className="voucher">40€</div>
-                <div className="voucher">50€</div>
-                <div className="voucher">60€</div>
-             </div>
-          
-             <div className="save-edit"> 
-                <button className="btnHP" onClick={()=>setShowForm(true)}> Edit </button>
-            </div> 
+            <p className="subheading">Company Name:<div>{details.company_name}</div></p> 
+            <p className="subheading">Category:<div>{details.category}</div></p> 
+            <p className="subheading">Address: <div>{details.address}</div></p>
+            <p className="subheading">Phone Number: <div>{details.phone}</div></p>
+            <p className="subheading">Links: 
+            <div>
+                <a target="_blank" href={details.links_1} rel="noreferrer"><FaFacebook className="icon" /></a> 
+                <a target="_blank" href={details.links_2} rel="noreferrer"> <FaInstagram className="icon"/> </a> 
+               </div> 
+            </p> 
+            <p className="subheading">Description:</p>
+            <p>{details.description}</p>
+            <p className="subheading">Gallery:</p>
+            <div className="gallery">
+                <img src={details.gallery_Url1} alt="company"></img>
+                <img src={details.gallery_Url2} alt="company"></img>
+                <img src={details.gallery_Url3} alt="company"></img>
             </div>
-     /*     </div>  */ 
+            <p className="subheading">Vouchers:</p>
+            <div className="voucher-container">
+                    <div className="voucher"><img src={voucher} width="50" alt="10eur"></img></div>
+                    <div className="voucher"><img src={voucher} width="50" alt="10eur"></img></div>
+                    <div className="voucher"><img src={voucher} width="50" alt="10eur"></img></div>
+                    <div className="voucher"><img src={voucher} width="50" alt="10eur"></img></div>
+                    <div className="voucher"><img src={voucher} width="50" alt="10eur"></img></div>
+                    <div className="voucher"><img src={voucher} width="50" alt="10eur"></img></div>
+                </div>
+            
+                <div className="save-edit"> 
+                    <button className="btnHP" onClick={()=>setShowForm(true)}> Edit </button>
+                </div> 
+                </div>
     )
     return (
         <>
