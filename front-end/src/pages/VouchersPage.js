@@ -44,11 +44,10 @@ const VouchersPage = () => {
         <>{filtered.map((voucher,index) => {
             return  <Card voucher={voucher} key={index}></Card>            
             })}
-        </>}
           </ul>
 
 
-</div>
+  </div>
     )
 }
 
