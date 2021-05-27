@@ -10,7 +10,7 @@ import voucher from "../imgs/10eur.jpg"
 const ProfileDetails = () => {
     const [showForm, setShowForm] = useState(false); 
     const [details, setDetails] = useState([])
-    // console.log(Stoken)
+   
     useEffect(()=>{
         axios.get("http://localhost:3333/company/profile")
         .then((result)=> {
@@ -69,7 +69,7 @@ const ProfileDetails = () => {
     )
     return (
         <>
-           {!showForm? profileDetails : <ProfileDetailsForm details={details}/>}
+           {!showForm? profileDetails : <ProfileDetailsForm details={details} setDetails={setDetails}/>}
         </>
     )
 }

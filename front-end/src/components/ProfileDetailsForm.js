@@ -6,44 +6,38 @@ axios.defaults.withCredentials = true
 
 
 
-const ProfileDetailsForm = ({setShowForm, details}) => {
+const ProfileDetailsForm = ({setShowForm, details, setDetails}) => {
     
     //profile info to send to backend
     const [gallery_Url1,setgallery_Url1] = useState("")
     const [gallery_Url2,setgallery_Url2] = useState("")
     const [gallery_Url3,setgallery_Url3] = useState("")
     const [category, setCategory] = useState(""); 
-    const [address, setAddress] = useState("");
-    const [phone, setPhone] = useState("");
-    const [links_1, setLinks_1] = useState("");
-    const [description, setDescription] = useState("");
-    const [vouchers,setVouchers] = useState("");
+    const [address, setAddress] = useState(details.address);
+    const [phone, setPhone] = useState(details.phone);
+    const [links_1, setLinks_1] = useState(details.links_1);
+    const [description, setDescription] = useState(details.description);
+   
     const [isOffering10, setisOffering10] = useState(false)
     const [amountof10, setAmountof10] = useState(0)
 
     const submitHandler = (e) => {
         e.preventDefault();
-        /////////////////////////////////////////////
-        //all three images are required, the save button on the form doesn't work unless there are 3 images. 
-        // ask Florian on Friday!
-        // if (gallery_Url1 === "" || gallery_Url2 === "" || gallery_Url3 === "") {
-        //     alert("three pictures required")
-        //     }   else 
-        //         {
-                    const formData = new FormData()
-                    formData.append("gallery_Url1",gallery_Url1)
-                    formData.append("gallery_Url2", gallery_Url2)
-                    formData.append("gallery_Url3", gallery_Url3)
-                    console.log(formData)
-                    axios.post("http://localhost:3333/company/profile", {  
-                        category, address, phone, links_1, description, amountof10
-                    })
-                   /*  .then(()=> {setShowForm(false)})  */
+        
+        axios.post("http://localhost:3333/company/profile", {  
+            category,address, phone, links_1, description, amountof10
+        })
 
-                    axios.post("http://localhost:3333/company/image", formData)
-                    .then(()=> {setShowForm(false)}) 
-                    .catch((err)=> {console.log(err.message)})
-                // }
+        const formData = new FormData()
+        formData.append("gallery_Url1",gallery_Url1)
+        formData.append("gallery_Url2", gallery_Url2)
+        formData.append("gallery_Url3", gallery_Url3)            
+        console.log(formData)
+
+        axios.post("http://localhost:3333/company/image", formData)
+        .then(()=> {setShowForm(false)}) 
+        .catch((err)=> {console.log(err.message)})
+       
     }
     
     return (
@@ -52,7 +46,7 @@ const ProfileDetailsForm = ({setShowForm, details}) => {
 
                         <div className="profile-item">  
                             <label htmlFor="category">Choose a category:</label>
-                            <select name="category" id="category" value={category} onChange={(e)=> setCategory(e.target.value)}>
+                            <select name="category" id="category" value={details.category} onChange={(e)=> setCategory(e.target.value)}>
                                 <option value="gastronomy">Gastronomy</option>
                                 <option value="entertainment">Entertainment</option>
                                 <option value="beauty">Beauty</option>
@@ -65,12 +59,12 @@ const ProfileDetailsForm = ({setShowForm, details}) => {
                         
                         <div className="profile-item">   
                             <label htmlFor="address">Address:</label>
-                            <input type="text" required value={address} onChange={(e)=> setAddress(e.target.value)} placeholder={details.address}/> 
+                            <input type="text" required value={address} onChange={(e)=> setAddress(e.target.value)}/> 
                         </div>
                         
                         <div className="profile-item">   
                             <label htmlFor="phone">Phone Number:</label>
-                            <input type="number" required value={phone} onChange={(e)=> setPhone(e.target.value)} placeholder={details.phone}/> 
+                            <input type="number" required value={phone} onChange={(e)=> setPhone(e.target.value)} /> 
                         </div>
                         
                         <div className="profile-item gallery">  
@@ -84,16 +78,16 @@ const ProfileDetailsForm = ({setShowForm, details}) => {
                             <label htmlFor="url">Add social media links:</label> <br/>
                             <div className="social-media">
                                 <FaFacebook className="icon" />
-                                <input type="url" name="url" id="url1" placeholder={details.links_1}  pattern="https://.*" value={links_1} onChange={(e)=> setLinks_1(e.target.value)}/>
+                                <input type="url" name="url" id="url1"  pattern="https://.*" value={links_1} onChange={(e)=> setLinks_1(e.target.value)}/>
                             </div> 
                             <div className="social-media">
                                 <FaInstagram className="icon"/> 
-                                <input type="url" name="url" id="url2" placeholder={details.links_2}  pattern="https://.*" />
+                                <input type="url" name="url" id="url2"  pattern="https://.*" />
                             </div>  
                         </div>
                         <div className="profile-item"> 
                         <label htmlFor="personal-ms">Description:</label>
-                        <textarea id="personal-msg" name="personal-msg" rows="4" cols="50" placeholder={details.description} value={description} onChange={(e)=> setDescription(e.target.value)}/>
+                        <textarea id="personal-msg" name="personal-msg" rows="4" cols="50"  value={description} onChange={(e)=> setDescription(e.target.value)}/>
                         </div>  
 
                         <div className="profile-item vouchers"> 
