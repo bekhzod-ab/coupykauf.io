@@ -37,18 +37,19 @@ const AccountDetails = () => {
     
     return (
         <div className="profile-page"> 
-            <div className="account-details"></div>
-                <h2>Account Details</h2>
-                    <form onSubmit={submitHandler}>
+                <h2>ACCOUNT DETAILS</h2>
+                    <form className="acc-form"onSubmit={submitHandler}>
                         <fieldset disabled = {!edit}>
-                            <legend>Bank Credentials</legend>
-                            <label for="fname">Registration number:</label><input type="text" id="fname" value={postRnumber}  onChange={(e) => {setPostRnumber(e.target.value)}}></input><br/><br/>
-                            <label for="iban">IBAN:</label><input type="text" id="iban" value={postIban}  onChange={(e) => setPostIban(e.target.value)}></input><br/><br/>
-                            <label for="bic">BIC:</label><input type="text" id="bic" value={postBic} onChange={(e) => setPostBic(e.target.value)}></input><br/><br/>
+                            <label className="subheading" for="fname">Registration number:</label><input type="text" id="fname" value={postRnumber}  onChange={(e) => {setPostRnumber(e.target.value)}}></input><br/><br/>
+                            <label className="subheading" for="iban">IBAN:</label><input type="text" id="iban" value={postIban}  onChange={(e) => setPostIban(e.target.value)}></input><br/><br/>
+                            <label className="subheading" for="bic">BIC:</label><input type="text" id="bic" value={postBic} onChange={(e) => setPostBic(e.target.value)}></input><br/><br/>
                             <input type="submit" value="save"/>
                         </fieldset>
-                        <button onClick={(e) => {e.preventDefault() ; setEdit(true)}}>Edit</button>
+                         <button className="btnHP" onClick={(e) => {e.preventDefault() ; setEdit(true)}}>Edit</button>
                 </form>
+            <div className="delete-acc"> 
+                <button className="delete-btn">DELETE ACCOUNT</button>
+            </div>
         </div>
           
     )

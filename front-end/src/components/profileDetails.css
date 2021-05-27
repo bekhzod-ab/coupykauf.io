@@ -43,6 +43,7 @@
     font-weight: bold;
     color: #E18A07;
     font-size: 18px;
+    margin-right: 5px;
    
 }
 
@@ -52,7 +53,7 @@ p {
 
 .subheading div {
    display: inline-block;
-   margin-left: 10px;
+   margin-left: 5px;
    width: 50%;
    font-weight: normal;
    color: black;
@@ -68,4 +69,30 @@ p {
 
 .vouchers input[type=number] {
     width: 40px;
+}
+
+.acc-form {
+    margin-bottom: 40px;
+}
+
+.delete-acc {
+    padding: 20px; 
+    display: flex; 
+    justify-content: center;
+    border-top: 1px solid grey; 
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 20px; 
+    border-radius: 25px; 
+    border: none;
+}
+
+.delete-btn:focus {
+    outline: none;
 }
