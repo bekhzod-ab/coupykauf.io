@@ -27,10 +27,6 @@ const sellerSchema = new mongoose.Schema({
         type: String,
         default: null
     },
-    BIC : {
-        type: String,
-        default: null
-    },
     amountof10: {
         type: Number,
         default: null

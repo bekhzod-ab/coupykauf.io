@@ -8,8 +8,10 @@
 }
 
 .icon {
-    width: 40px; 
-    padding: 0;
+    width: 20px;
+    height: 25px; 
+    padding: unset;
+    color: black;
 }
 
 .voucher-container {
@@ -19,12 +21,34 @@
     align-items: center;
 }
 .voucher {
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    border: 1px solid red; 
     color: red;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 30px;
+}
+
+
+.subheading {
+   /*  border: 1px solid black;  */
+    position: relative; 
+    font-weight: bold;
+    color: #E18A07;
+   
+}
+
+p {
+    padding: 5px;
+}
+
+.subheading div {
+   display: inline-block;
+ /*   border: 1px solid red; */
+   position: absolute;
+   left: 150px;  
+   top: 0px; 
+   width: 50%;
+   font-weight: normal;
+   color: black;
 }
