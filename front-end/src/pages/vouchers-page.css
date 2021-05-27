@@ -8,17 +8,18 @@
 .card {
     box-shadow: 0 0 20px black;
     border-radius: 10px;
-    height: 250px;
+    height: 260px;
     width: 600px;
     display: flex;
     flex-direction: column;
     background-color: #f5ad2844;
     margin: 20px;
     padding: 20px;
+    position: relative; /* this is too give rthe button a absolute position, which can only happen if there is a parent with an absolute or relative position */
 }
 
 .card * {
-    border: 1px solid black; 
+    /* border: 1px solid black;  */
 }
 
 .card img {
@@ -34,16 +35,44 @@
 .profile-sidebar {
     width: 40%; 
 }
+.profile-sidebar > p {
+    padding: 2px;
+}
+
 
 .profile-main {
     width: 60%; 
 }
 
-#myBtnContainer{
+/* #myBtnContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+ */
+
+.btnCard {
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 10px;
+    border-style: none;
+    background-color:  #E18A07;
+    cursor: pointer;
+    box-shadow: 3px 3px 8px #888888;
+    min-width: 100px;
+    margin-top: 20px;
+
+    position: absolute;
+    top: 170px;
+}
+
+.btnCard:focus {
+    outline:none;
+    background-color:  #cf8009;
+    
+}
+
+ 
 
 @media screen and (min-width: 650px){
     .card{
