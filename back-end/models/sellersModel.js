@@ -179,6 +179,15 @@ async function updateIban(localsemail, bodyNumber,bodyIban,bodyBic) {
         }
 }
 
+async function deleteAccount(locasemail) {
+    try {
+        await Sellers.findOneAndDelete({email: locasemail})
+    }
+    catch(err) {
+        console.log(err.message)
+    }
+}
+
 //Function are exported and called in controllers
 module.exports = {
     addCompany,
