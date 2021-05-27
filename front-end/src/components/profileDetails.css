@@ -2,9 +2,9 @@
 .gallery img {
     margin: 5px; 
     width: 200px;
-    height: 200px;
+    height: 180px;
     margin: 2px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .icon {
@@ -14,6 +14,16 @@
     color: black;
 }
 
+.social-media{
+    display: inline-block;
+  /*   width: 40%; */
+}
+
+.social-media .icon {
+    margin-bottom: -6px;
+    margin-right: 6px;
+}
+
 .voucher-container {
     display: flex;
     flex-direction: row;
@@ -21,20 +31,18 @@
     align-items: center;
 }
 .voucher {
-    border: 1px solid red; 
-    color: red;
+    width: 30%;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 30px;
+    font-size: 15px;
 }
 
 
 .subheading {
-   /*  border: 1px solid black;  */
-    position: relative; 
     font-weight: bold;
     color: #E18A07;
+    font-size: 18px;
    
 }
 
@@ -44,11 +52,20 @@ p {
 
 .subheading div {
    display: inline-block;
- /*   border: 1px solid red; */
-   position: absolute;
-   left: 150px;  
-   top: 0px; 
+   margin-left: 10px;
    width: 50%;
    font-weight: normal;
    color: black;
+}
+
+.vouchers {
+    font-size: 12px;
+}
+
+.vouchers label {
+    font-weight: bold;
+}
+
+.vouchers input[type=number] {
+    width: 40px;
 }
