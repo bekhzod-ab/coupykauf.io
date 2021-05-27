@@ -1,10 +1,12 @@
+import { FaFacebook, FaInstagram } from "react-icons/fa"
 import {useState} from "react";
 import axios from "axios"; 
 axios.defaults.withCredentials = true
 
 
 
-const ProfileDetailsForm = ({setShowForm}) => {
+
+const ProfileDetailsForm = ({setShowForm, details}) => {
     
     //profile info to send to backend
     const [gallery_Url1,setgallery_Url1] = useState("")
@@ -36,7 +38,7 @@ const ProfileDetailsForm = ({setShowForm}) => {
                     axios.post("http://localhost:3333/company/profile", {  
                         category, address, phone, links_1, description, amountof10
                     })
-                    
+                   /*  .then(()=> {setShowForm(false)})  */
 
                     axios.post("http://localhost:3333/company/image", formData)
                     .then(()=> {setShowForm(false)}) 
@@ -47,10 +49,6 @@ const ProfileDetailsForm = ({setShowForm}) => {
     return (
         <form className="profile-form">
                 <fieldset>
-                        <div className="profile-item">  
-                            <label htmlFor="name">Company Name:</label>
-                             <input type="text"/> 
-                        </div>
 
                         <div className="profile-item">  
                             <label htmlFor="category">Choose a category:</label>
@@ -67,45 +65,50 @@ const ProfileDetailsForm = ({setShowForm}) => {
                         
                         <div className="profile-item">   
                             <label htmlFor="address">Address:</label>
-                            <input type="text" required value={address} onChange={(e)=> setAddress(e.target.value)}/> 
+                            <input type="text" required value={address} onChange={(e)=> setAddress(e.target.value)} placeholder={details.address}/> 
                         </div>
                         
                         <div className="profile-item">   
                             <label htmlFor="phone">Phone Number:</label>
-                            <input type="number" required value={phone} onChange={(e)=> setPhone(e.target.value)}/> 
+                            <input type="number" required value={phone} onChange={(e)=> setPhone(e.target.value)} placeholder={details.phone}/> 
                         </div>
                         
                         <div className="profile-item gallery">  
-                        <label htmlFor="gallery">Add photos:</label> <br/>
-                        <input type="file" id="img1" onChange={(e)=>setgallery_Url1(e.target.files[0])} name="img1" accept="image/png, image/jpeg" />
-                        <input type="file" id="img2" onChange={(e)=>setgallery_Url2(e.target.files[0])} name="img2" accept="image/png, image/jpeg"  />
-                        <input type="file" id="img3" onChange={(e)=>setgallery_Url3(e.target.files[0])} name="img3"accept="image/png, image/jpeg" />
-                        </div> 
-                       
-                        <div className="profile-item"> 
-                        <label htmlFor="url">Add social media links:</label> <br/>
-                        <input type="url" name="url" id="url1" placeholder="https://example.com" pattern="https://.*" value={links_1} onChange={(e)=> setLinks_1(e.target.value)}/>
-                        <input type="url" name="url" id="url2" placeholder="https://example.com" pattern="https://.*" />
-                        </div>  
-
+                            <label htmlFor="gallery">Add photos:</label> <br/>
+                            <input type="file" id="img1" onChange={(e)=>setgallery_Url1(e.target.files[0])} name="img1" accept="image/png, image/jpeg"/>
+                            <input type="file" id="img2" onChange={(e)=>setgallery_Url2(e.target.files[0])} name="img2" accept="image/png, image/jpeg"  />
+                            <input type="file" id="img3" onChange={(e)=>setgallery_Url3(e.target.files[0])} name="img3"accept="image/png, image/jpeg" />
+                            </div> 
+                        
+                            <div className="profile-item"> 
+                            <label htmlFor="url">Add social media links:</label> <br/>
+                            <div className="social-media">
+                                <FaFacebook className="icon" />
+                                <input type="url" name="url" id="url1" placeholder={details.links_1}  pattern="https://.*" value={links_1} onChange={(e)=> setLinks_1(e.target.value)}/>
+                            </div> 
+                            <div className="social-media">
+                                <FaInstagram className="icon"/> 
+                                <input type="url" name="url" id="url2" placeholder={details.links_2}  pattern="https://.*" />
+                            </div>  
+                        </div>
                         <div className="profile-item"> 
                         <label htmlFor="personal-ms">Description:</label>
-                        <textarea id="personal-msg" name="personal-msg" rows="4" cols="50" placeholder="Write a short introduction of your company here..." value={description} onChange={(e)=> setDescription(e.target.value)}/>
+                        <textarea id="personal-msg" name="personal-msg" rows="4" cols="50" placeholder={details.description} value={description} onChange={(e)=> setDescription(e.target.value)}/>
                         </div>  
 
-                        <div className="profile-item"> 
+                        <div className="profile-item vouchers"> 
                             <input type="checkbox" id="10" name="voucher1" /* value={isOffering10} onChange={(e)=> setisOffering10(e.target.value)} *//>
-                            <label htmlFor="voucher1"> 10€</label>{/* {isOffering10? <input type="number" value ={amountof10} onChange={(e) => setAmountof10(e.target.value)}/>: null} */}
+                            <label htmlFor="voucher1"> 10€</label>
+                            <span>Amount: </span>
+                            <input type="number" value ={amountof10} onChange={(e) => setAmountof10(e.target.value)}/>
                             <input type="checkbox" id="20" name="voucher2" value="Car"/>
                             <label htmlFor="voucher2"> 20€</label>
+                            <span>Amount: </span>
+                            <input type="number" value ={amountof10} onChange={(e) => setAmountof10(e.target.value)}/>
                             <input type="checkbox" id="30" name="voucher3" value="Boat"/>
                             <label htmlFor="voucher3"> 30€</label>
-                            <input type="checkbox" id="40" name="voucher4" value="Boat"/>
-                            <label htmlFor="voucher4"> 40€</label>
-                            <input type="checkbox" id="50" name="voucher5" value="Boat"/>
-                            <label htmlFor="voucher5"> 50€</label>
-                            <input type="checkbox" id="60" name="voucher6" value="Boat"/>
-                            <label htmlFor="voucher6"> 60€</label>
+                            <span>Amount: </span>
+                            <input type="number" value ={amountof10} onChange={(e) => setAmountof10(e.target.value)}/>
                         </div>                         
                 </fieldset> 
                 <div className="save-edit"> 
