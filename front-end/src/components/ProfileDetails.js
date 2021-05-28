@@ -10,18 +10,21 @@ import voucher from "../imgs/10eur.jpg"
 const ProfileDetails = () => {
     const [showForm, setShowForm] = useState(false); 
     const [details, setDetails] = useState([])
+    const [imagesArray, setImagesArray] = useState([]);
    
     useEffect(()=>{
         axios.get("http://localhost:3333/company/profile")
-        .then((result)=> {
-            console.log(result)
-            setDetails(result.data)
+        .then((result)=>{
+            setDetails(result.data);
+            setImagesArray(result.data.images_array);
         })
-        .catch((err) => {console.log(err.message)})
-    }, [])
+        .catch((err)=>console.log(err))
+    }, [showForm])
 
-    console.log(details.amountof10)
-    
+    const handleToggleShowForm = ()=>{
+        if(showForm ? setShowForm(false): setShowForm(true));
+    }
+
     const profileDetails = (
          
            
@@ -42,9 +45,9 @@ const ProfileDetails = () => {
             <p>{details.description}</p>
             <p className="subheading">Gallery:</p>
             <div className="gallery">
-                <img src={details.gallery_Url1} alt="company"></img>
-                <img src={details.gallery_Url2} alt="company"></img>
-                <img src={details.gallery_Url3} alt="company"></img>
+                {imagesArray.map((img,key)=>(
+                    <img src={img} key={key} alt="company"></img>
+                ))}
             </div>
             <p className="subheading">Vouchers:</p>
             <div className="voucher-container">
@@ -63,13 +66,13 @@ const ProfileDetails = () => {
                 </div>
             
                 <div className="save-edit"> 
-                    <button className="btnHP" onClick={()=>setShowForm(true)}> Edit </button>
+                    <button className="btnHP" onClick={()=>handleToggleShowForm()}> Edit </button>
                 </div> 
                 </div>
     )
     return (
         <>
-           {!showForm? profileDetails : <ProfileDetailsForm details={details} setDetails={setDetails}/>}
+           {!showForm? profileDetails : <ProfileDetailsForm details={details} setDetails={setDetails} showForm={showForm} setShowForm={setShowForm}/>}
         </>
     )
 }

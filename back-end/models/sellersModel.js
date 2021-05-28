@@ -1,5 +1,9 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
+const nodemailer = require("nodemailer")
+const pdf = require("pdf-creator-node")
+const fs = require("fs")
+const html = fs.readFileSync("template.html", "utf8");
 
 // Creating schema 
 const sellerSchema = new mongoose.Schema({
@@ -196,6 +200,78 @@ async function deleteAccount(locasemail) {
     }
 }
 
+
+
+
+
+
+
+
+async function createPdf(bodyuuId,reslocals){
+    let options = {
+        format: "A5",
+        orientation: "landscape",
+        border: "10mm",
+        header: {
+            height: "45mm",
+            contents: '<div style="text-align: center;">Author: Coupykauf</div>'
+        }}
+
+    let voucher = {
+        voucherId: bodyuuId
+    }
+
+    let document = {
+        html: html,
+        data: {
+          voucher: voucher,
+        },
+        path: `../front-end/public/vouchers/${reslocals}.pdf`,
+        type: "",
+      };
+
+    pdf.create(document, options)
+    .then((res) => {
+    console.log(res);
+    })
+    .catch((error) => {
+    console.error(error);
+    });      
+}
+
+
+
+
+
+
+
+
+
+
+async function sendEmail(bodyEmail) {
+
+    let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {user: "coupykauf@gmail.com", pass: "2021"}
+    })
+    let mailOptions = {
+        from: "coupykauf@gmail.com",
+        to: bodyEmail,
+        subject: `coupon from ${company_name}`,
+        text: "Hello user",
+        attachments: [{"filename": `../front-end/public/vouchers/${res.locals.email}`, "content" : data}] 
+    }
+    transporter.sendMail(mailOptions, (err,info)=>{
+        if(err) {
+            console.log(err)
+        }else console.log(info.response)
+    })
+}
+
+
+
+
+
 //Function are exported and called in controllers
 module.exports = {
     addCompany,
@@ -206,5 +282,7 @@ module.exports = {
     voucherBuy,
     showAll,
     updateIban,
-    deleteAccount
+    deleteAccount,
+    sendEmail,
+    createPdf
 }

@@ -6,7 +6,7 @@ axios.defaults.withCredentials = true
 
 
 
-const ProfileDetailsForm = ({setShowForm, details, setDetails}) => {
+const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm}) => {
     
     //profile info to send to backend
     const [gallery_Url1,setgallery_Url1] = useState("")
@@ -106,7 +106,8 @@ const ProfileDetailsForm = ({setShowForm, details, setDetails}) => {
                         </div>                         
                 </fieldset> 
                 <div className="save-edit"> 
-                <button className="btnHP" onClick={(e)=>submitHandler(e)}>Save</button>
+                    <button className="btnHP" onClick={(e)=>submitHandler(e)}>Save</button>
+                    <button className="btnHP" onClick={()=>setShowForm(false)}>Cancel</button>
                 </div>
             </form>
           
