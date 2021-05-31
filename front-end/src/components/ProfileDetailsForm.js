@@ -93,7 +93,7 @@ const ProfileDetailsForm = ({setShowForm, details}) => {
                         </div>
                         <div className="profile-item"> 
                         <label htmlFor="personal-ms">Description:</label>
-                        <textarea id="personal-msg" name="personal-msg" rows="4" cols="50" placeholder={details.description} value={description} onChange={(e)=> setDescription(e.target.value)}/>
+                        <textarea maxLength="240" id="personal-msg" name="personal-msg" rows="4" cols="50" placeholder={details.description} value={description} onChange={(e)=> setDescription(e.target.value)}/>
                         </div>  
 
                         <div className="profile-item vouchers"> 
