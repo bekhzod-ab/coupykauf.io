@@ -1,0 +1,35 @@
+.aboutus-page {
+    background-color: whitesmoke;
+    max-width: 800px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.aboutus-page h2 {
+    color:  #E18A07;
+    letter-spacing: 2px;
+}
+
+figure {
+    display: inline-block;
+    margin: 30px;
+}
+
+figure img {
+    width: 150px;
+    height: 160px;
+    border-radius: 10px;
+    border: 4px solid #E18A07; 
+}
+.images {
+    color:  #333333; 
+    margin-top: 30px;
+}
+
+.images p {
+    letter-spacing: 2px;
+}
