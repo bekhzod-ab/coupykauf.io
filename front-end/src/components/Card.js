@@ -10,8 +10,8 @@ const Card = ({voucher}) => {
           
           <p> {voucher.phone} </p>
           <p> {voucher.address} </p>
-          <a href="facebook.com"><FaFacebook className="icon" /></a> 
-                <a href="instagram.com"> <FaInstagram className="icon"/> </a> 
+          <a href="facebook.com"><FaFacebook className="iconOnCard" /></a> 
+          <a href="instagram.com"> <FaInstagram className="iconOnCard"/> </a> 
         </div>
         <div className="profile-main">
           <h2>{ voucher.company_name}</h2>
@@ -24,5 +24,5 @@ const Card = ({voucher}) => {
       </div>
     );
 }
- 
+
 export default Card;
