@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom"
 import {useContext} from "react"
 import SellerContext from "../sellerContext/useContext.js"
-
+import { FaRegCreditCard, FaCcPaypal, FaBitcoin} from "react-icons/fa"
 
 export default function Purchase() {
     const {company_name} = useParams()
@@ -21,20 +21,25 @@ export default function Purchase() {
         
             <div className="purchase">
                 <form>
-                    <label>Your Name:</label>
-                    <input type="text" placeholder="you first and last name" required></input><br/>
+                    <fieldset>
+                        <legend>Payment method</legend>
+                            <a href="www.visa.com" alt="visa"><FaRegCreditCard className="icon"/></a>
+                            <a href="www.paypal.com" alt="paypal"><FaCcPaypal className="icon"/></a>
+                            <a href="www.binance.com" alt="binance"><FaBitcoin className="icon"/></a>
+                            <label>Your Name:</label>
+                            <input type="text" placeholder="you first and last name" required></input><br/>
 
-                    <label>email:</label>
-                    <input type="email" placeholder="name@example.com" required></input><br/>
+                            <label>email:</label>
+                            <input type="email" placeholder="name@example.com" required></input><br/>
 
-                    <label>card number:</label>
-                    <input type="number" required ></input><br/>
+                            <label>card number:</label>
+                            <input type="number" required ></input><br/>
 
-                    <label>exp date:</label>
-                    <input type="number" required></input>
-                    <label>CVV:</label>
-                    <input type="number" required></input> 
-                    
+                            <label>exp date:</label>
+                            <input type="number" required></input>
+                            <label>CVV:</label>
+                            <input type="number" required></input> 
+                    </fieldset>
                 </form>
             </div>
         </div>

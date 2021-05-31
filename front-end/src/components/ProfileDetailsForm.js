@@ -1,13 +1,13 @@
 import { FaFacebook, FaInstagram } from "react-icons/fa"
-import {useState} from "react";
+import {useState, useRef} from "react";
 import axios from "axios"; 
 axios.defaults.withCredentials = true
 
 
 
 
-const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm}) => {
-    
+const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm, imagesArray}) => {
+    const imgRef1 = useRef();
     //profile info to send to backend
     const [gallery_Url1,setgallery_Url1] = useState("")
     const [gallery_Url2,setgallery_Url2] = useState("")
@@ -69,7 +69,7 @@ const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm}) => {
                         
                         <div className="profile-item gallery">  
                             <label htmlFor="gallery">Add photos:</label> <br/>
-                            <input type="file" id="img1" onChange={(e)=>setgallery_Url1(e.target.files[0])} name="img1" accept="image/png, image/jpeg"/>
+                            <img ref={imgRef1} src={imagesArray[0]} alt="#"></img><input type="file" id="img1" onChange={(e)=>{ imgRef1.current.src =URL.createObjectURL(e.target.files[0]); setgallery_Url1(e.target.files[0]);}} name="img1" accept="image/png, image/jpeg"/>
                             <input type="file" id="img2" onChange={(e)=>setgallery_Url2(e.target.files[0])} name="img2" accept="image/png, image/jpeg"  />
                             <input type="file" id="img3" onChange={(e)=>setgallery_Url3(e.target.files[0])} name="img3"accept="image/png, image/jpeg" />
                             </div> 
