@@ -12,7 +12,7 @@
     width: 600px;
     display: flex;
     flex-direction: column;
-    background-color: #f5ad2844;
+    background-color: #f1f1f1;
     margin: 20px;
     padding: 20px;
     position: relative; /* this is too give rthe button a absolute position, which can only happen if there is a parent with an absolute or relative position */
@@ -26,6 +26,7 @@
     width: 200px;
     height: 150px;
     border-radius: 10px;
+    border: 2px solid #E18A07;
 }
 
 .card div {
@@ -34,22 +35,27 @@
 
 .profile-sidebar {
     width: 40%; 
+    font-size: 16px;
 }
 .profile-sidebar > p {
     padding: 2px;
+    font-size: 12px;
 }
 
 
 .profile-main {
     width: 60%; 
 }
+.profile-main > li {
+    list-style-type: none;
+}
 
-/* #myBtnContainer{
+#myBtnContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
- */
+
 
 .btnCard {
     font-weight: bold;
@@ -61,6 +67,10 @@
     box-shadow: 3px 3px 8px #888888;
     min-width: 100px;
     margin-top: 20px;
+    text-decoration: none;
+    text-align: center ;
+
+    width: 300px;
 
     position: absolute;
     top: 170px;
@@ -71,8 +81,13 @@
     background-color:  #cf8009;
     
 }
+.iconOnCard{
+    width: 25px;
+    height: 25px;
+    padding: unset;
+    color: black;
+}
 
- 
 
 @media screen and (min-width: 650px){
     .card{
@@ -85,11 +100,33 @@
     .card{
         flex-direction: column;
         width: 300px;
-        height: 350px;
+        height: 650px;
 
         align-items: center;
     }
     .profile-sidebar{
         width: auto;
     }
+    .profile-main{
+        width: 90%;
+        height: auto;
+    }
+
+    p{
+        width: auto;
+    }
+    .btnCard{
+        position: absolute;
+        top: 80%;
+        left: 25px;
+        right: 0;
+        width: 250px;
+    }
+    .iconOnCard{
+        width: 40px;
+        height: 40px;
+        padding: unset;
+        color: black;
+    }
 }
+
