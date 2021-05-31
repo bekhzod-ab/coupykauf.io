@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const nodemailer = require("nodemailer")
 const pdf = require("pdf-creator-node")
 const fs = require("fs")
-const html = fs.readFileSync("template.html", "utf8");
+// const html = fs.readFileSync("template.html", "utf8");
 
 // Creating schema 
 const sellerSchema = new mongoose.Schema({
@@ -222,7 +222,7 @@ async function createPdf(bodyuuId,reslocals){
     }
 
     let document = {
-        html: html,
+        
         data: {
           voucher: voucher,
         },
