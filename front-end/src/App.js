@@ -14,7 +14,7 @@ import './index.css';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { useState, useEffect } from "react"
 import SellersProvider from "./sellerContext/sellersContextProvider.js"
-import AccountDetails from "./components/AccountDetails";
+//import AccountDetails from "./components/AccountDetails";
 import PurchaseVoucher from "./pages/PurchaseVoucher.js"
 
 

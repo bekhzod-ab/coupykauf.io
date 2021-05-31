@@ -15,7 +15,7 @@ const VouchersPage = () => {
     
     const [pointer, setPointer] = useState("")                         
     const filtered = vouchers.filter((el) => el.category === pointer || pointer === "")
-         
+    
     return (
         <div className="vouchers-page">
 
