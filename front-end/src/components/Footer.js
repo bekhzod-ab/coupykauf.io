@@ -1,27 +1,15 @@
 import {Link} from "react-router-dom"; /* do i have to do this here? */
+import {FaGithub} from "react-icons/fa"
 
 const Footer = () => {
     return(
         <footer className="footer-style">
-            <div>
-            <Link className="faq">FAQ</Link></div>
-            <div>
-                <h3>Contact</h3>
-                    <form action="post">
-                        <label htmlFor="name">Name:</label>
-                        <br/>
-                        <input type="text"/> 
-                        <br/>
-                        <label htmlFor="email">Email:</label>
-                        <br/>
-                        <input type="email"/> 
-                        <br/>
-                        <label htmlFor="message">Message:</label>
-                        <br/>
-                        <input className="test" type="text"/> 
-                        <br/>
-                    </form>
-            </div>
+           <div> <a href="https://github.com/bekhzod-ab/coupykauf.io">  <FaGithub className="icon-footer link" /></a>
+         
+           <Link to="/about" className="link"> ABOUT US</Link>
+           <p>Bekhzod Abdullaev  //  Sandra Almoli  //  Karl Langer</p>
+           <p>&copy; 2021</p>
+           </div>
         </footer>
     )   
 }
