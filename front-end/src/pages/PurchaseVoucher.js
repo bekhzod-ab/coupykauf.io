@@ -16,6 +16,7 @@ export default function Purchase() {
                     <li>vocuher: {details.company_name} </li>
                     <li>description: {details.description} </li>
                     <li>Voucher: {details.amountof10} $</li>
+                    <li>Category: {details.category} </li>
                 </ul>
             </div>
         

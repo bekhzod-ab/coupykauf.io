@@ -1,13 +1,13 @@
 import {useState, useEffect} from "react";
 import axios from "axios"; 
 import {useHistory} from "react-router-dom"
-import  Cookies  from "universal-cookie"
+
 import SellerContext from "../sellerContext/useContext.js"
 import {useContext} from "react"
 
 const LoginPage = ({Stoken, setStoken}) => {
     const { setLoggedIn } = useContext(SellerContext)
-    const cookies = new Cookies();
+    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory()

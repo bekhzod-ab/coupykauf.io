@@ -7,6 +7,7 @@ import logo from "../imgs/coupyKauf-logo.png"
 import burgermenu  from "../imgs/menu.png"
 import React, {useState} from "react";
 import "./Navbar.css";
+import axios from "axios"
 
 
 
@@ -15,7 +16,10 @@ const Navbar = () => {
 
     const {loggedIn,setLoggedIn} = fromFlashcard(SellerContext);
     function logOut(){
-        setLoggedIn(false)
+        axios.get("http://localhost:3333/company/logout")
+        .then(() => setLoggedIn(false))
+        .catch((err) => console.log(err.message))
+        
     };
     const [showMobileNav, setShowMobileNav] = useState(false)
     function toggleMenu(){
