@@ -30,6 +30,16 @@ figure img {
     margin-top: 30px;
 }
 
-.images p {
+.aboutus-page h3 {
     letter-spacing: 2px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+.aboutus-page p {
+    margin-bottom: 30px;
+    text-align: justify;
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 100%;
 }
