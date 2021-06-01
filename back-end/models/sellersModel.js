@@ -160,8 +160,18 @@ async function updateImage(localsemail,images) {
     // if(!gallery_Url2 || !gallery_Url3 ) {
     //     return Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url1})
     // }
-
-    await Sellers.findOneAndUpdate({email: localsemail}, {images_array: images}, {new: true, setDefaultsOnInsert: true})
+    const seller = await Sellers.findOne({email: localsemail})
+    const newImages = [];
+    console.log("seller",seller);
+    console.log("images",images);
+    images.forEach((image, idx) => {
+        if(image){
+            newImages.push(image)
+        } else {
+            newImages.push(seller.images_array[idx])
+        }
+    });
+    await Sellers.findOneAndUpdate({email: localsemail}, {images_array: newImages}, {new: true, setDefaultsOnInsert: true})
 }
 
 

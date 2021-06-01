@@ -72,7 +72,7 @@ const ProfileDetails = () => {
     )
     return (
         <>
-           {!showForm? profileDetails : <ProfileDetailsForm details={details} setDetails={setDetails} showForm={showForm} setShowForm={setShowForm}/>}
+           {!showForm? profileDetails : <ProfileDetailsForm details={details} setDetails={setDetails} showForm={showForm} setShowForm={setShowForm} imagesArray={imagesArray}/>}
         </>
     )
 }

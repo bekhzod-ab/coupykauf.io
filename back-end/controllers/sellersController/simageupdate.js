@@ -11,11 +11,29 @@ const UpdateImage = async(req,res)  => {
     if(!fs.existsSync(`${path}`)) {
         fs.mkdirSync(`${path}`)
         console.log("there is ")}
-    console.log(req.files)
-    const arrayOfimages = []
+    console.log("req.files", req.files)
+    const arrayOfimages = [null, null, null]
      Object.keys(req.files).map(key => {
-        fs.writeFileSync(`${path}/${req.files[key].name}`, req.files[key].data, {mode: 0o755})
-        arrayOfimages.push(`images/${res.locals.email}/${req.files[key].name}`)
+         if(req.files[key]){
+             
+             fs.writeFileSync(`${path}/${req.files[key].name}`, req.files[key].data, {mode: 0o755})
+             switch (key) {
+                case "gallery_Url1":
+                    arrayOfimages[0] = (`images/${res.locals.email}/${req.files[key].name}`)
+                    break;
+                case "gallery_Url2":
+                    arrayOfimages[1] = (`images/${res.locals.email}/${req.files[key].name}`)
+                    break;
+                case "gallery_Url3":
+                    arrayOfimages[2] = (`images/${res.locals.email}/${req.files[key].name}`)
+                    break;
+            
+                default:
+                    break;
+            }
+        
+         } 
+        
     })
        
     
