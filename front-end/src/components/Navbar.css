@@ -150,5 +150,15 @@
 }
 
 
-
+.logout {
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 25px;
+    border-style: none;
+    background-color:  #E18A07;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px #888888;
+    min-width: 80px;
+    margin-left: 3px;
+}
 
