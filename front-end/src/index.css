@@ -55,6 +55,11 @@ footer {
     display:block;
     margin: auto;
     margin-bottom: 10px;
+    fill: white; 
+}
+
+.icon-footer:hover {
+    fill: #E18A07;
 }
 
 .footer-style h3 {

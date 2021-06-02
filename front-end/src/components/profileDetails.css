@@ -23,7 +23,7 @@
     margin-right: 6px;
 }
 
-.voucher-container, .gallery{
+.voucher-container, .gallery, .gallery-form    {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -114,4 +114,15 @@ p {
 .gallery-form figure {
     width: 30%;
     margin: 10px;  
+}
+
+.profile-page input[type=file], input[type=text], input[type=number], input[type=url] {
+    border: 1px solid #E18A07; 
+    border-radius: 5px;
+    height: 30px;
+}
+
+input[type=file] {
+    width: 150px;
+    border: none;
 }

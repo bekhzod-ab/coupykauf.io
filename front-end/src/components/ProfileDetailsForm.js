@@ -54,7 +54,7 @@ const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm, imagesA
                 <fieldset>
 
                         <div className="profile-item">  
-                            <label htmlFor="category">Choose a category:</label>
+                            <label htmlFor="category" className="subheading">Choose a category:</label>
                             <select name="category" id="category" value={category} onChange={(e)=> setCategory(e.target.value)}>
                                 <option disabled selected value="">Categories</option>
                                 <option value="gastronomy">Gastronomy</option>
@@ -69,18 +69,17 @@ const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm, imagesA
                         
 
                         <div className="profile-item">   
-                            <label htmlFor="address">Address:</label>
+                            <label htmlFor="address"className="subheading">Address:</label>
                             <input type="text" required value={address} onChange={(e)=> setAddress(e.target.value)}/> 
                         </div>
                         
 
                         <div className="profile-item">   
-                            <label htmlFor="phone">Phone Number:</label>
+                            <label htmlFor="phone" className="subheading">Phone Number:</label>
                             <input type="number" required value={phone} onChange={(e)=> setPhone(e.target.value)} /> 
                         </div>
-                        
+                         <label htmlFor="gallery" className="profile-item subheading">Add photos:</label>
                         <div className="profile-item gallery-form">  
-                            <label htmlFor="gallery">Add photos:</label> <br/>
                                 <figure>
                                     <img ref={imgRef1} src={imagesArray[0]} alt="#"/>
                                     <figcaption><input type="file" id="img1" onChange={(e)=>{ imgRef1.current.src =URL.createObjectURL(e.target.files[0]); setgallery_Url1(e.target.files[0]);}} name="img1" accept="image/png, image/jpeg"/></figcaption> 
@@ -98,7 +97,7 @@ const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm, imagesA
 
                         <div className="profile-item"> 
 
-                            <label htmlFor="url">Add social media links:</label> <br/>
+                            <label htmlFor="url" className="subheading">Add social media links:</label> <br/>
 
                              <div className="social-media">
                                 <FaFacebook className="icon" />
@@ -114,12 +113,12 @@ const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm, imagesA
 
                     <div className="profile-item"> 
 
-                        <label htmlFor="personal-ms">Description:</label>
+                        <label htmlFor="personal-ms"className="subheading">Description:</label>
                         <textarea id="personal-msg" name="personal-msg" rows="4" cols="50"  value={description} onChange={(e)=> setDescription(e.target.value)}/>
 
                     </div>  
 
-                    <label htmlFor="vouchers" className= "profile-item">Vouchers:</label>
+                    <label htmlFor="vouchers" className= "profile-item subheading">Vouchers:</label>
                         <div className="profile-item vouchers">  
                             <label htmlFor="voucher1"> 10€</label>
                             <span>Amount: </span>
