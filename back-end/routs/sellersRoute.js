@@ -8,7 +8,7 @@ const voucherPurchase = require("../controllers/sellersController/svoucherbuy.js
 const validator = require("../middleware/autorized.js")
 const paymentDetails = require("../controllers/sellersController/updateIban.js")
 const deleteProfile = require("../controllers/sellersController/deleteprofile.js")
-
+const logOut = require("../controllers/sellersController/logout.js")
 
 //Global end points related to companys. It's taking its roots in server.js where we declared app.use("/company")
 //We are exporting the endpoints and pass them as middleware to ("/company/... --> our declared endpoints")
@@ -21,6 +21,7 @@ module.exports = () => {
     router.post("/vouchers/purchase", voucherPurchase)
     router.post("/profile/payments",validator, paymentDetails)
     router.delete("/profile/delete", validator , deleteProfile)
+    router.get("/logout", logOut)
     
     return router
 }

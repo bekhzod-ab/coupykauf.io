@@ -7,6 +7,7 @@ import logo from "../imgs/coupyKauf-logo.png"
 import burgermenu  from "../imgs/menu.png"
 import React, {useState} from "react";
 import "./Navbar.css";
+import axios from "axios"
 
 
 
@@ -15,7 +16,10 @@ const Navbar = () => {
 
     const {loggedIn,setLoggedIn} = fromFlashcard(SellerContext);
     function logOut(){
-        setLoggedIn(false)
+        axios.get("http://localhost:3333/company/logout")
+        .then(() => setLoggedIn(false))
+        .catch((err) => console.log(err.message))
+        
     };
     const [showMobileNav, setShowMobileNav] = useState(false)
     function toggleMenu(){
@@ -26,7 +30,7 @@ const Navbar = () => {
     const userNav = (
         <>{loggedIn ?
             <> <span> <Link to="/profile" className="link"> My profile </Link></span>
-            <button onClick={logOut}>log out</button> </> :
+            <button onClick={logOut} className="logout">log out</button> </> :
             <>{/* we use the react fragment to display two elements like one (cant use a ternary on two elements)*/}
             <Link to="/signup" className="link"> Sign up </Link> 
             <Link to="/login" className="link"> Log in </Link> </>}</>

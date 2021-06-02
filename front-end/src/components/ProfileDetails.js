@@ -57,11 +57,11 @@ const ProfileDetails = () => {
                     </div>
                     <div className="voucher">
                         <img src={voucher} width="50" alt="10eur"></img>
-                        <p>Available vouchers: {details.amountof10}</p>
+                        <p>Available vouchers: {details.amountof20}</p>
                     </div>
                     <div className="voucher">
                         <img src={voucher} width="50" alt="10eur"></img>
-                        <p>Available vouchers: {details.amountof10}</p>
+                        <p>Available vouchers: {details.amountof30}</p>
                     </div>
                 </div>
             
@@ -72,7 +72,8 @@ const ProfileDetails = () => {
     )
     return (
         <>
-           {!showForm? profileDetails : <ProfileDetailsForm details={details} setDetails={setDetails} showForm={showForm} setShowForm={setShowForm} imagesArray={imagesArray}/>}
+           {!showForm? profileDetails : <ProfileDetailsForm 
+           details={details} setDetails={setDetails} showForm={showForm} setShowForm={setShowForm} imagesArray={imagesArray}/>}
         </>
     )
 }

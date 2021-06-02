@@ -27,6 +27,7 @@ footer {
     
     height: 15rem;
     background: #333333;
+    color: white; 
 }
 /* should i put this in the styles of    */
 .footer-style{
@@ -34,9 +35,26 @@ footer {
     padding: 20px;
     
 }
+.footer-style * {
+    margin-bottom: 10px;
+}
 
-.footer-style form {
-    /* margin-bottom: 3rem; */
+.footer-style div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-style a:visited {
+    text-decoration: none; 
+}
+
+.icon-footer {
+    height: 50px; 
+    width: 50px;
+    display:block;
+    margin: auto;
+    margin-bottom: 10px;
 }
 
 .footer-style h3 {
@@ -59,12 +77,6 @@ footer {
 }
 
 
-
-
-
-body {
-  
-}
 
 header {
     background-color: whitesmoke;

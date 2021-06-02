@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken")
 const signIn = async(req,res) => {
     if (await signin(req.body.email,req.body.password)) {
         const jwToken = jwt.sign({email : req.body.email}, process.env.SECRET)
-        res.cookie("Stoken",jwToken, {httpOnly: true, secure:false})
+        res.cookie("Stoken",jwToken, {httpOnly: false, secure:false})
         res.status(200).send(`Success`)
     } else {
         res.status(400).send(`email or pass`)
