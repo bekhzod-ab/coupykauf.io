@@ -79,12 +79,20 @@ const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm, imagesA
                             <input type="number" required value={phone} onChange={(e)=> setPhone(e.target.value)} /> 
                         </div>
                         
-
-                        <div className="profile-item gallery">  
+                        <div className="profile-item gallery-form">  
                             <label htmlFor="gallery">Add photos:</label> <br/>
-                            <img ref={imgRef1} src={imagesArray[0]} alt="#"></img><input type="file" id="img1" onChange={(e)=>{ imgRef1.current.src =URL.createObjectURL(e.target.files[0]); setgallery_Url1(e.target.files[0]);}} name="img1" accept="image/png, image/jpeg"/>
-                            <img ref={imgRef2} src={imagesArray[1]} alt="#"></img><input type="file" id="img2" onChange={(e)=>{ imgRef2.current.src =URL.createObjectURL(e.target.files[0]); setgallery_Url2(e.target.files[0]);}} name="img2" accept="image/png, image/jpeg"  />
-                            <img ref={imgRef3} src={imagesArray[2]} alt="#"></img><input type="file" id="img3" onChange={(e)=>{ imgRef3.current.src =URL.createObjectURL(e.target.files[0]); setgallery_Url3(e.target.files[0]);}} name="img3"accept="image/png, image/jpeg" />
+                                <figure>
+                                    <img ref={imgRef1} src={imagesArray[0]} alt="#"/>
+                                    <figcaption><input type="file" id="img1" onChange={(e)=>{ imgRef1.current.src =URL.createObjectURL(e.target.files[0]); setgallery_Url1(e.target.files[0]);}} name="img1" accept="image/png, image/jpeg"/></figcaption> 
+                                </figure>
+                                <figure>
+                                    <img ref={imgRef2} src={imagesArray[1]} alt="#"/>
+                                    <figcaption><input type="file" id="img2" onChange={(e)=>{ imgRef2.current.src =URL.createObjectURL(e.target.files[0]); setgallery_Url2(e.target.files[0]);}} name="img2" accept="image/png, image/jpeg"  /></figcaption> 
+                                </figure>
+                                <figure>
+                                    <img ref={imgRef3} src={imagesArray[2]} alt="#"/>
+                                    <figcaption><input type="file" id="img3" onChange={(e)=>{ imgRef3.current.src =URL.createObjectURL(e.target.files[0]); setgallery_Url3(e.target.files[0]);}} name="img3"accept="image/png, image/jpeg" /></figcaption> 
+                                </figure>
                         </div> 
                         
 
@@ -111,23 +119,18 @@ const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm, imagesA
 
                     </div>  
 
-
-                    <div className="profile-item vouchers"> 
-
-                            <input type="checkbox" id="10" name="voucher1" /* value={isOffering10} onChange={(e)=> setisOffering10(e.target.value)} *//>
+                    <label htmlFor="vouchers" className= "profile-item">Vouchers:</label>
+                        <div className="profile-item vouchers">  
                             <label htmlFor="voucher1"> 10€</label>
                             <span>Amount: </span>
                             <input type="number" value ={amountof10} onChange={(e) => setAmountof10(e.target.value)}/>
-                            <input type="checkbox" id="20" name="voucher2" value="Car"/>
                             <label htmlFor="voucher2"> 20€</label>
                             <span>Amount: </span>
                             <input type="number" value ={amountof20} onChange={(e) => setAmountof20(e.target.value)}/>
-                            <input type="checkbox" id="30" name="voucher3" value="Boat"/>
                             <label htmlFor="voucher3"> 30€</label>
                             <span>Amount: </span>
                             <input type="number" value ={amountof30} onChange={(e) => setAmountof30(e.target.value)}/>
-
-                    </div>
+                        </div>
 
 
                 </fieldset>
