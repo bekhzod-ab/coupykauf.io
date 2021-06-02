@@ -1,22 +1,21 @@
-import {useState, useEffect} from "react";
+import {useState,useEffect} from "react";
 import axios from "axios"; 
 import {useHistory} from "react-router-dom"
-
 import SellerContext from "../sellerContext/useContext.js"
 import {useContext} from "react"
 
 const LoginPage = ({Stoken, setStoken}) => {
-    const { setLoggedIn } = useContext(SellerContext)
+    const {checkCookie,loggedIn } = useContext(SellerContext)
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory()
+  
     useEffect(() => {
-        const Stoken = localStorage.getItem("Stoken")
-        setStoken(Stoken) 
-    }, [setStoken])
-    
-
+      if(loggedIn) {
+          history.push("/profile")
+      }
+    }, [])    
     // this handler will send the submitted values from the form to the backend: 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -28,7 +27,7 @@ const LoginPage = ({Stoken, setStoken}) => {
         // we use history method here, and push the route where we want to redirect after login: 
         //when we have the profile page, we will redirect there:
         .then(()=> {
-            setLoggedIn(true)
+            checkCookie()
             history.push("/profile")}) 
     }
     return (
