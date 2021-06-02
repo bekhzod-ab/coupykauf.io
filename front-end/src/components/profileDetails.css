@@ -1,4 +1,3 @@
-
 .gallery img {
     margin: 5px; 
     width: 200px;
@@ -24,11 +23,12 @@
     margin-right: 6px;
 }
 
-.voucher-container {
+.voucher-container, .gallery{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 .voucher {
     width: 30%;
@@ -44,6 +44,7 @@
     color: #E18A07;
     font-size: 18px;
     margin-right: 5px;
+    margin-top: 10px;
    
 }
 
@@ -60,7 +61,7 @@ p {
 }
 
 .vouchers {
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .vouchers label {
@@ -95,4 +96,22 @@ p {
 
 .delete-btn:focus {
     outline: none;
+}
+
+.acc-form {
+    margin: auto; 
+}
+
+.profile-page h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.gallery-form {
+
+}
+
+.gallery-form figure {
+    width: 30%;
+    margin: 10px;  
 }

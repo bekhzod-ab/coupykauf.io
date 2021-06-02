@@ -3,7 +3,9 @@ import axios from "axios";
 import "./profileDetails.css"
 import ProfileDetailsForm from "./ProfileDetailsForm";
 import { FaFacebook, FaInstagram } from "react-icons/fa"
-import voucher from "../imgs/10eur.jpg"
+import voucherTen from "../imgs/10eur.jpg"
+import voucherTwenty from "../imgs/20eur.jpg"
+import voucherThirty from "../imgs/30eur.png"
  // import picture from "../../../back-end/images/sandra@example.com/me.jpeg"
 
 
@@ -51,18 +53,18 @@ const ProfileDetails = () => {
             </div>
             <p className="subheading">Vouchers:</p>
             <div className="voucher-container">
-                    <div className="voucher">
-                        <img src={voucher} width="50" alt="10eur"></img>
-                         <p>Available vouchers: {details.amountof10}</p>
-                    </div>
-                    <div className="voucher">
-                        <img src={voucher} width="50" alt="10eur"></img>
-                        <p>Available vouchers: {details.amountof20}</p>
-                    </div>
-                    <div className="voucher">
-                        <img src={voucher} width="50" alt="10eur"></img>
-                        <p>Available vouchers: {details.amountof30}</p>
-                    </div>
+                 <figure>
+                <img src={voucherTen} alt='missing' />
+                <figcaption>Available vouchers: {details.amountof10}</figcaption> 
+                </figure>
+                <figure>
+                <img src={voucherTwenty} alt='missing' />
+                <figcaption>Available vouchers: {details.amountof20}</figcaption> 
+                </figure>
+                <figure>
+                <img src={voucherThirty} alt='missing' />
+                <figcaption>Available vouchers: {details.amountof30}</figcaption> 
+                </figure>
                 </div>
             
                 <div className="save-edit"> 
