@@ -2,6 +2,7 @@ import {useParams} from "react-router-dom"
 import {useContext} from "react"
 import SellerContext from "../sellerContext/useContext.js"
 import { FaRegCreditCard, FaCcPaypal, FaBitcoin} from "react-icons/fa"
+import "./PurchaseVoucher.css"
 
 export default function Purchase() {
     const {company_name} = useParams()
@@ -11,11 +12,13 @@ export default function Purchase() {
     console.log(details)
     return (
         <div className="voucher_details">
-            <div>
+            <div className="voucher">
                 <ul>
-                    <li>vocuher: {details.company_name} </li>
+                    <li>voucher: {details.company_name} </li>
                     <li>description: {details.description} </li>
                     <li>Voucher: {details.amountof10} $</li>
+                    <li>Voucher: {details.amountof20} $</li>
+                    <li>Voucher: {details.amountof30} $</li>
                 </ul>
             </div>
         
@@ -23,9 +26,11 @@ export default function Purchase() {
                 <form>
                     <fieldset>
                         <legend>Payment method</legend>
-                            <a href="www.visa.com" alt="visa"><FaRegCreditCard className="icon"/></a>
-                            <a href="www.paypal.com" alt="paypal"><FaCcPaypal className="icon"/></a>
-                            <a href="www.binance.com" alt="binance"><FaBitcoin className="icon"/></a>
+                            <div className="paymentMethods"> 
+                            <a href="www.visa.com" alt="visa"><FaRegCreditCard className="iconPayment"/></a>
+                            <a href="www.paypal.com" alt="paypal"><FaCcPaypal className="iconPayment"/></a>
+                            <a href="www.binance.com" alt="binance"><FaBitcoin className="iconPayment"/></a>
+                            </div>
                             <label>Your Name:</label>
                             <input type="text" placeholder="you first and last name" required></input><br/>
 
@@ -42,6 +47,7 @@ export default function Purchase() {
                     </fieldset>
                 </form>
             </div>
+            <button className="buyBtn">BUY</button>
         </div>
     )
 }
