@@ -12,14 +12,22 @@ export default function Purchase() {
     console.log(details)
     return (
         <div className="voucher_details">
-            <div className="voucher">
-                <ul>
-                    <li>voucher: {details.company_name} </li>
-                    <li>description: {details.description} </li>
-                    <li>Voucher: {details.amountof10} $</li>
-                    <li>Voucher: {details.amountof20} $</li>
-                    <li>Voucher: {details.amountof30} $</li>
-                </ul>
+                <div className="voucher">
+                    <ul>
+                        <li>voucher: {details.company_name} </li>
+                        <li>description: {details.description} </li>
+                        <li>available 10 € Vouchers: {details.amountof10}</li>
+                        <li>available 20 € Vouchers: {details.amountof20}</li>
+                        <li>available 30 € Vouchers: {details.amountof30}</li>
+                    </ul>
+                </div>
+            <div className="checkboxes">
+                <input type="checkbox"/>
+                <label>10 €</label>
+                <input type="checkbox"/>
+                <label>20 €</label>
+                <input type="checkbox"/>
+                <label>30 €</label>
             </div>
         
             <div className="purchase">

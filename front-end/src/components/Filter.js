@@ -2,6 +2,7 @@ import "./filter-style.css";
 /*  Control buttons */
 
 const Filter = ({vouchers, setVouchers}) => {
+    const [active, setActive] = useState("");
 return(
 <div id="myBtnContainer">
     <button class="btn /* active */"> Show all</button>
@@ -19,3 +20,4 @@ return(
 export default Filter
 
 /* no functionality yet */
+

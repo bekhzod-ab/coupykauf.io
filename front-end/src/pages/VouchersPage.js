@@ -19,7 +19,7 @@ const VouchersPage = () => {
     return (
         <div className="vouchers-page">
 
-          <div id="myBtnContainer">
+          <div className={pointer} id="myBtnContainer">
               <button class="btn" value="" onClick={(e) => setPointer(e.target.value)}> Show all</button>
               <button class="btn" value="gastronomy" onClick={(e) => (setPointer(e.target.value))}> Gastronomy </button>
               <button class="btn" value="entertainment" onClick={(e) => (setPointer(e.target.value))}> Entertainment</button>

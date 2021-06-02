@@ -88,6 +88,30 @@
     color: black;
 }
 
+/* ---- the active class ---- */
+.gastronomy .btn[value="gastronomy"]{
+    background-color: grey;
+}
+.entertainment .btn[value="entertainment"]{
+    background-color: grey;
+}
+.beauty .btn[value="beauty"]{
+    background-color: grey;
+}
+.tourism .btn[value="tourism"]{
+    background-color: grey;
+}
+.sport .btn[value="sport"]{
+    background-color: grey;
+}
+.hobby .btn[value="hobby"]{
+    background-color: grey;
+}
+.other .btn[value="other"]{
+    background-color: grey;
+}
+
+
 
 @media screen and (min-width: 650px){
     .card{

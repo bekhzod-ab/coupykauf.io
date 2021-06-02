@@ -1,6 +1,6 @@
-* {
-    /* border: 1px solid black; */
-}
+/* * {
+    border: 1px solid black;
+} */
 
 
 
@@ -15,18 +15,25 @@
 
 
 .voucher{
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    
+     */
+    padding-bottom: 30px;
 }
 
 .voucher > ul  {
     list-style-type: none;
+    display: contents;
 }
 .voucher > ul > li {
     padding-top: 10px;
 }
+
+.checkboxes > label{
+    padding-right: 15px;
+    padding-left: 5px;
+    }
 
 .buyBtn{
     font-weight: bold;
@@ -42,6 +49,8 @@
     text-align: center ;
 
     width: 300px;
+
+    margin-bottom: 50px;
 
     /* position: absolute;
     top: 170px; */
