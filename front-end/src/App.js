@@ -19,14 +19,10 @@ function App() {
   const cookies = new Cookies();
   const {loggedIn} = useContext(SellerContext)
   const [Stoken, setStoken] = useState("")
-  useEffect(() => {
-    console.log("wazap")
-    setStoken(cookies.get("Stoken"))
-}, [loggedIn])
-console.log(Stoken)
+
 
 const ProtectedRoute = (props) => {
-  if (!Stoken) return <Redirect to="/login" />
+  if (!loggedIn) return <Redirect to="/login" />
   return <Route {...props} />
 };
 
