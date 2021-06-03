@@ -3,10 +3,10 @@ import axios from "axios";
 import "./profileDetails.css"
 import ProfileDetailsForm from "./ProfileDetailsForm";
 import { FaFacebook, FaInstagram } from "react-icons/fa"
-import voucherTen from "../imgs/10eur.jpg"
-import voucherTwenty from "../imgs/20eur.jpg"
-import voucherThirty from "../imgs/30eur.png"
- // import picture from "../../../back-end/images/sandra@example.com/me.jpeg"
+import voucherTen from "../imgs/ten.png"
+import voucherTwenty from "../imgs/twenty.png"
+import voucherThirty from "../imgs/thirty.png"
+
 
 
 const ProfileDetails = () => {
@@ -54,16 +54,19 @@ const ProfileDetails = () => {
             <p className="subheading">Vouchers:</p>
             <div className="voucher-container">
                  <figure>
-                <img src={voucherTen} alt='missing' />
-                <figcaption>Available vouchers: {details.amountof10}</figcaption> 
+                <img src={voucherTen} alt='missing' className="coin"/>
+                <figcaption className="amount">Available vouchers:</figcaption> 
+                <figcaption className="amount"> {details.amountof10}</figcaption>
                 </figure>
                 <figure>
-                <img src={voucherTwenty} alt='missing' />
-                <figcaption>Available vouchers: {details.amountof20}</figcaption> 
+                <img src={voucherTwenty} alt='missing' className="coin"/>
+                <figcaption className="amount">Available vouchers:</figcaption> 
+                <figcaption className="amount"> {details.amountof20}</figcaption>
                 </figure>
                 <figure>
-                <img src={voucherThirty} alt='missing' />
-                <figcaption>Available vouchers: {details.amountof30}</figcaption> 
+                <img src={voucherThirty} alt='missing' className="coin"/>
+                <figcaption className="amount">Available vouchers:</figcaption> 
+                <figcaption className="amount"> {details.amountof30}</figcaption>
                 </figure>
                 </div>
             

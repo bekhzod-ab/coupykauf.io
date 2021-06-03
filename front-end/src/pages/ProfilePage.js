@@ -13,7 +13,7 @@ const [showAccountSettings, setShowAccountSettings] = useState(true)
            
             <div className="profile-nav"> 
                 <button className="btnHP" onClick={(e) => setShowAccountSettings(false)}> Profile Details</button>
-                <button className="btnHP"onClick={(e) => setShowAccountSettings(true)}> Account Settings </button>
+                <button className="btnHP" onClick={(e) => setShowAccountSettings(true)}> Account Settings </button>
             </div> 
             {showAccountSettings? <AccountDetails/> : <ProfileDetails/>}
          

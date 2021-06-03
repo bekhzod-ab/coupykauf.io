@@ -30,7 +30,7 @@ const SignUpPage = () => {
         <div className="signup-page"> 
             <form onSubmit={handleSubmit}> {/* onSubmit the handleSubmit function is executed */}
             <fieldset className="fieldset"> 
-                <legend>Log in:</legend>
+                <legend>Sign up:</legend>
                 <label htmlFor="name">Company Name:</label>
                 <input 
                 type="text" 

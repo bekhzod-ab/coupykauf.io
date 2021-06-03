@@ -30,6 +30,11 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+.voucher-container * {
+    text-align: center;
+   /*  border: 1px solid black; */
+}
 .voucher {
     width: 30%;
     justify-content: center;
@@ -38,7 +43,10 @@
     font-size: 15px;
 }
 
-
+.amount {
+    font-size: 18px;
+    font-weight: bold;
+}
 .subheading {
     font-weight: bold;
     color: #E18A07;
@@ -81,6 +89,7 @@ p {
     display: flex; 
     justify-content: center;
     border-top: 1px solid grey; 
+    margin-top: 30px;
 }
 
 .delete-btn {
@@ -94,8 +103,9 @@ p {
     border: none;
 }
 
-.delete-btn:focus {
+.delete-btn:hover {
     outline: none;
+    box-shadow: 2px 2px 5px grey;
 }
 
 .acc-form {
@@ -104,15 +114,32 @@ p {
     justify-content: center;
     flex-direction: column;
 }
-
+.coin {
+    border: none; 
+}
 
 fieldset .save{
     margin: auto; 
-    border: none;
+    border: green;
+    color: green;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    background: white;
+    border: 1px solid green;
 }
 
 fieldset .save:hover {
     text-decoration: underline;
+}
+
+fieldset .save:focus{
+    outline: none;
+}
+
+fieldset .save:disabled {
+    display: none;
 }
 
 .profile-page h2 {
@@ -120,9 +147,6 @@ fieldset .save:hover {
     margin-top: 10px;
 }
 
-.gallery-form {
-
-}
 
 .gallery-form figure {
     width: 30%;
