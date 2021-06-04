@@ -16,6 +16,7 @@ const app = express()
 const port = process.env.PORT
 // const buyers = require("./routs/buyersRoute.js")
 const sellers = require("./routs/sellersRoute.js")
+const buyers = require("./routs/buyersRoute.js")
 
 //Running server and connection to DB
 
@@ -50,6 +51,8 @@ app.use(express.urlencoded({extended: true}))
 app.get("/", (req,res) => {
     res.status(200).send("Main Page")
 })
+app.use("/voucher",buyers() )
+app.get("/vouchers", displayAll)
 
 
 app.use("/images", express.static(path.join(__dirname, "images")))
@@ -63,7 +66,8 @@ app.use("/images", express.static(path.join(__dirname, "images")))
 
 //Sellers starting endpoint and then going to sellers() routing where we have all the rest APIs 
 app.use("/company", sellers())
-app.get("/vouchers", displayAll)
+
+
 
 //Serving front-end within this file
 

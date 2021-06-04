@@ -205,7 +205,8 @@ main {
     background-color:  #E18A07;
     cursor: pointer;
     box-shadow: 3px 3px 8px #888888;
-   
+    width: 100px;
+   margin: auto
 }
 
 .fieldset button {

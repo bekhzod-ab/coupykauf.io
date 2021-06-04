@@ -1,5 +1,7 @@
-import {useState, useEffect,} from "react";
+import {useState, useEffect, useContext}  from "react";
 import axios from "axios"; 
+import {useHistory} from "react-router-dom"; 
+import SellerContext from "../sellerContext/useContext.js"
 
 
 
@@ -10,6 +12,8 @@ const AccountDetails = () => {
     const [postIban, setPostIban] = useState("")
     const [postBic, setPostBic] = useState("")
     const [edit, setEdit] = useState(false)
+    const history = useHistory()
+    const {setLoggedIn} = useContext(SellerContext)
 
     const callingCredentials = () => {
         
@@ -34,6 +38,15 @@ const AccountDetails = () => {
 
     }
 
+    function deleteProfile (e) {
+        e.preventDefault()
+        axios.delete("http://localhost:3333/company/profile/delete")
+        .then(()=> {
+            history.push("/")
+            setLoggedIn(false)
+            axios.get("http://localhost:3333/company/logout")})
+        .catch((err) => console.log(err.message))
+    }
     
     return (
         <div className="profile-page"> 
@@ -43,13 +56,13 @@ const AccountDetails = () => {
                             <label className="subheading" for="fname">Registration number:</label><input type="text" id="fname" value={postRnumber}  onChange={(e) => {setPostRnumber(e.target.value)}}></input><br/><br/>
                             <label className="subheading" for="iban">IBAN:</label><input type="text" id="iban" value={postIban}  onChange={(e) => setPostIban(e.target.value)}></input><br/><br/>
                             <label className="subheading" for="bic">BIC:</label><input type="text" id="bic" value={postBic} onChange={(e) => setPostBic(e.target.value)}></input><br/><br/>
-                           <input type="submit" value="save" className="save"/> 
+                           <input type="submit" value="SAVE" className="save"/> 
                         </fieldset> 
                         
                         <button className="btnHP" onClick={(e) => {e.preventDefault() ; setEdit(true)}}>Edit</button>
                 </form>
             <div className="delete-acc"> 
-                <button className="delete-btn">DELETE ACCOUNT</button>
+                <button className="delete-btn" onClick={deleteProfile}>DELETE ACCOUNT</button>
             </div>
         </div>
           
