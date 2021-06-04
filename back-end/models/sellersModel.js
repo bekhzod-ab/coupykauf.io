@@ -182,9 +182,12 @@ async function showAll(){
 }
 
 
-async function voucherBuy(bodyname,input_number) {
-    return await Sellers.findOneAndUpdate({company_name: bodyname}, {$inc: {amountof10: -input_number}})
+async function voucherBuy(bodyname,input_number1,input_number2,input_number3) {
+    return await Sellers.findOneAndUpdate({company_name: bodyname}, {$inc: {amountof10: -input_number1, amountof20: -input_number2, amountof30:-input_number3}})
 }
+
+
+
 
 async function updateIban(localsemail, bodyNumber,bodyIban,bodyBic) {
     try {
