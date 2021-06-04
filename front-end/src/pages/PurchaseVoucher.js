@@ -13,15 +13,28 @@ export default function Purchase() {
     const [quantity2, setQuantity2] = useState()
     const [quantity3, setQuantity3] = useState()
     const details = vouchers.find(el => el.company_name === company_name)
-    const [isZero, setIsZero] = useState(false)
-
+    const [isOneZero, setTenIsZero] = useState(false)
+    const [isThreeZero, setTwentyIsZero] = useState(false)
+    const [isTwoZero, setThirtyIsZero] = useState(false)
 
     useEffect(()=>{
-        if (details.amountof30 === 0 || details.amountof20 === 0) {
-            setIsZero(true)
-        }else if setIsZero(!true)
+        if (details.amountof10 === 0 ) {
+            setTenIsZero(true)
+        }else setTenIsZero(!true)
+    },[]) 
+    
+    useEffect(()=>{
+        if (details.amountof20 === 0 ) {
+            setTwentyIsZero(true)
+        }else setTwentyIsZero(!true)
     },[]) 
 
+    useEffect(()=>{
+        if (details.amountof30 === 0 ) {
+            setThirtyIsZero(true)
+        }else setThirtyIsZero(!true)
+    },[]) 
+    
     const buy = (e) => {
         e.preventDefault()
         axios.post("http://localhost:3333/voucher/invoice", {company: details.company_name, email,quantity1,quantity2,quantity3})
@@ -41,12 +54,17 @@ export default function Purchase() {
                     </ul>
                 </div>
             <div className="checkboxes">
-                <input type="checkbox" disabled={isZero}/>
-                <label>10 €</label><input type="number" value={quantity1} onChange={(e) => setQuantity1(e.target.value)}/>
-                <input type="checkbox"/>
-                <label>20 €</label><input type="number" value={quantity2} onChange={(e)=>setQuantity2(e.target.value)}/>
-                <input type="checkbox" disabled={isZero}/>
-                <label>30 €</label><input type="number" value={quantity3} onChange={(e)=>setQuantity3(e.target.value)}/>
+                <input type="checkbox" disabled={isOneZero}/>
+                <label>10 €</label>
+                <input type="number" value={quantity1} onChange={(e) => setQuantity1(e.target.value)}/>
+
+                <input type="checkbox" disabled={isTwoZero}/>
+                <label>20 €</label>
+                <input type="number" value={quantity2} onChange={(e)=>setQuantity2(e.target.value)}/>
+
+                <input type="checkbox" disabled={isThreeZero}/>
+                <label>30 €</label>
+                <input type="number" value={quantity3} onChange={(e)=>setQuantity3(e.target.value)}/>
             </div>
         
             <div className="purchase">
