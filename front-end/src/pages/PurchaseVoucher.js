@@ -1,5 +1,5 @@
 import {useParams} from "react-router-dom"
-import {useContext, useState} from "react"
+import {useContext, useState,useEffect} from "react"
 import SellerContext from "../sellerContext/useContext.js"
 import { FaRegCreditCard, FaCcPaypal, FaBitcoin} from "react-icons/fa"
 import "./PurchaseVoucher.css"
@@ -9,13 +9,23 @@ export default function Purchase() {
     const {company_name} = useParams()
     const {vouchers} = useContext(SellerContext)
     const [email,setEmail] = useState("")
-    const [quantity, setQuantity] = useState()
+    const [quantity1, setQuantity1] = useState()
+    const [quantity2, setQuantity2] = useState()
+    const [quantity3, setQuantity3] = useState()
     const details = vouchers.find(el => el.company_name === company_name)
-    
+    const [isZero, setIsZero] = useState(false)
+
+
+    useEffect(()=>{
+        if (details.amountof30 === 0 || details.amountof20 === 0) {
+            setIsZero(true)
+        }else if setIsZero(!true)
+    },[]) 
+
     const buy = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3333/voucher/invoice", {company: details.company_name, email,quantity})
-        .then(()=> alert("Please check you email"))
+        axios.post("http://localhost:3333/voucher/invoice", {company: details.company_name, email,quantity1,quantity2,quantity3})
+        .then(()=> alert("Please check your email"))
         .catch()
     }
 
@@ -31,12 +41,12 @@ export default function Purchase() {
                     </ul>
                 </div>
             <div className="checkboxes">
+                <input type="checkbox" disabled={isZero}/>
+                <label>10 €</label><input type="number" value={quantity1} onChange={(e) => setQuantity1(e.target.value)}/>
                 <input type="checkbox"/>
-                <label>10 €</label><input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
-                <input type="checkbox"/>
-                <label>20 €</label>
-                <input type="checkbox"/>
-                <label>30 €</label>
+                <label>20 €</label><input type="number" value={quantity2} onChange={(e)=>setQuantity2(e.target.value)}/>
+                <input type="checkbox" disabled={isZero}/>
+                <label>30 €</label><input type="number" value={quantity3} onChange={(e)=>setQuantity3(e.target.value)}/>
             </div>
         
             <div className="purchase">
