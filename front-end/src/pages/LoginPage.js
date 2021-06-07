@@ -31,9 +31,9 @@ const LoginPage = ({Stoken, setStoken}) => {
             checkCookie()
             history.push("/profile")}) 
         .catch((err) =>  
-        console.log(err.message), 
+        {console.log(err.message); 
         setUserExists(false)
-        )
+        })
     }
     return (
         <div className="login-page"> 

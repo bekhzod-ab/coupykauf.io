@@ -13,7 +13,7 @@ const AboutUsPage = () =>{
              <h3>MEET THE TEAM</h3>
             <figure>
                 <img src={Bek} alt='missing' />
-                <figcaption>Bekhzod Abdulaev</figcaption>
+                <figcaption><b>Bekhzod Abdulaev</b></figcaption>
                 <figcaption>Back-end Developer</figcaption>
                 <figcaption>Tech Lead</figcaption>
                 <figcaption>QA</figcaption>
@@ -21,7 +21,7 @@ const AboutUsPage = () =>{
             </figure>
             <figure>
                 <img src={Sandra} alt='missing' />
-                <figcaption>Sandra Almoli</figcaption>
+                <figcaption> <b>Sandra Almoli</b></figcaption>
                 <figcaption>Front-end Developer</figcaption>
                 <figcaption>Product Owner</figcaption>
                 <figcaption>UI/UX Design</figcaption>
@@ -29,7 +29,7 @@ const AboutUsPage = () =>{
             </figure>
             <figure>
                 <img src={Karl} alt='missing' />
-                <figcaption>Karl Langer</figcaption>
+                <figcaption><b>Karl Langer</b></figcaption>
                 <figcaption>Front-end Developer</figcaption>
                 <figcaption>UI/UX Design</figcaption>
                 <figcaption>Responsive Design</figcaption>

@@ -224,3 +224,7 @@ main {
     margin-bottom: 5px;
     background-color: rgb(253, 236, 236);
 }
+
+button:focus {
+    outline: none;
+}
