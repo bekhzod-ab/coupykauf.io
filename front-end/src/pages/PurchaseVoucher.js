@@ -17,37 +17,18 @@ export default function Purchase() {
     const [isTwoZero, setTwentyIsZero] = useState(false)
     const [isThreeZero, setThirtyIsZero] = useState(false)
 
-   useEffect(() => {
-        if (details.amountof10 === 0 || details.amountof10 ===  null ) {
-            setTenIsZero(true)
-        }else setTenIsZero(!true)
-   
-    },[])
 
-    useEffect(() => {
-        if (details.amountof20 === 0 || details.amountof20 ===  null ) {
-            setTwentyIsZero(true)
-        }else setTwentyIsZero(!true)
-        
-    },[])
-    
-    useEffect(() => {
-            if (details.amountof30 === 0 || details.amountof30 ===  null ) {
-                setThirtyIsZero(true)
-            }else setThirtyIsZero(!true)
-            
-    },[])
+    useEffect(()=> {
 
-   /*  useEffect(()=> {
-        if (details.amountof10 === 0 || details.amountof10 ===  null) {
-            setTenIsZero(true)
-        } else if (details.amountof20 === 0 || details.amountof20 ===  null){
-            setTwentyIsZero(true)
-        } else if (details.amountof30 === 0 || details.amountof30 ===  null ) {
+        if (details.amountof10 <= 0 || details.amountof10 ===  null) {
+            setTenIsZero(true)}
+        if (details.amountof20 === 0 || details.amountof20 ===  null){
+            setTwentyIsZero(true)}
+        if (details.amountof30 === 0 || details.amountof30 ===  null ) {
             setThirtyIsZero(true)
         }
         
-    },[]) */
+    },[]) 
     
     const buy = (e) => {
         e.preventDefault()
@@ -72,15 +53,15 @@ export default function Purchase() {
             <div className="checkboxes">
                 <input type="checkbox" disabled={isOneZero}/>
                 <label>10 €</label>
-                <input type="number" value={quantity1} onChange={(e) => setQuantity1(e.target.value)}/>
+                <input type="number" disabled={isOneZero} value={quantity1} onChange={(e) => setQuantity1(e.target.value)}/>
 
                 <input type="checkbox" disabled={isTwoZero}/>
                 <label>20 €</label>
-                <input type="number" value={quantity2} onChange={(e)=>setQuantity2(e.target.value)}/>
+                <input type="number" disabled={isTwoZero} value={quantity2} onChange={(e)=>setQuantity2(e.target.value)}/>
 
                 <input type="checkbox" disabled={isThreeZero}/>
                 <label>30 €</label>
-                <input type="number" value={quantity3} onChange={(e)=>setQuantity3(e.target.value)}/>
+                <input type="number" disabled={isThreeZero} value={quantity3} onChange={(e)=>setQuantity3(e.target.value)}/>
             </div>
         
             <div className="purchase">

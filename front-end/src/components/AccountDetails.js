@@ -54,8 +54,8 @@ const AccountDetails = () => {
                     <form className="acc-form"onSubmit={submitHandler}>
                         <fieldset disabled = {!edit}>
                             <label className="subheading" for="fname">Registration number:</label><input type="text" id="fname" value={postRnumber}  onChange={(e) => {setPostRnumber(e.target.value)}}></input><br/><br/>
-                            <label className="subheading" for="iban">IBAN:</label><input type="text" id="iban" value={postIban}  onChange={(e) => setPostIban(e.target.value)}></input><br/><br/>
-                            <label className="subheading" for="bic">BIC:</label><input type="text" id="bic" value={postBic} onChange={(e) => setPostBic(e.target.value)}></input><br/><br/>
+                            <label className="subheading" for="iban">IBAN:</label><input className="account" type="text" id="iban" value={postIban}  onChange={(e) => setPostIban(e.target.value)}></input><br/><br/>
+                            <label className="subheading" for="bic">BIC:</label><input className="account" type="text" id="bic" value={postBic} onChange={(e) => setPostBic(e.target.value)}></input><br/><br/>
                            <input type="submit" value="SAVE" className="save"/> 
                         </fieldset> 
                         

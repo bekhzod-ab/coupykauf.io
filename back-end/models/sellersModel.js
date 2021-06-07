@@ -1,11 +1,7 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-const nodemailer = require("nodemailer")
-const pdf = require("pdf-creator-node")
-const fs = require("fs")
-// const html = fs.readFileSync("template.html", "utf8");
 
-// Creating schema 
+
 const sellerSchema = new mongoose.Schema({
 
     company_name: {
@@ -93,17 +89,14 @@ const sellerSchema = new mongoose.Schema({
 
 })
 
-// Storing the collection in constant with applied schema to it
 const Sellers = mongoose.connection.model("sellers", sellerSchema)
 
 
-//function to register new company accepting parameters from front-end and assign them to as values from schemas keys.
 function addCompany(bodyName,bodyNumber,bodyEmail,bodyPassword) {
      const newSeller = new Sellers({
         company_name: bodyName,
         reg_number: bodyNumber,
         email: bodyEmail,
-        // password is being encrypted with 12 level of hashing by bcrypt
         password: bcrypt.hashSync(bodyPassword,12)
     })
     return newSeller.save()
@@ -118,13 +111,13 @@ function addCompany(bodyName,bodyNumber,bodyEmail,bodyPassword) {
 }
 
 
-// validating login, accepting email and password passed from front-end. 
+
 async function signin(bodyEmail, bodyPassword) {
     const seller = await Sellers.findOne({email: bodyEmail})
     if(!seller) {
         return false
     }
-    //data password being de-crypted by unhashing it and comparing to one that passed from front-end
+
     else if(bcrypt.compareSync(bodyPassword.toString(), seller.password)){
         return true
     }else {
@@ -157,9 +150,7 @@ async function profileInfoUpdate(cookiEmail, category, address, phone, descripti
 
 
 async function updateImage(localsemail,images) {
-    // if(!gallery_Url2 || !gallery_Url3 ) {
-    //     return Sellers.findOneAndUpdate({email: localsemail}, {gallery_Url1})
-    // }
+
     const seller = await Sellers.findOne({email: localsemail})
     const newImages = [];
     console.log("seller",seller);
@@ -182,8 +173,12 @@ async function showAll(){
 }
 
 
-async function voucherBuy(bodyname,input_number1,input_number2,input_number3) {
-    return await Sellers.findOneAndUpdate({company_name: bodyname}, {$inc: {amountof10: -input_number1, amountof20: -input_number2, amountof30:-input_number3}})
+async function voucherBuy(bodyname,amountof10,amountof20,amountof30) {
+    const cret = {}
+    if(amountof10)  cret.amountof10 = -Number(amountof10);
+    if(amountof20)  cret.amountof20 = -Number(amountof20);
+    if(amountof30)  cret.amountof30 = -Number(amountof30);
+    return await Sellers.findOneAndUpdate({company_name: bodyname}, {$inc: {...cret}})
 }
 
 
@@ -215,76 +210,6 @@ async function deleteAccount(locasemail) {
 
 
 
-
-
-
-
-
-async function createPdf(bodyuuId,reslocals){
-    let options = {
-        format: "A5",
-        orientation: "landscape",
-        border: "10mm",
-        header: {
-            height: "45mm",
-            contents: '<div style="text-align: center;">Author: Coupykauf</div>'
-        }}
-
-    let voucher = {
-        voucherId: bodyuuId
-    }
-
-    let document = {
-        
-        data: {
-          voucher: voucher,
-        },
-        path: `../front-end/public/vouchers/${reslocals}.pdf`,
-        type: "",
-      };
-
-    pdf.create(document, options)
-    .then((res) => {
-    console.log(res);
-    })
-    .catch((error) => {
-    console.error(error);
-    });      
-}
-
-
-
-
-
-
-
-
-
-
-async function sendEmail(bodyEmail) {
-
-    let transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {user: "coupykauf@gmail.com", pass: "2021"}
-    })
-    let mailOptions = {
-        from: "coupykauf@gmail.com",
-        to: bodyEmail,
-        subject: `coupon from ${company_name}`,
-        text: "Hello user",
-        attachments: [{"filename": `../front-end/public/vouchers/${res.locals.email}`, "content" : data}] 
-    }
-    transporter.sendMail(mailOptions, (err,info)=>{
-        if(err) {
-            console.log(err)
-        }else console.log(info.response)
-    })
-}
-
-
-
-
-
 //Function are exported and called in controllers
 module.exports = {
     addCompany,
@@ -295,7 +220,5 @@ module.exports = {
     voucherBuy,
     showAll,
     updateIban,
-    deleteAccount,
-    sendEmail,
-    createPdf
+    deleteAccount
 }

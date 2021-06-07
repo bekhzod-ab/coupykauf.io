@@ -185,7 +185,7 @@ main {
     margin-top: 10px;
 }
 
-.fieldset input {
+.fieldset input, .fieldset .doesnt-exist{
     padding: 5px;
     border-radius: 5px;
     width: 95%;
@@ -216,5 +216,11 @@ main {
     
 }
 
-
-
+.doesnt-exist {
+    border: 1px solid red !important;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 5px;
+    background-color: rgb(253, 236, 236);
+}
