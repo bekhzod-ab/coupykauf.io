@@ -11,9 +11,10 @@ import LoginPage from "./pages/LoginPage";
 import ContactPage from "./pages/ContactPage";
 import './index.css';
 import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
-import { useState, useEffect, useContext } from "react"
+import { useState, useContext } from "react"
 import PurchaseVoucher from "./pages/PurchaseVoucher.js"
 import SellerContext from "./sellerContext/useContext.js"
+import Confirmation from "./pages/PurchaseConfirm.js"
 
 function App() {
   const cookies = new Cookies();
@@ -38,8 +39,8 @@ const ProtectedRoute = (props) => {
                 <Route exact path="/"> <HomePage/> </Route>
                 <Route exact path="/about"> <AboutUsPage/> </Route>
                 <Route exact path="/vouchers"> <VouchersPage/> </Route>
+                <Route exact path="/vouchers/:company_name/:email"><Confirmation/></Route>
                 <Route exact path="/vouchers/:company_name"><PurchaseVoucher/></Route>
-              {/*   <Route exact path="/vouchers/:articleNo"><Purchase/></Route> */}
                 <Route exact path="/faq"> <FaqPage/> </Route>
                 <Route exact path="/contact"> <ContactPage/> </Route>
                 <Route exact path="/signup"> <SignUpPage/> </Route>

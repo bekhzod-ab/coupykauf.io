@@ -4,7 +4,7 @@ import {useHistory} from "react-router-dom"
 import SellerContext from "../sellerContext/useContext.js"
 import {useContext} from "react"
 
-const LoginPage = ({Stoken, setStoken}) => {
+const LoginPage = () => {
     const {checkCookie,loggedIn } = useContext(SellerContext)
     
     const [email, setEmail] = useState("");
@@ -23,7 +23,7 @@ const LoginPage = ({Stoken, setStoken}) => {
         // For now, we are using localhost, I will need to change the route later
         axios.post("http://localhost:3333/company/login", {  
         // inside the axios post req, we are passing the values defined in the useState hooks, as a second argument: 
-            email, password, Stoken
+            email, password
         })
         // we use history method here, and push the route where we want to redirect after login: 
         //when we have the profile page, we will redirect there:
