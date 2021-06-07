@@ -114,7 +114,7 @@ const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm, imagesA
                     <div className="profile-item"> 
 
                         <label htmlFor="personal-ms"className="subheading">Description:</label>
-                        <textarea maxLength="200" id="personal-msg" name="personal-msg" rows="4" cols="50"  value={description} onChange={(e)=> setDescription(e.target.value)}/>
+                        <textarea maxLength="300" id="personal-msg" name="personal-msg" rows="4" cols="50"  value={description} onChange={(e)=> setDescription(e.target.value)}/>
 
                     </div>  
 
