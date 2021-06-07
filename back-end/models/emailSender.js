@@ -23,7 +23,6 @@ function sendEmail( email, subject,  message, callback) {
       console.log(error);
       callback(false);
     } else {
-      console.log(info.response);
       callback(true);
     }
   });
