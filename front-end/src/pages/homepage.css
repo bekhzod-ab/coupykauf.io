@@ -62,6 +62,7 @@ landing + div {
 @media screen and (max-width: 350px){
     h1{
         font-size: 50px;
+        margin-bottom: 40px;
     }
     p{
         font-size: 20px;

@@ -19,7 +19,7 @@ const HomePage = () => {
                 <p>ARE YOU A LOCAL BUSINESS? <br/> </p>
                     <form action="/signup">
                     <button className="btnHP">REGISTER YOUR COMPANY</button>
-                  </form>
+            </form>
             </div>
 
         </div>
