@@ -41,9 +41,9 @@ export default function Purchase() {
         <div className="voucher_details">
                 <div className="voucher">
                     <ul>
-                        <li> <h2> voucher: </h2> <br/>
+                        <li> <h2> Voucher: </h2> <br/>
                         <span>{details.company_name}</span></li>
-                        <li> <h2> description: </h2> <br/>
+                        <li> <h2> Description: </h2> <br/>
                         <span>{details.description}</span></li>
                         <li>available 10 € Vouchers: {details.amountof10}</li>
                         <li>available 20 € Vouchers: {details.amountof20}</li>

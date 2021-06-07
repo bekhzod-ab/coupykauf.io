@@ -8,8 +8,8 @@ const Card = ({voucher}) => {
         <div className="profile-sidebar">
           <img src={voucher.images_array[0]} alt=""/>
           
-          <p>p: {voucher.phone} </p>
-          <p>a: {voucher.address} </p>
+          <p>P: {voucher.phone} </p>
+          <p>A: {voucher.address} </p>
           <a href="https://www.facebook.com/"><FaFacebook className="iconOnCard" /></a> 
           <a href="https://instagram.com"> <FaInstagram className="iconOnCard"/> </a> 
         </div>
