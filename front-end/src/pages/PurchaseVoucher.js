@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom"
+import {useParams, Redirect, useHistory} from "react-router-dom"
 import {useContext, useState,useEffect} from "react"
 import SellerContext from "../sellerContext/useContext.js"
 import { FaRegCreditCard, FaCcPaypal, FaBitcoin} from "react-icons/fa"
@@ -6,6 +6,7 @@ import "./PurchaseVoucher.css"
 import axios from "axios"
 
 export default function Purchase() {
+    const history = useHistory()
     const {company_name} = useParams()
     const {vouchers} = useContext(SellerContext)
     const [email,setEmail] = useState("")
@@ -22,9 +23,9 @@ export default function Purchase() {
 
         if (details.amountof10 <= 0 || details.amountof10 ===  null) {
             setTenIsZero(true)}
-        if (details.amountof20 === 0 || details.amountof20 ===  null){
+        if (details.amountof20 <= 0 || details.amountof20 ===  null){
             setTwentyIsZero(true)}
-        if (details.amountof30 === 0 || details.amountof30 ===  null ) {
+        if (details.amountof30 <= 0 || details.amountof30 ===  null ) {
             setThirtyIsZero(true)
         }
         
@@ -33,9 +34,12 @@ export default function Purchase() {
     const buy = (e) => {
         e.preventDefault()
         axios.post("http://localhost:3333/voucher/invoice", {company: details.company_name, email,quantity1,quantity2,quantity3})
-        .then(()=> alert("Please check your email"))
-        .catch()
-    }
+            .then(()=> {
+                history.push(`/vouchers/${company_name}/${email}`)
+                })
+            
+            .catch()
+        }
 
     return (
         <div className="voucher_details">

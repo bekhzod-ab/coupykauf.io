@@ -100,3 +100,34 @@ fieldset {
 .voucher > ul >:nth-child(2) > span{
     text-align: justify;
 }
+
+.confcontainer{
+    display: flex;
+    width: 60%;
+    margin: auto;
+    align-items: center;
+    height: 100%;
+}
+
+
+
+.confirmation {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+    border-radius: 10px;
+    padding: 7px;
+    margin: 0 auto;
+    
+}
+
+.confirmation p {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.confirmation span {
+    color: #E18A07;
+    margin-left: 10px;
+}
