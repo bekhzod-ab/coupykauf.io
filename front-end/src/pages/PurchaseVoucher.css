@@ -82,3 +82,21 @@ fieldset {
     padding: unset;
     color: black;
 }
+
+.checkboxes > input {
+    width: 45px;
+}
+
+.checkboxes > input[type="number"] {
+    margin-right: 20px;
+}
+.voucher > ul > :first-child > span {
+    font-size: 32px
+}
+.voucher > ul > :first-child{
+    padding-bottom: 25px;
+}
+
+.voucher > ul >:nth-child(2) > span{
+    text-align: justify;
+}
