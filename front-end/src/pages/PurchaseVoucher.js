@@ -14,26 +14,40 @@ export default function Purchase() {
     const [quantity3, setQuantity3] = useState()
     const details = vouchers.find(el => el.company_name === company_name)
     const [isOneZero, setTenIsZero] = useState(false)
-    const [isThreeZero, setTwentyIsZero] = useState(false)
-    const [isTwoZero, setThirtyIsZero] = useState(false)
+    const [isTwoZero, setTwentyIsZero] = useState(false)
+    const [isThreeZero, setThirtyIsZero] = useState(false)
 
-    useEffect(()=>{
-        if (details.amountof10 === 0 ) {
+   useEffect(() => {
+        if (details.amountof10 === 0 || details.amountof10 ===  null ) {
             setTenIsZero(true)
         }else setTenIsZero(!true)
-    },[]) 
-    
-    useEffect(()=>{
-        if (details.amountof20 === 0 ) {
+   
+    },[])
+
+    useEffect(() => {
+        if (details.amountof20 === 0 || details.amountof20 ===  null ) {
             setTwentyIsZero(true)
         }else setTwentyIsZero(!true)
-    },[]) 
+        
+    },[])
+    
+    useEffect(() => {
+            if (details.amountof30 === 0 || details.amountof30 ===  null ) {
+                setThirtyIsZero(true)
+            }else setThirtyIsZero(!true)
+            
+    },[])
 
-    useEffect(()=>{
-        if (details.amountof30 === 0 ) {
+   /*  useEffect(()=> {
+        if (details.amountof10 === 0 || details.amountof10 ===  null) {
+            setTenIsZero(true)
+        } else if (details.amountof20 === 0 || details.amountof20 ===  null){
+            setTwentyIsZero(true)
+        } else if (details.amountof30 === 0 || details.amountof30 ===  null ) {
             setThirtyIsZero(true)
-        }else setThirtyIsZero(!true)
-    },[]) 
+        }
+        
+    },[]) */
     
     const buy = (e) => {
         e.preventDefault()
