@@ -39,7 +39,6 @@ figure img {
 .aboutus-page p {
     margin-bottom: 30px;
     text-align: justify;
-    word-wrap: break-word;
-    word-break: break-all;
     width: 100%;
+    overflow-wrap: normal;
 }
