@@ -9,7 +9,8 @@ const LoginPage = () => {
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory()
+    const [userExists, setUserExists] = useState(true);
+    const history = useHistory();
   
     useEffect(() => {
       if(loggedIn) {
@@ -29,6 +30,10 @@ const LoginPage = () => {
         .then(()=> {
             checkCookie()
             history.push("/profile")}) 
+        .catch((err) =>  
+        {console.log(err.message); 
+        setUserExists(false)
+        })
     }
     return (
         <div className="login-page"> 
@@ -44,6 +49,7 @@ const LoginPage = () => {
                 <label>Password : </label>
                 <input type="password" placeholder="Enter Password" name="password" required value={password} onChange={(e)=> {setPassword(e.target.value)}}/>  
                 <br/> 
+                {userExists === false ? <div className="doesnt-exist">Oops! User doesn't exist.</div>: null}
                 <button type="submit">LOG IN</button>   
             </fieldset>
             </form>     

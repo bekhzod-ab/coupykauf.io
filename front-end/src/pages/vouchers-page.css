@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
 }
 
 .card {
@@ -16,6 +15,7 @@
     margin: 20px;
     padding: 20px;
     position: relative; /* this is too give rthe button a absolute position, which can only happen if there is a parent with an absolute or relative position */
+    font-size: 13px;
 }
 
 .card * {
@@ -31,6 +31,10 @@
 
 .card div {
     padding: 5px; 
+}
+.card .message {
+    text-align: justify;
+    width: 300px;
 }
 
 .profile-sidebar {
@@ -111,7 +115,9 @@
     background-color: grey;
 }
 
-
+.profile-main > p {
+    padding: none;
+}
 
 /* .active{
     background-color: grey;

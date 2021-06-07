@@ -57,3 +57,13 @@ landing + div {
     background-color:  #cf8009;
     
 }
+
+
+@media screen and (max-width: 350px){
+    h1{
+        font-size: 50px;
+    }
+    p{
+        font-size: 20px;
+    }
+}

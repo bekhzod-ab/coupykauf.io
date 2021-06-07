@@ -20,26 +20,26 @@ const VouchersPage = () => {
         <div className="vouchers-page">
 
           <div className={pointer} id="myBtnContainer">
-              <button class="btn" value="" onClick={(e) => setPointer(e.target.value)}> Show all</button>
-              <button class="btn" value="gastronomy" onClick={(e) => (setPointer(e.target.value))}> Gastronomy </button>
-              <button class="btn" value="entertainment" onClick={(e) => (setPointer(e.target.value))}> Entertainment</button>
-              <button class="btn" value="beauty" onClick={(e) => (setPointer(e.target.value))}> Beauty</button>
-              <button class="btn" value="tourism" onClick={(e) => (setPointer(e.target.value))}> Tourism</button>
-              <button class="btn" value="sport" onClick={(e) => (setPointer(e.target.value))}> Sport</button>
-              <button class="btn" value="hobby" onClick={(e) => (setPointer(e.target.value))}> Hobby</button>
-              <button class="btn" value="other" onClick={(e) => (setPointer(e.target.value))}> Other</button>
+                <button class="btn" value="" onClick={(e) => setPointer(e.target.value)}> Show all</button>
+                <button class="btn" value="gastronomy" onClick={(e) => (setPointer(e.target.value))}> Gastronomy </button>
+                <button class="btn" value="entertainment" onClick={(e) => (setPointer(e.target.value))}> Entertainment</button>
+                <button class="btn" value="beauty" onClick={(e) => (setPointer(e.target.value))}> Beauty</button>
+                <button class="btn" value="tourism" onClick={(e) => (setPointer(e.target.value))}> Tourism</button>
+                <button class="btn" value="sport" onClick={(e) => (setPointer(e.target.value))}> Sport</button>
+                <button class="btn" value="hobby" onClick={(e) => (setPointer(e.target.value))}> Hobby</button>
+                <button class="btn" value="other" onClick={(e) => (setPointer(e.target.value))}> Other</button>
 
-          </div>
-          
+            </div>
+            
 
-          <ul >
-           
-        {filtered.map((voucher,index) => {
-                return <Card voucher={voucher} key={index}></Card>            
-            })}
-          </ul>
+            <ul >
+            
+            {filtered.map((voucher,index) => {
+                    return <Card voucher={voucher} key={index}></Card>            
+                })}
+            </ul>
 
-           
+            
 </div>
     )
 }
