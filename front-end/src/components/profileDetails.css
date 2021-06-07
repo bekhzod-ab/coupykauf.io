@@ -153,7 +153,7 @@ fieldset .save:disabled {
     margin: 10px;  
 }
 
-.profile-page input[type=file], input[type=text], input[type=number], input[type=url] {
+.profile-page input[type=file], input[type=text], input[type=number], input[type=url], input[type=email] {
     border: 1px solid #E18A07; 
     border-radius: 5px;
     height: 30px;

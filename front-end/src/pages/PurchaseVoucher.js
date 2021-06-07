@@ -41,8 +41,10 @@ export default function Purchase() {
         <div className="voucher_details">
                 <div className="voucher">
                     <ul>
-                        <li>voucher: {details.company_name}</li>
-                        <li>description: {details.description}</li>
+                        <li> <h2> voucher: </h2> <br/>
+                        <span>{details.company_name}</span></li>
+                        <li> <h2> description: </h2> <br/>
+                        <span>{details.description}</span></li>
                         <li>available 10 € Vouchers: {details.amountof10}</li>
                         <li>available 20 € Vouchers: {details.amountof20}</li>
                         <li>available 30 € Vouchers: {details.amountof30}</li>
@@ -81,7 +83,8 @@ export default function Purchase() {
                             <input type="number" required ></input><br/>
 
                             <label>exp date:</label>
-                            <input type="number" required></input>
+                            <input type="number" required></input><br/>
+
                             <label>CVV:</label>
                             <input type="number" required></input> 
                     </fieldset>
