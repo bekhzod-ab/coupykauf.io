@@ -25,15 +25,24 @@
 .voucher > ul  {
     list-style-type: none;
     display: contents;
+    
 }
 .voucher > ul > li {
     padding-top: 10px;
 }
+.voucher > ul > :nth-child(2), .voucher > ul > :nth-child(7){
+    padding-top: 30px;
+}
 
 .checkboxes > label{
-    padding-right: 15px;
+    padding-right: 5px;
     padding-left: 5px;
     }
+   
+.checkboxes > h3 {
+    text-align: center;
+    padding: 30px 0 20px 0;
+}
 
 .buyBtn{
     font-weight: bold;
@@ -48,7 +57,7 @@
     text-decoration: none;
     text-align: center ;
 
-    width: 300px;
+    width: 212px;
 
     margin-bottom: 50px;
 
@@ -131,4 +140,10 @@ fieldset {
 .confirmation span {
     color: #E18A07;
     margin-left: 10px;
+}
+
+fieldset > legend{
+    text-align: center;
+    padding-top: 75px;
+    font-weight: bold;
 }
