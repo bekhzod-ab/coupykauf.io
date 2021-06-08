@@ -145,4 +145,5 @@ fieldset {
 fieldset > legend{
     text-align: center;
     padding-top: 75px;
+    font-weight: bold;
 }
