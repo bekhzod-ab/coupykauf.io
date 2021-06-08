@@ -13,7 +13,7 @@ export default function Purchase() {
     const [quantity1, setQuantity1] = useState()
     const [quantity2, setQuantity2] = useState()
     const [quantity3, setQuantity3] = useState()
-    const details = vouchers.find(el => el.company_name === company_name)
+    const details = vouchers.find(el => el.company_name === company_name) || {}
     const [isOneZero, setTenIsZero] = useState(false)
     const [isTwoZero, setTwentyIsZero] = useState(false)
     const [isThreeZero, setThirtyIsZero] = useState(false)

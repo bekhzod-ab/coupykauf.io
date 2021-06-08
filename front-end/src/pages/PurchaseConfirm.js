@@ -6,8 +6,8 @@ export default function Confirmation(){
     const history = useHistory()
     const {email} = useParams()
 
-    const BackToVouchers = (e) => {
-        e.preventDefault()
+    const BackToVouchers = () => {
+        
         history.push("/vouchers")
     }
 

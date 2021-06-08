@@ -15,7 +15,9 @@ const voucherPurchase = async(req,res) => {
         const message = ejs.render(html, {
             company: req.body.company,
             date: `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`,
-            time: `${date.getHours()}:${date.getMinutes()}`
+            time: `${date.getHours()}:${date.getMinutes()}`,
+            price: quantity1*10 + quantity2*20 + quantity3*30
+            
         })
 
 
