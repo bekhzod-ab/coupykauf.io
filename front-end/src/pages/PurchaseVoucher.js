@@ -55,15 +55,15 @@ export default function Purchase() {
                     </ul>
                 </div>
             <div className="checkboxes">
-                <input type="checkbox" disabled={isOneZero}/>
+                <h3>Choose your Vouchers</h3>
                 <label>10 €</label>
                 <input type="number" disabled={isOneZero} value={quantity1} onChange={(e) => setQuantity1(e.target.value)}/>
 
-                <input type="checkbox" disabled={isTwoZero}/>
+                
                 <label>20 €</label>
                 <input type="number" disabled={isTwoZero} value={quantity2} onChange={(e)=>setQuantity2(e.target.value)}/>
 
-                <input type="checkbox" disabled={isThreeZero}/>
+                
                 <label>30 €</label>
                 <input type="number" disabled={isThreeZero} value={quantity3} onChange={(e)=>setQuantity3(e.target.value)}/>
             </div>
@@ -78,7 +78,7 @@ export default function Purchase() {
                             <a href="www.binance.com" alt="binance"><FaBitcoin className="iconPayment"/></a>
                             </div>
                             <label>Your Name:</label>
-                            <input type="text" placeholder="you first and last name" required></input><br/>
+                            <input type="text" placeholder="your first and last name" required></input><br/>
 
                             <label>email:</label>
                             <input type="email" placeholder="name@example.com" value={email} required onChange={(e) => setEmail(e.target.value)}></input><br/>
