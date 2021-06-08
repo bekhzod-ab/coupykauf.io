@@ -6,13 +6,13 @@ import { FaFacebook, FaInstagram } from "react-icons/fa"
 import voucherTen from "../imgs/ten.png"
 import voucherTwenty from "../imgs/twenty.png"
 import voucherThirty from "../imgs/thirty.png"
-
+import placeholder from "../imgs/placeholder-store.png"
 
 
 const ProfileDetails = () => {
     const [showForm, setShowForm] = useState(false); 
     const [details, setDetails] = useState([])
-    const [imagesArray, setImagesArray] = useState([]);
+    const [imagesArray, setImagesArray] = useState([placeholder, placeholder, placeholder]);
    
     useEffect(()=>{
         axios.get("http://localhost:3333/company/profile")

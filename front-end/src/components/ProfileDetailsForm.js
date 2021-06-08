@@ -1,6 +1,8 @@
 import { FaFacebook, FaInstagram } from "react-icons/fa"
 import {useState, useRef} from "react";
 import axios from "axios"; 
+import placeholder from "../imgs/placeholder-store.png"
+
 axios.defaults.withCredentials = true
 
 
@@ -81,15 +83,16 @@ const ProfileDetailsForm = ({setShowForm, details, setDetails, showForm, imagesA
                          <label htmlFor="gallery" className="profile-item subheading">Add photos:</label>
                         <div className="profile-item gallery-form">  
                                 <figure>
-                                    <img ref={imgRef1} src={imagesArray[0]} alt="#"/>
+                                    {!imagesArray[0]?  <img ref={imgRef1} src={placeholder} alt="photo1"/> :  <img ref={imgRef1} src={imagesArray[0]} alt="photo1"/>}
+                                     {/* <img ref={imgRef1} src={placeholder || imagesArray[0]} alt="photo1"/>  */}
                                     <figcaption><input type="file" id="img1" onChange={(e)=>{ imgRef1.current.src =URL.createObjectURL(e.target.files[0]); setgallery_Url1(e.target.files[0]);}} name="img1" accept="image/png, image/jpeg"/></figcaption> 
                                 </figure>
                                 <figure>
-                                    <img ref={imgRef2} src={imagesArray[1]} alt="#"/>
+                                {!imagesArray[1]?  <img ref={imgRef2} src={placeholder} alt="photo1"/> :  <img ref={imgRef2} src={imagesArray[1]} alt="photo1"/>}
                                     <figcaption><input type="file" id="img2" onChange={(e)=>{ imgRef2.current.src =URL.createObjectURL(e.target.files[0]); setgallery_Url2(e.target.files[0]);}} name="img2" accept="image/png, image/jpeg"  /></figcaption> 
                                 </figure>
                                 <figure>
-                                    <img ref={imgRef3} src={imagesArray[2]} alt="#"/>
+                                {!imagesArray[2]?  <img ref={imgRef3} src={placeholder} alt="photo1"/> :  <img ref={imgRef3} src={imagesArray[2]} alt="photo1"/>}
                                     <figcaption><input type="file" id="img3" onChange={(e)=>{ imgRef3.current.src =URL.createObjectURL(e.target.files[0]); setgallery_Url3(e.target.files[0]);}} name="img3"accept="image/png, image/jpeg" /></figcaption> 
                                 </figure>
                         </div> 
